@@ -1,0 +1,450 @@
+\subsection{note to self}
+Contract. vertices. connection to interesting genes
+\section{benchmark nmi}
+
+  The actual allocation does not matter as much for the NMI and other metrics as getting those not in the same group not in the same group but does matter for GSA. Similarly discarding those with size less than 15 is not a problem with GSA\footnote{Code for fortunato of LFR benchmark \url{source('~/RProjects/fortunato/R/calculate_fortunato_measures_name_input_and_graph.R')}},\footnote{Code for modularity and mu \url{/home/grant/Projects_/Python/venvs/src/effect_of_mu.py} NB this is on red machine}.
+
+
+\section{Spectral group size}
+\subsection{Spectral clustering Group sizes}
+
+
+\label{sec:community detection thresholds}
+
+
+When increasing the total number of edges
+The group size distribution for spectral clustering seems to follow a power low distribution (or at least a heavy tailed distribution) ( see figure~\ref{fig:group sizes spectral clustering shows power law distribution} and figure~\ref{fig:group sizes spectral clustering log 10} for log scaled community size. 
+
+It is believed that communities in naturally occurring networks may follow a power law or right skewed distribution.
+The log normal distribution has the best maximum likelihood distribution fit to the distribution of group sizes (as on this occasion given the limit of the number of observations I wanted to fit the entire distribution). Distributions were fitted using package MASS \todo{version} \cite{venables2002mass} for R function \texttt{fitdistr}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{lll}
+    \toprule
+    Distribution     & df & LL  \\
+    \midrule
+    Lognormal     & 2 &-306.357\\
+    Normal      & 2 & -323.296\\
+    Exponential & 1 & -323.295\\
+    Geometric & 1 & -323.9023\\
+    Poisson & 1 & -2803.31\\
+    \bottomrule
+    \end{tabular}
+    \caption{Fits to the spectral clustering group size. The lognormal is the most favoured using the likelihood calculation in the MASS package}
+    \label{tab:LL spectral clustering group sizes}
+\end{table}
+
+% [1] "lognormal"
+% 'log Lik.' -306.3578 (df=2)Check that the volume is equal to 2 x the edge count  TRUE 
+
+% [1] "normal" 
+% 'log Lik.' -370.6692 (df=2)
+
+% [1] "exp"
+% 'log Lik.' -323.295 (df=1)
+
+% [1] "geom"
+% 'log Lik.' -323.9023 (df=1)
+
+% [1] "Poisson"
+% 'log Lik.' -2803.31 (df=1)
+
+
+
+and mean log 2.60 and sd log 1.98
+
+\footnote{code \url{source('~/RProjects/group_sizes/R/group_sizes.R')}}
+See figure~\ref{fig:group sizes spectral clustering shows power law distribution} \ref{fig:group sizes spectral clustering log 10}
+
+
+
+
+ 
+
+\todo{what are setgenesout for all post synaptic or murine}
+The spectral algorithm shows more right skew to community size as found in ground truth compared with the Louvain algorithm (looking at median and mean).
+
+There are theoretical limits to the communities that can be detected. In general as the total number of edges increases in the network then resolution becomes more difficult. If the product of the degrees of the elements of two communities is less than twice the total number of edges community detection will fail
+
+\begin{equation}
+    K1K2 < 2m
+\end{equation}
+
+
+
+ The spectral algorithm has $n=32$ communities retained from $n=66$ compared to $n=36$ in ground truth. The Louvain method discovers $n=24$ communities.
+ 
+ \subsection{Infomap PSP}
+  It provides a relatively low modularity for the partition and finds a large number of small groups and one very large one (see table~\ref{fig:community_sizes_no_size_filter}). 
+
+Infomap shows a very wide size range and a large number of communities (171) its largest community is 1228 in size . 916 nodes belonged to 134 groups less than size 15. Only 36 groups were greater than or equal to 15 and smaller than the largest group (1313 genes) table~\ref{fig:community_sizes_no_size_filter}. The second largest group has 130 members.  134 of the infomap communities are less than 15 in size, 103 less than 10, and 39 less than 5. 15.9\% of the network is made up of groups of size less than 10
+
+The Louvain algorithm is agglomerative and tends towards larger groups and the number of communities ($n=14$) seems intuitively a little low. The Spectral is divisive and produces a number of small groups but the ones that are problematically small make up a small amount of the graph. There was little to chose between the two, the spectral `looked better' (large groups were less desirable in GSA\cite{de2016statistical}, and had performed less well in an empirical analysis\cite{leskovec2010empirical}), had performed well on a pilot study (not shown) and on another analysis of synaptic proteomic models\cite{mclean2016improved}. 
+
+
+\subsection{Gene set enrichment results}
+
+The raw output files are in \url{/home/grant/Programs/gsea_script/gsea_output/} need to bundle
+
+
+
+and electrophysiology. The top term is abnormal synaptic transmission (5.92 x 10-13 Bonferroni). We note that the 6th to 8th most enriched terms are phenotypes related to animal models of memory, learning and effective cognition (abnormal long term depression 6.41 x 10-7, abnormal synaptic depression 1.31 x 10-6 and abnormal long term potentiation 1.4 x 10-6, P values with Bonferroni correction using ToppGene \cite{chen2009toppgene} ). See table 15 in the supplemental material. See table~\ref{tab:Group 5 Mouse Phenotype 28 significant terms} for enrichment with PSP background
+
+
+The ten most significant terms using ToppGene \cite{chen2009toppgene}  include Schizophrenia (p = 5 x 10-08), Major Depressive Disorder (p = 6.06 x 10-5),  Bipolar Disorder (p=1.74 x 10-3), Substance induced Psychosis  (3.39 x 10-3) and Unipolar depression (p=9.14 x 10-03). See table 16in the supplemental material. See table~\ref{tab:Group 5 Disease 24 significant terms} for enrichment using background PSP
+
+
+\subsection{Other community detection methods GSA}
+
+
+Data for the performance of other community detection algorithms is provided for completeness. Full analysis including subgroup analysis is carried out for spectral clustering which appeared the most promising method. The second most attractive method was Louvain clustering which (excluding one community in infomap table~\ref{tab:Infomap Intelligence infomap significant in both groups}) is the only other community that showed significant enrichment in discovery and replication cohorts. 
+
+Complete results for all clustering methods are provided in the supplemental material. 
+
+
+
+\subsubsection{community 53}
+
+community 53 showed low levels of enrichment. It is a large community and hjas many connections. Gene ontology enrichment shows that it is associated with ribosomal function (table~\ref{tab:Group 53 GO: Molecular Function 56 significant terms}), it appears similar to the processing unit in Pocklington et al\cite{pocklington2006organization}.
+
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Mon May 10 12:12:14 2021
+\begin{table}[ht]
+\centering
+\begin{tabular}{llrrrr}
+  \toprule
+ID & Name & n & n in PSP & p & q FDR B.H \\ 
+  \midrule
+GO:0003723 & RNA binding & 249 & 559 & $3.46 \times 10^{-113}$ & $2.96 \times 10^{-110}$ \\ 
+  GO:0003735 & structural constituent of ribosome & 85 & 103 & $2.06 \times 10^{-64}$ & $8.81 \times 10^{-62}$ \\ 
+  GO:0003729 & mRNA binding & 75 & 111 & $1.49 \times 10^{-45}$ & $4.24 \times 10^{-43}$ \\ 
+  GO:0045182 & translation regulator activity & 46 & 63 & $2.73 \times 10^{-30}$ & $5.83 \times 10^{-28}$ \\ 
+  GO:0005198 & structural molecule activity & 105 & 303 & $1.05 \times 10^{-28}$ & $1.80 \times 10^{-26}$ \\ 
+  GO:0090079 & translation regulator activity, nucleic  & 38 & 50 & $3.24 \times 10^{-26}$ & $4.61 \times 10^{-24}$ \\ 
+  GO:0008135 & translation factor activity, RNA binding & 32 & 39 & $4.28 \times 10^{-24}$ & $5.23 \times 10^{-22}$ \\ 
+  GO:0019843 & rRNA binding & 29 & 33 & $1.20 \times 10^{-23}$ & $1.28 \times 10^{-21}$ \\ 
+  GO:0003743 & translation initiation factor activity & 24 & 27 & $5.68 \times 10^{-20}$ & $5.39 \times 10^{-18}$ \\ 
+  GO:0003727 & single-stranded RNA binding & 24 & 31 & $3.24 \times 10^{-17}$ & $2.77 \times 10^{-15}$ \\ 
+   \bottomrule
+\end{tabular}
+\caption{community 53 GO: Molecular Function 56 significant terms} 
+\label{tab:Group 53 GO: Molecular Function 56 significant terms}
+\end{table}
+
+
+
+\subsection{GO:008066}
+Cluster 5 contains 112 genes. This cluster is enriched for genetic variants associated with intelligence and cognitive ability in all four cohorts (Intelligence Discovery p=0.014, Education Discovery p=0.002, Intelligence Replication p= 0.008, Education Replication p=0.015). There are 31 genes related to the heterotrimeric g protein complex, glutamate receptor activity or other G proteins (GO:0008066 and GO:0005834, 3 x GNB). (Glutamate receptor `GO0007215:glutamate receptor signalling pathway bp`  GO0007186:Gprotein coupled bp The 81 genes left in the cluster after these are removed show more significant enrichment in all cohorts except IntelligenceReplication  (Intelligence Discovery 0.005 2.8x, Education Discovery p=0.0002 increase 10x, Intelligence Replication 0.013 (0.61 x), Education Replication (p=0.002, 7.5 x).
+
+
+For subgroup analysis for intelligence see table~\ref{tab:MAGMA GSA Intelligence sub} where for the discovery cohort the remaining proteins have p=0.0007 and $\beta$ 0.41 compared to $p$ 0.014 for community 5 as a whole and $\beta$ 0.22(recheck CTG I think there may be one highly significant glutamate gene which when removed lowers remaining and increases glutamate beta) and for education table~\ref{tab:MAGMA GSA Education sub} where the $p$ value of remaining discovery is very little different but is lower in replication. Neither the glutamate or gprotein are responsible for enrichment however when they are removed there is no longer any significant enrichment for murine phenotypes when over representation analysis is done with the remaining sixty one genes and using the PSP genes as the backgroud set\footnote{\tiny\url{/home/grant/RProjects/chapter_community_detection/data/toppgene/group5subgroupremoved/group5subgroupremoved.txt}}.
+
+
+Script to write the group subset to clipboard to get the todo above is at \footnote{\tiny\url{source('~/RProjects/chapter_community_detection/R/group_enrichment/subgroup/group5_fixsubgroup.R')}}
+
+\subsection{Result Infomap GSA}
+\label{sec:result infomap gsa}
+For intelligence cohort see table~\ref{tab:Infomap clustering Intelligence phenotype}. Only community 1 and 11 were significant in both communitys. 
+
+For education cohort see table~\ref{tab:Infomap clustering Educational attainment phenotype} None of those meeting size criteria showed enrichment in both discovery and replication samples. \ref{tab:infomap education}. For the large new cohorts in education (EA3) see table~\ref{tab:infomap EA3} and intelligence (Savage) see table~\ref{tab:Infomap savage}.
+
+community 11 consists of NMDA receptors and DLG genes. The disease most associated with it is ASD. community 1 is large limiting enrichment analysis but RNA binding GO:0003723 in 406 genes P Bonferroni against all genome $2.728 \times 10^{-112}$ 
+
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Tue Mar 31 13:59:17 2020 int
+
+
+
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{rlrrrrrr}
+%   \hline
+% + & SET & NGENES & BETA & BETA\_STD & SE & P & P\_C \\ 
+%   \hline
+% 1 & 1::: & 1176 & 0.1 & 0.02 & 0.03 & 0.0061 & 0.0479 \\ 
+%   11 & 11::: & 47 & 0.4 & 0.02 & 0.15 & 0.0018 & 0.0080 \\ 
+%   \hline
+% \end{tabular}
+% \caption{Intelligence infomap significant in both groups}
+% \label{tab:Infomap Intelligence infomap significant in both groups}
+% \end{table}
+
+
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Wed Apr 21 14:36:39 2021
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{cllllllllll}
+  \toprule
+   &  \multicolumn{5}{c}{\textit{Discovery}} & \multicolumn{5}{c}{\textit{Replication}} \\
+    \cmidrule{2-11}
+Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$ & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+  \midrule
+1 & 1176 & 0.07 & 0.02 & 0.03 & 0.0061 & 1179 & 0.04 & 0.01 & 0.02 & 0.0479 \\ 
+  8 & 62 & 0.24 & 0.01 & 0.13 & 0.0334 & 62 & -0.04 & -0.00 & 0.11 & 0.6540 \\ 
+  9 & 48 & 0.35 & 0.02 & 0.14 & 0.0055 & 48 & -0.16 & -0.01 & 0.12 & 0.9143 \\ 
+  11 & 47 & 0.44 & 0.02 & 0.15 & 0.0018 & 47 & 0.32 & 0.02 & 0.13 & 0.0080 \\ 
+  24 & 20 & 0.42 & 0.01 & 0.24 & 0.0389 & 20 & 0.21 & 0.01 & 0.21 & 0.1610 \\ 
+  27 & 17 & 0.38 & 0.01 & 0.23 & 0.0452 & 17 & -0.11 & -0.00 & 0.19 & 0.7238 \\ 
+   \bottomrule
+\end{tabular}
+\caption{Infomap clustering Intelligence phenotype} 
+\label{tab:Infomap clustering Intelligence phenotype}
+\end{table}
+% % latex table generated in R 3.6.1 by xtable 1.8-4 package
+% % Tue Mar 31 14:07:01 2020
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{rlrrrrrr}
+%   \hline
+%  & SET & NGENES & BETA & BETA\_STD & SE & P & P\_EA2 \\ 
+%   \hline
+% 99 & 99::: &  7 & 0.7 & 0.01 & 0.36 & 0.0211 & 0.0428 \\ 
+%   106 & 106::: &  6 & 0.8 & 0.01 & 0.47 & 0.0452 & 0.0021 \\ 
+%   135 & 135::: &  4 & 1.6 & 0.02 & 0.61 & 0.0038 & 0.0070 \\ 
+%   \hline
+% \end{tabular}
+% \caption{Education infomap}
+% \label{tab:infomap education}
+% \end{table}
+% % latex table generated in R 3.6.1 by xtable 1.8-4 package
+% % Wed Apr 21 14:36:39 2021
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{cllllllllll}
+  \toprule
+   &  \multicolumn{5}{c}{\textit{Discovery}} & \multicolumn{5}{c}{\textit{Replication}} \\
+    \cmidrule{2-11}
+Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$ & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+  \midrule
+8 & 62 & 0.31 & 0.02 & 0.13 & 0.0094 & 62 & -0.04 & -0.00 & 0.12 & 0.6365 \\ 
+  19 & 26 & 0.36 & 0.01 & 0.21 & 0.0405 & 26 & -0.21 & -0.01 & 0.19 & 0.8638 \\ 
+  21 & 22 & 0.38 & 0.01 & 0.21 & 0.0355 & 22 & 0.28 & 0.01 & 0.18 & 0.0623 \\ 
+   \bottomrule
+\end{tabular}
+\caption{Infomap clustering Educational attainment phenotype} 
+\label{tab:Infomap clustering Educational attainment phenotype}
+\end{table}
+\subsubsection{Markov clustering results}
+
+
+No significant in both communitys meeting size criteria tables in supplemental table~\ref{tab:MCL clustering Intelligence phenotype} and table~\ref{tab:Markov clustering Educational attainment phenotype}\footnote{\tiny \url{source('~/RProjects/utils2/R/collate_results/generic_compile_gsa_markov_cl.R')}}.
+
+\subsubsection{Spinglass}
+Nil significant
+
+\url{source('~/RProjects/utils/src/generic_compile_gsa_sg1.R')}
+
+
+\subsection{Extra results:Remaining proteins after subgroup}
+Remaining enrich for neurogenesis but the number of neurogenesis genes are low. Hill showed enrichement for neurogenesis genes but tested over 1000. Signal we have is from approx 7 and we also see enrichment in other areas close to glutamate synapses
+check path to code2
+
+\url{source('~/RProjects/go_analysis/R_src/GO_entity/load_neurogenesis.R')}
+
+\url{source('~/RProjects/utils/src/generic_compile_gsa_neurogen.R')} MAC
+This shows that there is not consistent enrichment for neurogenesis in community 5 22 genes associated with it 
+\begin{table}[]
+    \centering
+    \begin{tabular}{lllllll}
+        SET& NGENES&    BETA &BETA\_STD  &  SE      &   P  & P\_C\\
+        \hline
+  5  &   22&  0.2410&  0.00837& 0.237& 0.1537900& 0.0015956\\   
+         & 
+    \end{tabular}
+    \caption{Intelligence neurogenesis}
+    \label{tab:Intelligence neurogenesis}
+\end{table}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{lllllll}
+        SET& NGENES&    BETA &BETA\_STD  &  SE      &   P  & P\_C\\
+        \hline
+  5   &  22&  0.7930&  0.027500& 0.242& 0.00052570 &0.1371100\\
+
+ \end{tabular}
+    \caption{Education neurogenesis}
+    \label{tab:Education neurogenesis}
+\end{table}
+
+community 36 enriches in all but EA3 but has only 4 neurogenesis genes \todo{What is enrichment in full gsa}
+
+
+
+
+% % latex table generated in R 3.6.1 by xtable 1.8-4 packageXX
+% % Sun Apr 11 17:07:44 2021
+% \begin{table}[ht]
+% \centering
+% \setlength{\extrarowheight}{2pt}
+% \begin{tabular}{cllllllllll}
+%   \toprule
+%   &  \multicolumn{5}{c}{\textit{Discovery}} & \multicolumn{5}{c}{\textit{Replication}} \\
+%     \cmidrule{2-11}
+% Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$ & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+%   \midrule
+% 1 & 196 & 0.10 & 0.01 & 0.07 & 0.0790 & 198 & -0.05 & -0.00 & 0.06 & 0.7749 \\ 
+%   2 & 334 & 0.09 & 0.01 & 0.05 & 0.0407 & 335 & 0.04 & 0.01 & 0.05 & 0.1916 \\ 
+%   3 & 510 & 0.10 & 0.02 & 0.04 & 0.0075 & 512 & 0.04 & 0.01 & 0.04 & 0.1006 \\ 
+%   4 & 245 & 0.06 & 0.01 & 0.06 & 0.1514 & 246 & 0.07 & 0.01 & 0.05 & 0.1053 \\ 
+%   5 & 112 & -0.08 & -0.01 & 0.09 & 0.8107 & 112 & 0.05 & 0.00 & 0.07 & 0.2525 \\ 
+%   6 & 159 & 0.12 & 0.01 & 0.07 & 0.0580 & 159 & 0.05 & 0.00 & 0.07 & 0.2284 \\ 
+%   7 & 144 & 0.26 & 0.02 & 0.08 & 0.0012 & 144 & 0.21 & 0.02 & 0.07 & 0.0026 \\ 
+%   8 & 519 & 0.05 & 0.01 & 0.04 & 0.1103 & 519 & 0.07 & 0.01 & 0.04 & 0.0311 \\ 
+%   9 & 427 & 0.01 & 0.00 & 0.05 & 0.4054 & 428 & -0.02 & -0.00 & 0.04 & 0.6428 \\ 
+%   10 & 57 & 0.11 & 0.01 & 0.12 & 0.1910 & 57 & 0.01 & 0.00 & 0.11 & 0.4497 \\ 
+%   11 & 331 & -0.03 & -0.00 & 0.05 & 0.6911 & 332 & -0.00 & -0.00 & 0.05 & 0.5412 \\ 
+%   12 & 21 & 0.63 & 0.02 & 0.21 & 0.0014 & 21 & 0.17 & 0.01 & 0.17 & 0.1628 \\ 
+%   13 & 80 & -0.06 & -0.00 & 0.10 & 0.7250 & 80 & -0.03 & -0.00 & 0.09 & 0.6106 \\ 
+%   14 & 166 & 0.05 & 0.00 & 0.08 & 0.2554 & 166 & 0.17 & 0.02 & 0.07 & 0.0062 \\ 
+%   \bottomrule
+% \end{tabular}
+% \caption{Louvain clustering Intelligence phenotype} 
+% \label{tab:louvain clustering intelligence}
+% \tiny\url{source('~/RProjects/utils2/R/collate_results/generic_compile_gsa_lourvain.R')}
+% \end{table}
+% % ed
+% \section{To supplemental}
+
+% \section{Continue}
+% \textcolor{red}{graph partitioning bit removed commented out at this point}
+% I hope to show the similarity and differences between using the graph Laplacian matrix and Modularity matrix for community detection and graph partitioning, in particular that they both use the graph spectra as solutions to optimisation problems (the minimisation of cut size and the maximisation of modularity). In the discussion that follows, I will use graph partitioning to mean separating a graph into two or more disjunct subgraphs in such a way that the minimum number of edges are cut. I will refer to community detection as finding disjunct sets of vertices that share more edges between them than would be expected at random, that is to say they are densely interconnected components.
+% The two matrices that I will concentrate on are the Laplacian matrix L and the modularity matrix B.
+
+% Several representations of the Laplacian matrix are used in the literature, often without further specification \cite{von2007tutorial}.The unnormalised graph Laplacian is defined:
+
+% \begin{equation}
+%     \mathbf{L} = \mathbf{D} - \mathbf{W}
+% \end{equation}
+
+% where $\mathbf{L}$ is the Laplacian, $\mathbf{D}$ is the diagonal degree matrix that has the degree of vertex i (the number of its connecting edges) at entry $\mathbf{D}_{i,i}$ and $\mathbf{W}$ as the weighted matrix.
+% For our purposes the weight matrix will be the adjacency matrix $\mathbf{A}_{i,j}$ which has an entry
+% 1 at $\mathbf{A}_{i,j}$ if there is an edge between vertex i and vertex j, and a zero otherwise.
+% $\mathbf{A}$ will be symmetrical and the column and rows of $\mathbf{L}$ will add to zero. The vector 1 is
+% therefore an eigenvector of L with eigenvalue zero as a linear combination of the columns
+% of L is the zero vector.
+% Two matrices are referred to as the normalised graph Laplacians. The symmetric:
+    
+% The symmteric:> 
+
+% \begin{equation}
+% {L}_{sym} = \mathbf{D}^{-\frac{1}{2}}\mathbf{L}\mathbf{D}^{-\frac{1}{2}}= \mathbf{I}-\mathbf{D}^{-frac{1}{2}}\mathbf{A}\mathbf{D}^{-\frac{1}{2}}
+% \end{equation}
+
+% and the random walk Laplacian:
+
+% \begin{equation}
+% \mathbf{L}_{rw}=\mathbf{D}^{-\frac{1}{2}}\mathbf{L}=\mathbf{I}-\mathbf{D}^{-\frac{1}{2}}\mathbf{A}
+% \end{equation}
+
+% We will make use of the fact that eigenvalues can represent a minimisation problem:
+
+% \begin{equation}
+% \lambda_{min}=\mathit{argmin}\frac{\mathbf{x}^T\mathbf{A}\mathbf{x}}{\mathbf{x}^T\mathbf{x}}
+% \end{equation}
+
+% %p29
+
+% \begin{equation}
+% R = \sum_{i,j}\mathbb{I}_{i,j\notin G_{same} }\mathbf{A}_{i,j}
+% \end{equation}
+
+% where there are two groups G. With this we count each edge twice so we should rescale R by 0.5.
+
+% Defining an index vector $\mathbf{s}$ where $s_i$ is $+1$ if vertex $i$ is in group 1 and -1 if vertex $s_i$ is in group two, we can replace the indicator function,
+
+% \begin{equation}
+% \mathbb{I}_{i,j\notin samegroup}=\frac{1}{2}(1-s_i s_j)
+% \end{equation}
+
+% with,
+
+% \begin{equation}
+% R=\frac{1}{4}\sum_{i,j}(1-s_i s_j)\mathbf{A}_{i,j}
+% \end{equation}
+
+% \begin{equation}
+% R = \frac{1}{4}\sum_{i,j}\mathbf{A}_{i,j}-s_i s_j \mathbf{A}_{i,j}
+% \end{equation}
+
+% Rewriting the first term in equation (here it is 7)
+
+% \begin{equation}
+% \sum_{i,j}\mathbf{A}_{i,j}=\sum_i k_i = \sum_i s_i ^2 k_i = \sum_{i,j} s_i s_j k_i \delta_{i,j}
+% \end{equation}
+
+% where $k_i$ is the degree of vertex $i$ and $s_i^2 = 1$ which is
+
+% \begin{equation}
+% R = \frac{1}{4}s_i s_j \sum_{i,j}(k_i \delta_{i,j} - \mathbf{A}_{i,j}
+% \end{equation}
+
+
+% from the definition of the degree matrix $\mathbf{D}$
+% \begin{equation}
+% \sum_{i,j} (\mathbf{D}_{i,j} -\mathbf{A}_{i,j} = \sum_{i,j} \mathbf{L}_{i,j}
+% \end{equation}
+
+% from the definition of the Laplacian in equation 5 (in document review)
+
+% Including the group indicators $s_i$,$s_j$ as the vector $\mathbf{s}$ we have the quadratic form:
+% \begin{equation}
+% R=\frac{1}{4}\mathbf{s}^T\mathbf{L}\mathbf{s}
+% \end{equation}
+
+% so we want $\mathbf{s}$ such that we can minimise $R$. The factor of $\frac{1}{4}$ is irrelevant in the minimisation.
+
+% The columns of the Laplacian sum to 0 which means that the vector $\mathbf{1}$ is in the nullspace of the columns of $\mathbf{l}$ and $R$ will be 0 when $\mat> hbf{x}$ is $\mathbf{1}$. The second smallest eigenvalue of $\mathbf{L}$, $\mathbf{x}$ will minimise $\mathbf{x^T}\mathbf{L}\mathbf{x}$.
+% This is equivalent to minimising the cut size other than by the trivial solution of putting all the vertices in oune group. We can see that this minimises the sum of edges passing between two groups:
+
+% \begin{equation}
+% \mathbf{x^T}\mathbf{L}\mathbf{x}=\mathbf{x^T}\mathbf{D}\mathbf{x}-\mathbf{x^T}\mathbf{A}\mathbf{x}=\sum_i k_i x_i^2 = \sum_{i,j} A_{i,j}x_i x_j
+% \end{equation}
+
+% The columns of
+% \begin{equation}
+% \frac{1}{2}\sum_i d_i x_i^2 - 2 \sum_{i,j} x_i x_j A_{i,j} + k_jx_j^2)=\frac{1}{2}\sum{i,j}A_{i,j}(x_i - x_j)^2
+% \end{equation}
+
+% and $A_{i,j}$ is only equal to 1 if there is an edge between $A_{i,j}$.
+
+% In order to forbid the trivial solution it is common to fix the size of the two groups. $R$ is then minimised by choosing $s$ to be proportional to the second eigenvector of the Laplacian. In most cases $s$ cannot be chosen parallel to $v$ so an approximation is made using the sign of the scond eigenvector eg if $v_i>=0$ then $s_i=0$.
+
+% The disadvanges of this method, is that we must specify the community size and that minimising cut size does not always naturally yiled communitiues as we described in the section on maximising modularity.
+\clearpage
+
+
+60 terms in GO0007215:glutamate receptor signalling pathway bp
+43 in PSP
+17 in community 5 
+
+28 of glutamate in GProtein
+21 of glutamate in GProtein and PSP
+9 of glutamate in Gprotein and community5
+
+
+\todo{pLI for each community}
+
+
+NB There is also a subgroup in this where I included all glutamate pathway (not just PSP) which is also enriched but not the pure community 5 PSP.
+54.1\% and the mean pLI was 1.85\% for all genes that appear at least once in the four cohorts (n= 17928)\textcolor{red}{get tables}. The glutamate receptor associated genes in community 5 are under much greater constraint (Mean pLI 86.2\%, median pLI 99.5\%)\textcolor{red}{check this is correct with PSP} than the rest of the PSP (mean pLI 50.3\%, median pLI 50.4\%) or community 5 as a whole (mean 61.2\%, median 82.8\%).
+\textcolor{red}{(supplemental table 18)}. Genetic constraint had a modest correlation with intelligence and educational attainment (section~\ref{sec:pLI and intelligence and educational attainment})
+
+
+community 5 has a high level of genetic constraint compared to the rest of the PSP and at a community level has the fifth highest level of constraint (table~\ref{tab: pli across groups}). Only community 61 has lower constraint than the non PSP genes. 
+
+
+
+
+
+Bonferroni (against genome) $3.478 \times 10^{-32}$ 	Number in community 26  In annotation	84. 
+community 8 is large. The second most enriched Biological process is GO:0048666 \textbf{	neuron development} 		Bonferroni	$1.180 \times 10^{-52}$ 	Number in community 150 	Number in annotation 1298.\footnote{Code on mac\url{source('~/RProjects/utils/src/generic_compile_gsa_lourvain_new.R')}}
+\todo{Overlap of group 7 with group 5}
+\textbf{Takehome} second best guess we have also finds glutamate receptor clump that is enriched
+

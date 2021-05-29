@@ -1,0 +1,239 @@
+\begin{document}
+\section{Stuff moved out}
+\subsection{MAGMA}
+For the work presented in this thesis gene level statistics were calculated using NCBI 37.3 build to provide gene boundaries and 1000 Genome European Ancestry to account for linkage disequilibrium (see chapter 2 section ) \todo{add section}. 
+
+move to methods
+\subsection{to be moved in}
+for a forthcoming paper. The paper reports the state of the art in combining disparate databases and primary proteomic data to produce a high quality representations of the synaptic proteome. 
+
+The model is a static interaction graph of the genes that encode the protein components of the synaptic proteome. only those interactions for which there are direct experimental evidence of interaction are included. The interactions are mined from protein interaction databases usng the PSIMI format \cite{hermjakob2004hupo}. The largest component is from the union of HIPPIE \cite{schaefer2012hippie}, Biogrid \cite{oughtred2019biogrid}
+
+\subsubsection{Compare MAGMA and VEGAS}
+Figure 9 shows a comparison of the $-log10$ transformed $p$ values of VEGAS2 and MAGMA for the CHARGE data. $R^2$=0.98 \footnote{quote correlation} Image from compareMAGMAtoVEGAS.R. The results appear similar and it appears reasonable to compare results from MAGMA with the results provided from the study by Hill et al. (2014)
+%updated from (Chatr-Aryamontri et al, 2015)
+and Intact  \cite{hermjakob2004intact} databases. %The full network graph is shown in figure 13.% end p45.
+
+source \url{'~/Documents/Projects/Rietvald/src/r_studio/magmadiagnostics/compareMAGMAtoVEGAS_character_infinities.R')} \url{'~/Documents/Projects/Utilities/compareMAGMAtoVEGAS.R'}
+
+\section{move elsewhere or remove}
+\subsection{To move to methods}
+
+\subsubsection{Analogy with synaptic models of computation}
+\todo[inline]{commented out areas here may want to keep some of these}
+% As regards the model of a bottom up approach to the structure of the synapse and behaviour we will adopt a similar approach seeking groupings of proteins and hence their cognate genes and seeing what their effect are on population studies of cognitive differences, enrichment for murine models of cognition or their role in disorders with a cognitive phenotype. Our approach however is looking for enrichment in-silico rather than in changes in behaviours of experimental model organisms. 
+
+% One area I should mention here is that there is a middle ground between the one circuit one behaviour model with weights and a distributed bottom up model with an intrinsic frequency response. Primitive models of the synapse prove to be powerful computational devices. One of Grants arguments is that the synapse is a computational unit. A grouhttps://github.com/pmglab/KGGp of connected neurons with associated weights can give rise to complex decision making behaviour by allowing representation of structures being learned to be encoded as patterns more proximally in the network without there being a specific circuit for each response (for example in MNIST there is not a pattern of activation that is specific to 1 or 2 there are patterns of activation that are more likely to result in the final soft-max function choosing one of these) I would speculate that the combination of weights and circuits and the enormous complexity of the synapse allows to some extent the complex cognitive computations carried out by mammals particularly those in areas of locomotion and sensation that have proved so hard to simulate.
+
+
+\todo[inline]{?move this commented out bit}
+
+\subsubsection{Problem of singletons}
+% The spectral clustering algorithm has a tendency to produce isolated nodes. This problem is more marked on sparse networks and difficulties with sptreacl partiioning in sparse networks is well recognised (Krzakala et al.,2013). On occasion these 'singleton' communities in combination contribute a significant amount of the genetic signal found inm the graph. I have written a script to collect singletons into sets and test these but this data is not presented here. I discuss the problems of singletons in further work (section 18.8)
+\todo[inline]{? move or kehttps://github.com/pmglab/KGGep this stuff}
+
+\subsubsection{Recent GWA}
+UKBB Ed and EA2 and overlap between and EA3
+
+
+\subsection{Intelligence bit from paper DH}
+\label{sec:Introduction intelligence bit from paper david hill}
+% Intelligence, also known as general cognitive function,\cite{davies2015genetic} or simply as g,\cite{spearman1961general} describes the finding that across seemingly-disparate measures of cognitive ability, a single common factor explains around 40\% of the total cognitive test score variance in a group with a range of intellectual ability.  \cite{carroll1993human}  This single factor is the source of much of the predictive validity of cognitive tests; higher measured intelligence is predictive of higher-level educational and occupational outcomes, \cite{strenze2007intelligence}  as well as better health, and longevity .\cite{deary2012annrev} 
+
+% In twin and family studies genetic factors explain between 50-80\% of individual differences in intelligence. Using GREML-SC implemented in GCTA, \cite{yang2011gcta}  common single nucleotide polymorphisms (SNPs) have been found explain 20-30\% \cite{marioni2014common}  of differences in intelligence. When variants that are poorly tagged by genotyped SNPs are included using GREML-KIN, \cite{xia2016pedigree}  or GREML-MSC and imputed genotypes, around 50\% of the differences in intelligence can be explained using molecular genetic data. \cite{hill2018genomic} 
+
+\subsubsection{Rejectedalgorithms}
+
+% I have tested some other available algorithms for community detection, many of which are in wide use. The parallelised implementation of Geodesic and Random Edge Betweeneness algorithms (Newman and Girvan, 2004) implemented by McLean et al failed to complete after two days when dealing with the large num,ber of vertices in the synaptome ($>4000$ vertices).\cite{mclean2016improhttps://github.com/pmglab/KGGved}
+
+% Louvain \cite{blondel2008fast} community detection is widely used, works at scale and has been most widely applied in the analysis of large scale social networks. It is a greedy optimisation method to optimise modularity. 
+
+% Blondel et al (2008) compares this with other community detection algorithms and finds that this algorithm has the lowest running time and maximises the increase in modularity.
+% Using the algorithm to detect communities in the synaptic proteome failed to generate communities that 'looked right' and the communities did not enriched for any phenotype in the gene set analysis.
+
+% The greedy implementation of a modularity maximisation procedure that is said by Kolacyzk and Csardi (2014) to approximate Newman and Girvan (2004) in igraph (Csardi and Nepusz, 2006) was rejected for identical reasons. A review of the performance of igraph algorithms is presented by De Souza and Zhoa (2014). (end p 33) \footnote{to do try to find the multilayer louvain implementation}
+
+\subsection{Spin glass}
+\label{sec:spinglass from introduction}
+% I graph implements a spin glass algorithm where the communities are represented as a Potts spin glass model, a generalisation of the Ising two state model where the spins are communities. Community detection corresponds to minimising the Hamiltonian of the Pott's model (Eaton and Mansbach, 2012). I have used this model to produce communities of constrained size. I have not yet tested these communities in the replication cohort (CHARGE) and they are not presented in this review (see further work section 18.8) \footnote{spin glass other gamma and Coin has not used max spins which limits community size}.
+\subsection{Spin glass}
+\label{sec:spinglass from introduction}
+% I graph implements a spin glass algorithm where the communities are represented as a Potts spin glass model, a generalisation of the Ising two state model where the spins are communities. Community detection corresponds to minimising the Hamiltonian of the Pott's model (Eaton and Mansbach, 2012). I have used this model to produce communities of constrained size. I have not yet tested these communities in the replication cohort (CHARGE) and they are not presented in this review (see further work section 18.8) \footnote{spin glass other gamma and Coin has not used max spins which limits community size}. 
+\subsubsection{Rejectedalgorithms}
+% \subsubsection{Rejectedalgorithms}
+
+% I have tested some other available algorithms for community detection, many of which are in wide use. The parallelised implementation of Geodesic and Random Edge Betweeneness algorithms (Newman and Girvan, 2004) implemented by McLean et al failed to complete after two days when dealing with the large num,ber of vertices in the synaptome ($>4000$ vertices).\cite{mclean2016improved}
+
+% Louvain \cite{blondel2008fast} community detection is widely used, works at scale and has been most widely applied in the analysis of large scale social networks. It is a greedy optimisation method to optimise modularity. 
+% Blondel et al (2008) compares this with other community detection algorithms and finds that this algorithm has the lowest running time and maximises the increase in modularity.
+% Using the algorithm to detect communities in the synaptic proteome failed to generate communities that 'looked right' and the communities did not enriched for any phenotype in the gene set analysis.
+
+
+
+% The greedy implementation of a modularity maximisation procedure that is said by Kolacyzk and Csardi (2014) to approximate Newman and Girvan (2004) in igraph (Csardi and Nepusz, 2006) was rejected for identical reasons. A review 
+% of the performance of igraph algorithms is presented by De Souza and Zhoa (2014). (end p 33) \footnote{to do try to find the multilayer louvain implementation}
+
+% \subsection{Spin glass}
+% \label{sec:spinglass from introduction}
+% I graph implements a spin glass algorithm where the communities are represented as a Potts spin glass model, a generalisation of the Ising two state model where the spins are communities. Community detection corresponds to minimising the Hamiltonian of the Pott's model (Eaton and Mansbach, 2012). I have used this model to produce communities of constrained size. I have not yet tested these communities in the replication cohort (CHARGE) and they are not presented in this review (see further work section 18.8) \footnote{spin glass other gamma and Coin has not used max spins which limits community size}.
+
+% I have tested some other available algorithms for community detection, many of which are in wide use. The parallelised implementation of Geodesic and Random Edge Betweeneness algorithms (Newman and Girvan, 2004) implemented by McLean et al failed to complete after two days when dealing with the large num,ber of vertices in the synaptome ($>4000$ vertices).\cite{mclean2016improved}
+
+% Louvain \cite{blondel2008fast} community detection is widely used, works at scale and has been most widely applied in the analysis of large scale social networks. It is a greedy optimisation method to optimise modularity. 
+% Blondel et al (2008) compares this with other community detection algorithms and finds that this
+algorithm has the lowest running time and maximises the increase in modularity.
+% Using the algorithm to detect communities in the synaptic proteome failed to generate communities that 'looked right' and the communities did not enriched for any phenotype in the gene set analysis.
+
+
+% The greedy implementation of a modularity maximisation procedure that is said by Kolacyzk and Csardi (2014) to approximate Newman and Girvan (2004) in igraph (Csardi and Nepusz, 2006) was rejected for identical reasons. A review of the performance of igraph algorithms is presented by De Souza and Zhoa (2014). (end p 33) \footnote{to do try to find the multilayer louvain implementation}
+
+
+ Network approaches to disease
+importance
+
+\section{Network models}
+
+% Figure 13 Interaction graph of full synaptosome for direct published interactions. Nodes are genes, interactions are edges. Node size is proportional to degree. For high degree nodes please see table 4. Nodes 4612, edgess 16782 Layout forcetlas. Figure produced in Gephi 0.9.1 \footnote{we an look at the number of edges versus nodes over tme and with the Pocklington model and the one Colin had of the consensus PSD.}
+
+% The network models of the synaptic proteome were produced by the Synaptic-Proteome-Group (2016) 
+
+%The interactions are recorded 
+
+We can extend this to multiple groups by recursively partitioning the network based on the leading eigenvector of the partiion and stopping partitioning when the partition does not resul
+t in a further increase in the modularity for the subdivision of the community (see Newman (2006)\cite{newman2006finding}  for further details). This is the method implemented by McLean et al. \cite{mclean2016improved} \todo{mention later local expertise as reason for use of this method}
+
+\subsection{Previous network based GSA}
+% \label{sec:previous network based GSA}
+% \textcolor{red}{You need to get the introduction to GSA or some introduction to GSA before this. We are really saying something like we can represent the thing as a network then what how can we ask questions about it well we can see if the network structure affects function and we can find structures in the network and test the function of this group as a start and move the GSA bit later}
+% \todo{citation error - could simply be that it is missing from the references}
+% \todo{PhD specific bibliography}
+% \cite{nguyen2018network}  Nguyen et al  reviewed the use of pathway GSA across 36 packages and extends the tools covered from a previous review by Mitrea to 2017. If a package is not easy to use it will not be used by life scientists. Our approach makes use of commonly available GSEA and MAGMA packages and requires only editing of .gmt files which we provide software for. Of 45 packages, 30 were standalone or web based. They note that only one package is HIPPA compliant with web tools. Lots of the packages are implemented in R. Variety of ways in which information can be put in. If using list of genes this involves a cut off which involves loss of information. Discusses three different types of pathway signalling pathway, metabolic pathways and PPI. They note that SPIA accepts adjacency matrix representing a directed graph. Two types of graph models, single where a node is one thing and multiple. Topology GSA allows the graph to be split into sub graphs.
+% Then they discuss pathway scoring methods and the goal of producing a ranked list of pathways or sub-pathways.
+
+% \todo{Perhaps I should mention the use of david}
+
+% \subsection{Others not covered in this review}
+% \label{sec:others not covered in this review}
+% Ghissian et al \cite{ghiassian2015disease}. \footnote{here also appear to be other papers by Ghissian including on endophenotype.} used Louvain clustering \todo{haven't explained clustering yet} on a generic network (? string) and find not \cite{blondel2008fast}so much but they find that the clustering of disease related genes together is greater than chance. he increasing evidence of the role of protein complexes mediating synaptic plasticity in schizophrenia.
+
+% The network can be analysed at the level of overall network, of an individual node or at the level of structures found within the network and I will discuss each of these with relation to cognitive ability. I will describe our experience of a pilot study and the reasons for choosing cognitive ability. I will also introduce and review the network analysis techniques that we utilised. 
+
+
+\subsection{Notes}
+
+Look in \url{/afs/inf.ed.ac.uk/user/s14/s1476046/R/projects/graph} may have pilot graph
+
+\subsubsection{Removed B}
+\todo{expand these next two this belongs to the check ref paper ie I think the discussion above is outlined in the GATES paper by li}GATES (gene-based association test using extended Simes procedure)\cite{li2011gates} HYST \cite{li2012hyst}
+
+\subsubsection{Removed C}
+\section{Supplementary material}
+See \url{https://tex.stackexchange.com/questions/1230/reference-name-of-description-list-item-in-latex}
+
+and \url{http://amstat.tfjournals.com/supplementary-materials/}
+See \ref{sup:sup1}
+\begin{description}
+\label{sup:sup1}
+
+\item{Some supplementary material}
+\end{description}
+
+Davies intelligence MAGMA \url{https://static-content.springer.com/esm/art\%3A10.1038\%2Fmp.2016.45/MediaObjects/41380_2016_BFmp201645_MOESM506_ESM.xls}
+
+
+\subsection{Previous network based GSA}
+\label{sec:previous network based GSA}
+\textcolor{red}{You need to get the introduction to GSA or some introduction to GSA before this. We are really saying something like we can represent the thing as a network then what how can we ask questions about it well we can see if the network structure affects function and we can find structures in the network and test the function of this group as a start and move the GSA bit later}
+\todo{citation error - could simply be that it is missing from the references}
+\todo{PhD specific bibliography}
+work
+
+
+\subsection{query to discussion}
+\subsubsection{note}
+The commonality is they start from seed genes then build a network and then say here are your other genes. What we want to do is take a network use an established network science method and then test these. Also disease module / disease gene is a bit tricky see later. Perhaps say a more detailed reason for not accepting some of these requires discussion of network methods in chapter x). 
+BMRF-Net differentially expressed genes \cite{shi2015bmrf}.     COSINE is an R package \cite{ma2011cosine} GLADIATOR \cite{silberberg2017gladiator} in python (11 citations) 2017 - disease modules (this is a random walk starting on seed genes) Hot Net and Hot Net2 diffusion cancer modules \cite{leiserson2015pan} (cited by over 500) diffusion process in seed genes, related to cancer (diffusion process similar to communities) jActive Modules ideker "connected regions of the network that show significant changes in expression over particular subsets of conditions" 
+
+\subsubsection{move or remove}
+It is not clear to me what the effect of centrality or network structures are on a phenotype (and may differ for each phenotype) so the only approach appears to be systematic and empirical. 
+
+
+% In the comprehensive 2018 review by T. Nguyen et al.\cite{nguyen2018network}   \todo{check number} 
+% \subsubsection{Recent review}
+% \cite{nguyen2018network}  Nguyen et al  reviewed the use of pathway GSA across 36 packages and extends the tools covered from a previous review by Mitrea\cite{mitra2013integrative} to 2017.
+
+% Their approach again divides analysis into Over representation analyses, weighted analysies eg gsea and topology based analyses (per mitrea). The focus in the article is on analyses of gene expression or at least the contrast in biology of two experimental conditions. GSA tools although initially used in GWAS have now diversified and are focused on the secondary analysis of GWA data. Only one (I can see so far) Ghissian \cite{ghiassian2015disease} uses GWA data but uses over represented genes in GWA catalogue as a unit. They are also not tissue specific and look for a similarity of a set of genes to a pathway rather than a systematic examination of genome wide signal for a polygenic trait and a network (ie centrality measures, tissue specificity, structural analysis). Those methods that provide module detection do not use the most up to date algorithms. Inputs are typically lists of differential expression (p8.25.7) or fold changes rather than a standard summary of GWA data. While our method can easily be adapted to look at differentially expressed genes (see discussion) the converse is not true. The majority also use directed graphs which allow the identification of motifs more easily or pathway equivalence but are generally not used in protein-protein interactions graphs but rather in metabolic pathways such as KEGG. Other network based analysis offer guilt by association analyses (Webgestalt, toppgene) but are not included. 
+
+% In the review by T. Nguyen et al.\cite{nguyen2018network} \todo{check number} 26 of 34 packages analyse directed networks. Directed networks are often used to show metabolic networks and some social networks (although it is sometimes more appropriate to have undirected networks - you can ask people who are friends with whom but in organisational charts there are hub nodes that do not correspond to the flow of heirarchy (reports to) in the organisation). In any case the analysis of directed networks is very different. For one thing small scale structures (motifs) play a role due to the great increase in the complexity of the interconnections of three to five node elements compared with the commmunity structure sought in directed networks) \todo{picure of motif and ref re motif}. Although a directed (and dynamical) representation of protein network structure may be helpful we are at present concenred with large scale structure and network performance and these graph anlaysis tools serve a different purspose. Of the undirected network packages two (Score PAGE and TAPPA are specific to metabolites). The remaining 6 are PWEA, TopoGSA, TopologyGSA, DEGraph, GANRA and Enrichnet. 
+
+
+
+
+
+
+
+The review makes some useful points: If a package is not easy to use it will not be used by life scientists. Our approach makes use of commonly available GSEA and MAGMA packages and requires only editing of .gmt files which we provide software for. Of 45 packages, 30 were standalone or web based. They note that only one package is HIPPA compliant with web tools. Lots of the packages are implemented in R. Variety of ways in which information can be put in. If using list of genes this involves a cut off which involves loss of information. Discusses three different types of pathway signalling pathway, metabolic pathways and PPI. They note that SPIA accepts adjacency matrix representing a directed graph. Two types of graph models, single where a node is one thing and multiple. Topology GSA allows the graph to be split into sub graphs.
+Then they discuss pathway scoring methods and the goal of producing a ranked list of pathways or sub-pathways.
+In general also they do not test a specific hypothesis but given a set of genes or an experimental condition prioritise a pathway rather than looking at a network (fit network to data) rather than saying are network structures and measures we have calculated associated with the genetics of this trait (test network measures association to data).
+
+
+
+
+
+Specific findings related to modularity or importance measures will be reviewed in the respective chapters. 
+\textcolor{red}{suggest comprehensive review in further work} The problem is you can't really review the literature without understanding the genetics and network science and the previous approaches and that is going to take some time to do before you then get down to reviewing the literature. I can see no comprehensive review of all of these aspects to date although I can see many overviews etc
+
+\todo{Perhaps I should mention the use of david}
+
+\subsection{Others not covered in this review}
+\label{sec:others not covered in this review}
+Ghissian et al \cite{ghiassian2015disease}. \footnote{here also appear to be other papers by Ghissian including on endophenotype.} used Louvain clustering \todo{haven't explained clustering yet} on a generic network (? string)https://github.com/pmglab/KGG and find not \cite{blondel2008fast}so much but they find that the clustering of disease related genes together is greater than chance. he increasing evidence of the role of protein complexes mediating synaptic plasticity in schizophrenia.
+
+The network can be analysed at the level of overall network, of an individual node or at the level of structures found within the network and I will discuss each of these with relation to cognitive ability. I will describe our experience of a pilot study and the reasons for choosing cognitive ability. I will also introduce and review the network analysis techniques that we utilised. 
+
+\todo[inline]{references from below ongoing update flag for JDA}
+HYST \cite{li2012hyst} uses a combined test for PPI. 
+
+\cite{jia2011dmgwas}
+
+\cite{baranzini2013network}
+\todo{Mention tissue specificity}
+\footnote{I think this maybe goes best with the bit on network generation in the next chapter}
+Pascal uses a modified Fishers method to calculate pathway scores from combining SOCS/MOCS sum of chi square mean of chi square. Test inflation due to linkage disequilibrium between neighbouring genes is accounted for using a fusion gene method treating neighbouring genes as a single unit. % this bit is I think from dashti
+%The pathways "1077 pathways from KEGG, REACTOME, BIOCARTA databases" \cite{dashti2019genome}
+
+\subsection{repeated bits}
+\subsubsection{Limitations of gene boundaries and non coding SNPs}
+A number of SNPs are found in non coding regions of the genome. They may effect gene expression through affecting quantitative trait loci but these are excluded from analysis. For most analysis the discarded SNPs amount to about 50\%.
+
+
+s. de Leeuw et al (2016) \cite{de2016statistical}
+considers GenGen \cite{wang2007pathway} Wang et al (2007) which is similar to GSEA in using a Kolmogorov Smirnov test as a self contained test \footnote{Original footnote: although it is not clear to me why and has the advantage of being non parametric}
+ALIGATOR \cite{holmans2009gene} assign significant SNPs to gene. Get a list of genes. Do ORA. 
+\textcolor{red}{Need to say something about depict} Which is something like I have not used depict as a) it is huge b) provided as jar c)main attraction is it does lots of pathway enriching d) magma and pascal do the gene level stuff fine for me e) need reliable gene level data even when people use depict they also use magma \url{https://github.com/perslab/depict}
+INRICH C++ link from the authors lab is to the paper page. link to C++ broken supplementary data not found takes genetic intervals and checks gene set enrichment \cite{lee2012inrich}.
+
+\footnote{pascal \url{http://regulatorycircuits.org/}}
+. upon the rank ordering of sets of genes expressed in a phenotype and those not of the phenotype, for example genes expressed in tissue that has been injured and those in tissues that have not been injured. An excess of expression of a set of genes is shown by a higher rank order of genes in the gene list compared to the null hypothesis that there is no difference between the two groups. GSEA \cite{subramanian2005gene} uses the Kolmogorov Smirnov test to distinguish between the two groups. 
+
+ The intuition behind the use of the test can be seen if we consider a random walk along one dimension. As the size of the walk steps tend towards zero and the number of steps increased towards infinity this becomes a continuous walk in time, a Wiener process, $W(t)$. The maximum displacement of a random walk is proportional to $\sqrt{n}$ where $n$ is the number of steps. When the beginning and end of the random walk on the lattice (or real line) are bounded at the beginning and end of the process at zero, this becomes a Brownian bridge.
+
+If we consider the cumulative distribution function (CDF) of any probability distribution the ends of the distribution are bounded at 0 and 1. Therefore the difference between any two distributions CDF will be bounded at the start and end at 0. This can be used to compare an empirical cumulative distribution function with that of known probability distribution. The maximum deviation from zero of the difference between the two CDFs will approximate a random walk if they are similar. The more dissimilar the distributions are the greater will be the maximum difference between their CDF.
+
+The Kolmogorov distribution describes the probability that the supremum of the Brownian bridge will take on a particular value. In the Kolmogorov Smirnov test the supremum of the distribution is used as the test statistic with the null hypothesis being that there is no difference between the distributions. In the case of gene set enrichment analysis we are comparing the CDF of two empirical distributions \cite{clark2011introduction}
+
+If we rank the genes of a microarray experiment in terms of their expression we will get a list. We have an apriori agreed set of genes based on some relation for example member no higher up the ordered list of gene expression than expected by chance. If we have a count that starts at zero and we increase the count proportional to the size of our set and the gene list when we see a gene in the set and if we subtract from the count a step proportional to the number of genes not in the set then at the end of the list the count at the end of the list will be zero. If we see a lot of genes in our set early on in the list of gene expression there will be an early positive deviation of the test statistic and its supremum will be high. A null distribution can be generated by randomly permuting the phenotype labels. Correction for multiple testing (for example checking a large number of sets) is carried out using the Benjamni and Hochbery procedure (Hochberg and Liverman 1994).
+
+\todo{want to maintain GSEA for backward compatibility for GSEA all you need is the list of genes and their p value or an importance measure for the implementation in MAGMA or PASCAL you need the summary statistics which can become unavailable. Yes was going to put this in again and it might be worth doing a practical illustration of it. If you have a list of the gene scores you can do GSEA. i.e. those where the supplementary material provides a complete list of MAGMA scores and you could also say in the discussion this is a reason to have all summary gene level statistics available in publication. Something like GWAS catalog but with all gene scores in MAGMA done in studies would be very useful for studies like Ghissians attempt and future network studies. }
+
+\footnote{ had Results from topoGSA are shown in figure 10 and figure 11 using publicly available data used in this study.Figure 10 TopoGSA network enrichment program. The set used in this example is the list of NMDA receptor genes from Hill et al (2014). Topo GSA network enrichment program. The example set is the top50 Genes from Okbay et al (2016b)Figure 12 - Enrichnet gene set enrichment pacakge. NMDA gene set from Hill et al 2014)}
+Add:
+\url{https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1674-0} FCS and ORA
+Need to include here: In order to investigate the effect of community structure and network structure in the PSP on a complex cognitive trait we developed a model of the PSP and derived a measure of the significance of a synaptic gene for a complex trait in this case intelligence and educational attainment using MAGMA GSA. To permit the use of a discovery and replication cohort study design in some subsequent sections of this thesis we obtained summary genetic data from 2 GWA of intelligence and 2 GWA of educational attainment. The next chapter describes the processing of this data and the generation of the interaction graph.
+
+\subsection{Usefulness of intelligence as phenotype}
+\label{sec:Intelligence intro usefulness of intelligence as phenotype}
+\todo{this bit doesn't really fit here now}
+Before going on to discuss the methods that we can use to identify coherent sets of genes in a network we should point out that one of trhe aims of the study is to assess how well network analysis and clustering helps in the understanding of a phenotype. If the phenotype is poorly defined or their is a great deal of inter observed variability it may be that the clustering is measuring the phenotype (for example finding an unexpected subgroup of the phenotype) rather than assessing the effectiveness of modules of proteins associated with the phenotype.
+\todo[inline]{ELEPHANT - This bit doesn't fit because it replicates the bit above - This is the bit earlier}
+\end{document}

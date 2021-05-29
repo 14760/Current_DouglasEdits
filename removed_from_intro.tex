@@ -1,0 +1,75 @@
+The correlation is about 0.7 but may be higher as the full range of those tested are not seen in follow up \cite{deary2009genetic}.
+ 
+ In addition, although less marked in recent years, genetic approaches to cognitive ability remain highly controversial. In describing a computational systems biology approach to cognition, although it may appear clear from this review, it is important to avoid the implication that this implies a computational model of mind or of cognitive abilities.\footnote{self,Douglas: this may be too much but I was trying to be clear about any potential sensitivies involved.}
+\footnote{I have just realised I took the bit out on DEPICT in the gene set tests section to summarise I will put it back in but DEPICT gives you pathways given SNPs not the ability to test novel sets given GWA}.
+
+
+ \footnote{note to self and Douglas depict includes SHANK2 PPI and GRIK2. Also I have not defined SHANK do I need to do this for each gene as the gene encodes SH3 and multiple ankyrin repeat domains protein 2 but the gene is called SHANK2}
+ 
+ \footnote{note to self:interestingly they used a 5kB window around genes.  this goes with the bit on windows which is now in chapter 2 also just about everyone who uses depict now uses magma or pascal EA3}
+ 
+ \todo{? mention imputation, I don't think it really adds anything - there are lots of other aspects of GWAS I haven't mentioned eg MDS, QC etc}
+ 
+ 
+ \section{Further discussion}
+Lack of different intelligence phenotypes e.g. fluid etc in large scale genomic studies compared with Hill et al. where the finding was for a single phenotype
+
+
+
+\subsubsection{bits moved to the discussion}
+Plomin (new) \cite{plomin2018new} box 5 makes the point about the availability of summary statistics and the non availability of some from commercial enterprises an observation which I completely agree with maybe should move to discussion.
+\subsubsection{to discussion}
+\label{sec:other network gsa intro discussion}
+
+
+ \section{tmp:paste}
+ \footnote{self:the peterson paper is good and useful for the one step two step differentiation of scoring GSA}
+ l 328
+\footnote{to self ALIGATOR}
+\footnote{self/Douglas/keep this is what is done when the barabasi paper uses GWA catalog}
+\footnote{see removed material B - not going to review every method eg HYST etc and give background to development ?refer to paper}
+ 
+ on windows \cite{petersen2013assessing}\footnote{this is a useful paper}
+ 
+ \footnote{to Douglas: this is a case in point, the majority use a gene boundary and gene window and the methods I use do but I am aware there are other approaches but I am not sure if I need to say this here}
+  \footnote{want to use summary statistics as 1) rapid prototyping of methods by others 2) you can check the results}
+  
+  
+ VEGAS \footnote{this is hapmap three which is what was in the pilot study but the original paper is HapMap 2 which is as follows}\cite{international2007second}
+ \footnote{commented out suggested correction and previous version of this bit}% There is a suggested correction  
+% The empirical p values is the proportion of simulated test statistics  Liu et al. (2010) \cite{liu2010versatile} describes a method where the p values are converted to an upper tail chi square statistic with one degree of freedom. The pairwise LD values for all SNPs are calculate using \texttt{PLINK} with HapMap phase 2 as a references population. VEGAS simulates draws from a multivariate normal distribution with mean 0 and covariance $\Sigma$, by taking the product of $n$ independent standard normal with the Cholesky decomposition of the LD matrix. This generates a correlated multivariate normal and is a common technique in Monte Carlo simulation (Murphy,2012) p817 and is the method implemented for generating correlated random numbers in \texttt{MATLAB}. The empirical distribution of the test statistic is compared with the draws from the multivariate normal to generate a p value. The progran is implemented in PERL and uses R to generate multiple draws from the normal distribution and the R package corpcor (Shafer et al, 2013).
+\footnote{comment to Douglas, will remove: I mean running on DICE or EDDIE. I got so many broken pipe errors I gave up and it would be even worse just now}
+
+MAGMA\footnote{ Douglas: should any of this be in methods I have kept the settings etc in methods but wondered what you thought - since writing the footnote I have moved more to methods and hopefully this is the theoretical minimum.}
+
+
+\footnote{marks section removed to methods and some details removed} 
+ 
+% MAGMA projects the SNP matrix onto its principle components and removes SNPs with low explanatory power. The principle components are used to regress the pheotype in the gene level test. An F test is used to calculate a gene level statistic. 
+
+\footnote{Hi Douglas I was not sure whether it looked better to put study or phenotype first in this table} 
+
+MAGMA \footnote{MAGMA uses an F test of the PCA of the SNP matrix. More significant genes are identified in table 2 in the paper MAGMA}
+
+
+Pascal
+An aim of this thesis is to provide\footnote{?develop} a general method for performing network analysis for the secondary analysis of GWAS of complex traits and neuropsychiatric disorders involving the synapse. I have chosen to use two methods of gene scoring to avoid the results depending on the accuracy and continued availability of a single gene scoring software package.
+
+
+re first three pascal refs
+\footnote{note re depict these are in conjunction with depict}
+
+GSA
+\footnote{to self we have the jia refs in the ongoing should i have a more recent one for established} 
+
+GSEA
+\footnote{my reason for saying  cumulative distribution rather than CDF as it is an empirical distribution}
+\footnote{Douglas: I have a longer explanation I have written which I could include in the appendix or just leave it with the reference to Clark?}
+
+Pascal GSA
+\footnote{in this case directly transformed $\chi_1^2$ quantile transformed see bottom p 12 and supplementary material in the Pascal paper. This is a footnote that will probably be removed} 
+
+Using network topology
+ \footnote{to Douglas. Or I can drop the WGCNA and subnetwork stuff and just review the third generation GSA. My reason for including them is that they often co-occur in the literature and seem natural network approaches}
+ 
+ footnote to Khatri\footnote{cited by 1179!}

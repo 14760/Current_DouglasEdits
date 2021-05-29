@@ -1,0 +1,184 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+
+
+%--------------------
+% Packages
+% -------------------
+%\documentclass[11pt,a4paper]{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{gentium}
+\usepackage{csquotes}
+
+
+\usepackage{mathptmx} % Use Times Font
+%\usepackage[authordate,bibencoding=auto,strict,backend=biber,natbib]{biblatex-chicago}
+% HELLO
+\usepackage[sorting=nyt]{biblatex}
+%\usepackage[sorting=nyt, citestyle=authoryear]{biblatex}
+\title{Draft thesis}
+\author{s1476046 }
+\date{\today}
+
+\usepackage[pdftex]{graphicx} % Required for including pictures
+\usepackage[english]{babel} 
+\usepackage[pdftex,linkcolor=black,pdfborder={0 0 0}]{hyperref} % Format links for pdf
+\usepackage{calc} % To reset the counter in the document after title page
+\usepackage{enumitem} % Includes lists
+\usepackage{wrapfig}
+
+ \frenchspacing % No double spacing between sentences
+\linespread{1.2} % Set linespace
+\usepackage[a4paper, lmargin=0.1666\paperwidth, rmargin=0.1666\paperwidth, tmargin=0.1111\paperheight, bmargin=0.1111\paperheight]{geometry} %margins
+%\usepackage{parskip}
+
+\usepackage[all]{nowidow} % Tries to remove widows
+\usepackage[protrusion=true,expansion=true]{microtype} % Improves typography, load after fontpackage is selected
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+% Pretty much all of the ams maths packages
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{adjustbox}
+% Allows you to manipulate the page a bit
+\usepackage[a4paper]{geometry}
+% Provides commands to make subfigures (figures with (a), (b) and (c))
+%\usepackage{subfigure}
+\usepackage{subcaption}
+
+% Typesets URLs sensibly - with tt font, clickable in PDFs, and not breaking across lines
+\usepackage{url}
+
+% Makes references hyperlinks in PDF output
+\usepackage{hyperref}
+\DeclareUnicodeCharacter{0301}{*************************************}
+\DeclareUnicodeCharacter{0308}{**********************0308***********}
+% Provides ways to include syntax-highlighted source code
+\usepackage{listings}
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+\lstset{frame=single, basicstyle=\ttfamily}
+
+%\newcommand{\todo}[1] {\textbf{\textcolor{red}{#1}}}
+% Provides good access to colours
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{pifont}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+
+% for splitting columns on tables see https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell
+\usepackage{makecell}
+%\usepackage{showframe}
+%Really, really mean here with graphics [H]
+\usepackage{multicol}
+\usepackage{float}
+% for rotational tables see https://tex.stackexchange.com/questions/19017/how-to-place-a-table-on-a-new-page-with-landscape-orientation-without-clearing-t
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{capt-of}
+
+%https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell/19678
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+
+\graphicspath{{images/}}
+%-----------------------
+% Set pdf information and add title, fill in the fields
+%-----------------------
+\hypersetup{ 	
+pdfsubject = {},
+pdftitle = {},
+pdfauthor = {}
+}
+
+%\includeonly{pilot}
+%\includeonly{introduction}
+%\includeonly{gwas_and_general}
+%\includeonly{gwas_general_chapter_end_materialcopy}
+
+%\includeonly{centrality_measures_prototype}
+%\includeonly{community_detection}
+%\includeonly{orthologs}
+%\includeonly{phenotypes}
+%\includeonly{checking_our_findings}
+%\includeonly{extra_tables}
+%\includeonly{new_century}
+%\includeonly{new_tables}
+%\includeonly{discussion}
+%\includeonly{discussion1}
+%\addbibresource{references.bib}
+\addbibresource{orthologs.bib}
+%-----------------------
+% Begin document
+%-----------------------
+\doublespacing
+%\linespread{1.6}
+%\bibliographystyle{ieeetr}
+%\bibliographystyle{apalike}
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+%\listoftables
+%\listoffigures
+%\listoftodos
+
+\mainmatter
+
+\include{introduction}
+%\include{errata/chapter1_errata}
+%\include{pilot}
+%\include{gwas_general_chapter_end_materialcopy}
+\include{gwas_and_general}
+%\include{centrality_measures}
+\include{centrality_measures_prototype}
+%\include{errata/chapter3 errata}
+%\include{findplace}
+%\include{new_century}
+
+
+\include{community_detection}
+\include{checking_our_findings}
+%\include{removed_from_paper}
+
+
+
+%\include{core_periphery}
+%\include{phenotypes}
+%\include{orthologs}
+
+%\include{extra_tables}
+%\include{discussion}
+\include{discussion_now}
+
+%\bibliography{references}
+\printbibliography
+\backmatter
+
+%\include{notes}
+%\include{supplementary_tables}
+%\include{new_tables}
+%\include{chapter_extras}
+%\include{vtables_chapter2}
+%\include{vtables_chapter3}
+\include{supplemental_tables}
+\include{supplementary_writing}
+\include{ack}
+%\include{tmp_out}
+%\include{interesting}
+
+
+\end{document}

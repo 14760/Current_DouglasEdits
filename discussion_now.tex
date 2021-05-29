@@ -1,0 +1,111 @@
+\chapter{Discussion}
+
+The two aims of this thesis were to investigate the feasibility of combining network-based analysis of the synaptic proteome with Gene Set Analysis and discover general principles applicable to such analyses. The second was to use this method to understand better a specific complex trait (intelligence and educational attainment), which seemed appropriate for such analysis (see section~\ref{sec:Introduction intelligence}).
+
+This chapter will assess whether this has been achieved and summarise the findings of the thesis. In doing so, it will discuss the strengths and limitations of this analysis and outline future work. I will conclude with some more speculative observations on this work informed by my experience in carrying out this analysis.
+
+\section{Principal findings}
+\subsection{Intelligence and Educational Ability}
+The principal finding is that a community (community five) detected using the spectral clustering method, containing metabotropic glutamate receptors and ionotropic AMPA receptors, was found to be enriched for differences in intelligence and educational ability (section \ref{sec: spectral group 5 analysis}). The enrichment is present in the discovery, and replication samples for both intelligence and educational attainment and the findings become stronger using samples from more recent studies that overlap with our discovery and replication samples but provide a larger sample size. 
+
+The part of the community responsible for the enrichment signal is not the receptors themselves which are implicated in animal models of learning, but their neighbours, proteins that contribute to the macromolecular complexes the receptors are embedded in. The results mirror Lundy et al.\cite{lundby2014annotation} who used a tissue-specific network to examine long QT syndrome and found that the significant genes were amongst the neighbours of the receptors. 
+
+Analysis of the most recent studies (Savage et al. and EA3)\cite{savage2018genome},\cite{lee2018gene} (section~\ref{sec:results checking findings}) show enrichment both of glutamatergic receptors and their neighbours, but a substantial amount of the enrichment remains in the neighbouring proteins. These proteins would not be identified as part of a standard gene set analysis approach and support network-based community gene set analysis as a method of analysing complex traits. 
+
+The enriched proteins reveal few common biological themes using Gene Ontology enrichment analysis save for their proximity to receptor proteins that are known to participate in glutamatergic neurotransmission.
+ The\textit{ combination} of community-based GSA and Gene Ontology analysis may be combined profitably to interrogate better ontology or topology defined areas of enrichment in complex traits. 
+
+The second-best performing algorithm (Louvain) also identified a group of proteins related to glutamatergic receptors that showed enrichment in the intelligence samples suggesting that assessing algorithms on both performance on the LFR benchmark and PSP was useful. 
+
+
+\subsection{Vertex statistic and intelligence}
+
+There was no association between a genes' centrality and its association with intelligence or educational attainment on MAGMA GWGAS (section~\ref{sec:correlation centrality measures and study p}). Lee et al\cite{lee2013network} had previously found that complex traits were more likely to occur in hubs and bottlenecks. This analysis was limited to genome-wide significant SNPs in a wide range of disorders. This thesis finds no evidence to support an effect of network centrality on intelligence or educational attainment using the most up to date data and a tissue specific network. This is consistent with intelligence being the product of many genes of small effect and is in contrasts with diseases including cancer and neuro-degenerative disorders that are highly enriched in genes with high eigenvector centrality, and degree centrality even compared to the rest of the PSP.
+
+Cancer genes have previously been reported to be central\cite{wachi2005interactome},\cite{ozgur2008identifying} in the proteome which my findings support. The finding that neurodegenerative disorders are associated with high centrality is limited to an over-representation of gene-disease associations terms but to my knowledge, an association between neurodegenerative disorders and synaptic proteome centrality has not been previously reported. Further studies would be required to confirm if these findings can be replicated in GWA studies of these conditions. Previous studies have suggested that disease genes are not central\cite{barabasi2011network} in the proteome.  This finding would suggest that at least some disorders may have more central genes. 
+
+
+There is a correlation between centrality measures and loss of function intolerance and an association between loss of function intolerance and intelligence and educational ability (although the association with educational attainment has been recently reported\cite{karczewski2020mutational}). This association is more marked in PSP genes than the rest of the genome. These factors (centrality and loss of function intolerance) may interact to produce the overall phenotype. 
+
+Why was there no association between gene-level GWA study p values for educational attainment or intelligence and measures of vertex importance such as degree? It may be that genetic changes in nodes of high degree result in a severe phenotype (as suggested by disease term enrichment section~\ref{sec:Disease term enrichment centrality measures}) and are not represented in population studies of complex traits. We would hypothesise that these core nodes are necessary for basic functions, and the finding further supports that central nodes are associated with an increased measure of evolutionary constraint (both by DEG and pLI). In this thesis, I show that genes associated with intelligence and educational attainment are associated with increased levels of genetic constraint compared to the rest of the PSP and that high centrality nodes have high levels of selection pressure. The thesis extends the evidence for what might be termed centrality-severity to human populations using the DEG as a nominal measure and Gnomad as a quantitative measure. The PSP is under a remarkable degree of genetic constraint compared to the rest of the genome, and here provide evidence of this from large scale human genomic studies. 
+
+
+Central genes are enriched for gene ontology terms associated with basic cellular functions such as the cell cycle (table~\ref{tab:overrepresentation all disorders by degree}), and it seems reasonable that in turn, they are associated with diseases that typically involve such processes (viral infection, cancer, etc.). The neurological disorders affected by these are primarily neurodegenerative, and this enrichment is against the stringent criteria of correcting for multiple comparisons using all diseases rather than only neurological ones. This suggests that these disorders may show common features in terms of network architecture. It may be that these disease are associated with genes under genetic constraint (high centrality) as they are later in onset.  
+
+
+In turn, the most peripheral nodes are those associated with the plasma membrane and extracellular matrix and these, in turn, are associated with epilepsy. This suggests that there may exist a common network architecture for such disorders and that network architecture may be another means to subdivide neuropsychiatric traits. Caution should be applied, however given my previous statements about gene-disease databases. Low centrality genes have not to my knowledge been studied. This suggests a different structure to the PSP network than that found in ecological or financial networks where an outer (expendable) shell protects an inner core\cite{burleson2020k}. The outer shell (kcore) are responsible for vital day to day functions; it is just that the inner core is required for \textit{any} coherent function. 
+
+	
+\section{GSA and Communities}
+These results suggest that genetic variation in the genes encoding a group of proteins forming a tightly interconnected sub-network in the postsynaptic proteome have an enriched association with differences in educational attainment and intelligence. This group contains the majority of the genes encoding glutamate receptors and heterotrimeric G protein in the postsynaptic proteome, and so it appears to be a homogeneous unit with a common function. The community is indeed one of the most cohesive as measured by conductance. These genes are commonly associated with animal models of learning and memory and intuitively appear to have a role in human learning and intelligence. Glutamate mediated neurotransmission is required to initiate long-term potentiation, and blocking glutamate receptors in the hippocampus of mice causes failure of memory encoding.  More recently, differential expression of glutamate receptors has been shown to be associated with differences in problem-solving in two species of wild finch\cite{audet2018divergence} which appears even more analogous to human intelligence. 
+
+
+The glutamate receptors and heterotrimeric G proteins are not the principal sources of the enrichment signal; it is instead their neighbouring and supporting proteins. The potential connection between the GWA study findings and these receptors is made possible by network analysis of the community structure of the synaptic proteome.
+
+
+This thesis is, to my knowledge, the first to use GSA in association with community detection and use the complete data present in GWAS summary results. Mooney and Wilmot proposed using communities found in protein interaction networks as gene sets for GSA\cite{mooney2015gene} and gave as examples a modularity maximisation method and an annotation mining tool that incorporates module detection. The first did not use genetic data \cite{xu2010module} and the second implements an over-representation test and does not use the full amount of data from GWAS\footnote{web address given in the paper is also broken}\cite{cowley2012pina}. Ghiassian et al.\cite{ghiassian2015disease} used the link community\cite{ahn2010link},Louvain\cite{blondel2008fast} and Markov Clustering\cite{dongen2000graph} algorithms to detect communities in the STRING protein database and concluded that communities were not associated with diseases. Their analysis did not, however, use a tissue-specific network or a competitive GSA test. The GWA study data was limited to adding genes with significant SNPs in GWA catalog\cite{ghiassian2015disease} to a Gene Disease Association list for over-representation analysis. It did not use the full polygenic signal information in GWA study summary statistics.  
+
+In this thesis, I have used a protein-protein interaction network specific to a cellular component believed implicated in the trait (the synapse and intelligence\cite{hill2014functional}). Goh et al. found that genes specific to tissues were more likely to be associated with diseases than others in the connectome \cite{goh2007human}, it seems a reasonable approach to take, and similar approaches have been successful in other systems\cite{lundby2014annotation}. This technique could be extended to other disorders or complex traits that may be mediated by synaptic function. However, the synapse may behave differently from other tissues in these forms of analyses, as we know it forms modular functional units from its proteins analogous to communities\cite{grant2012synaptopathies} our findings might not generalise to proteomes in non-synaptic tissue or metabolic pathways.
+
+This work extends that of Pocklington\cite{pocklington2006organization}, McLean\cite{mclean2016improved}, Bayes\cite{bayes2011characterization} and co-workers who have found differential enrichment of disease terms in network components in the synapse. Disease term enrichment based on disease-gene association contains heterogeneous data, and the ability to combine the information in the summary data of the GWA study with an analysis of network structure represents an improvement in these methods. Future extensions may include rare variants found in exome studies or network fusion studies incorporating information from other sources such as gene expression and eQTL. 
+ 
+ Lamperter et al. \cite{lamparter2016fast}, in their paper describing the Pascal software, pointed to the desirability of methods that can generate gene sets from primary experimental data\cite{lamparter2016fast}. Community and network analysis is an example of such a technique.
+ 
+ 
+The genes in the region of the affected groups could be subject to experiment; one could see if they and the others had a role in animal learning or caused changes in synaptic electrophysiology.
+ 
+\paragraph{Limitations}
+\label{sec:discussion window}
+There are limitations to the current study. The set of genes found in proteomic studies of the postsynaptic areas continues to increase, although the increase has reached a plateau\cite{heil2018systems}. If the network changes, then the community allocations will change, and a different network may lead to different community allocations. The network structure itself will have errors in databases and experiments and collation. There are several principled approaches to network errors that could be adopted in future work\cite{newman2018networks}. 
+
+The community allocations, in addition, are not a globally optimal allocation concerning modularity, and alternative partitions with similar modularity exist.
+
+The clustering also does not consider that nodes may belong to more than one component or cluster. Probabilistic methods exist to determine the most likely community membership\cite{yang2013overlapping} if vertices can belong to more than one community but the loss of non-overlapping gene sets may result in a great increase in the number of sets. We have also not considered a model where some genes are assigned to communities while others remain unassigned.
+
+That communities may be topologically good and yet not represents ground truth an entity is an important point \cite{peel2017ground},\cite{fortunato2016community} and several partitions may have similar modularities\cite{peel2017ground}. In addition different community detection algorithms discover different communities. I do not believe communities represent exact natural entities (they cannot overlap, they have only one component) but are a \textit{useful} mapping between network structure and genetic architecture. One approach to the existence of multiple plausible partitions would be to use node metadata. I have not used any data other than the distribution of edges to perform community detection. However, there are principled approaches\cite{newman2016structure},\cite{meng2018coupled} that use metadata and this may allow the best of a number of partitions to be selected. An overlooked advantage of modularity based methods however, compared to some of the network analysis shown described in section~\ref{sec: using network topology} is that given the edge list and community allocations one can confirm the modularity of a network and high modularity partitions are unlikely to occur by chance. 
+
+
+A limitation of the study is that gene-based analysis discards approximately 50\% of the information from SNPs that do not lie between the boundaries of protein-encoding genes. Future work may incorporate this information by, for example, using genetic variants known to affect genes such as eQTLs\cite{wang2020disease},\cite{gamazon2018using}.
+
+
+
+The use of gene ontology terms as gene sets has been widespread as part of the secondary analysis of GWA studies; however, these ignore  gene ontology structure and  overlap. This results in a significant multiple testing penalty which in the case of GWA studies of educational attainment and intelligence has been overcome by sample size, but for other phenotypes, it may be worth looking again at methods that use the tree structure of Gene Ontology terms\cite{alexa2006improved}. Specialised ontologies such as Neural /Immune\cite{geifman2010neural} are available but are non-trivial to implement, and to my knowledge, there are no readily available packages that have this as a `drop in' solution.
+
+Any enrichment software should provide the ability to provide one's own background set. The recent addition of this feature in ToppGene\cite{chen2009toppgene} led me to move all of my analysis to this; had it been available earlier would have saved me a considerable amount of time. 
+
+A small world model of genetic influence networks has been argued to support an Omni-genic model of traits\cite{boyle2017expanded}. Network structure may still affect the genetic architecture of complex traits; even in an undirected network with unweighted edges and a small world structure, the flow rate of information between nodes (particularly over short timescales) depends on network features such as community structure (this is the basis of methods including Infomap).
+
+The most obvious extension of this work would be to apply the systematic method outline to other neuropsychiatric disorders for which large scale GWA studies exist such as schizophrenia. Carrying out the study required writing numerous scripts. FUMA\cite{watanabe2017functional} has gained widespread use in the secondary analysis of GWA studies by providing an easy to use interface to carry out gene level tests and enrichment. Encapsulating the methods and data used here into one application would allow wider adoption of these techniques. 
+
+Further directions in the analysis of the synaptic proteome would include looking at how its structure changes over time. Intelligence and educational attainment are relatively stable over the life course but other neuropsychiatric disorders that involve similar genes occur at different times in the life course (compare, for example, schizophrenia and Autism Spectrum Disorder). There may be network features that emerge at critical periods (due to changes in gene expression, for example).   We also know that the proteome varies across the brain\cite{grant2019synapse}
+
+
+
+
+
+
+
+
+The study provides an outline for a network analysis of GWA studies of neuropsychiatric disorders with synaptic involvement. An analysis of vertex properties with gene-level results, an analysis of enrichment core or periphery, community enrichment analysis and topological subgroup analysis. 
+
+\section{Study design}
+\label{sec:study design discussion}
+I have included several different methods of assessing enrichment (GSEA, PASCAL and MAGMA) for two reasons. One was so findings would not be dependent on a particular method. The other was to limit the number of `interesting' sets taken forward for replication and to ensure these were more likely to replicate. One option would have been to reduce the significance level, but this seemed somewhat arbitrary. 
+
+With increasing sample sizes in the most recent studies (see chapter 5), the significance level increases relative to the penalty for multiple comparisons, but not all disorders will have studies that include 1.1 million participants. For example, a meticulous study of the genetic epidemiology of drug-induced psychosis and its progression to schizophrenia between 1997 and 2015 using Swedish national registries (which are of very high quality) achieved a sample size 7,606\cite{kendler2019prediction}. Therefore, a careful study design will be necessary to limit the number of potential comparisons that arise testing network communities. Perhaps it would be reasonable practice also to `lookup' previously discovered gene sets in future studies as is the case for SNPs in GWA studies before testing all Gene Ontology terms.
+
+
+
+
+ 
+ 
+ \subsection{Benchmarks}
+ 
+Benchmarks of clustering algorithm performance were helpful in choosing an algorithm but only in combination with performance on the PSP network. Yang et al. \cite{yang2016comparative} provide a helpful review of the performance of the igraph algorithms on the LFR benchmark. The way in which algorithms behave as they approach resolution limits may be important.
+
+The LFR benchmark remains the best available, but it is not easy to fit all network structures. Ultimately, a probabilistic benchmark that considers features such as overlapping communities, assortativity, and core-periphery structure would be desirable but challenging to implement. 
+
+Nevertheless, there were essential differences between the performance of algorithms on the LFR benchmark and the PSP graph. The infomap algorithm, in particular, was the best on the benchmark but gave rise to unrealistic community structures. Testing algorithms on one's network to ensure that they give good results seems a sensible precaution.
+
+
+

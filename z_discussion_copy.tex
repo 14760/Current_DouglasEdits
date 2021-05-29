@@ -1,0 +1,328 @@
+\chapter{Discussion}
+
+The two main aims of this thesis were to investigate the combination of network based analysis of the synaptic proteome with Gene Set Analysis and discover general  principles that are applicable to such analyses; the second was use this method to better understand a specific complex trait (intelligence) which seemed appropriate for such analysis (see section~\ref{sec:Introduction intelligence} and specifically  \ref{sec:Intelligence intro usefulness of intelligence as phenotype}).
+
+In this chapter I will assess if this has been achieved and summarise the findings of the thesis. In doing so I will discuss the strengths and limitations of this analysis and outline future work. I will conclude with some more speculative observations on this work informed by my experience in carrying out this analysis.
+
+\section{Discussion}
+\subsection{Intelligence and Educational Ability}
+We find that communities associated with metabotropic glutamate receptors and ionotropic AMPA receptors are enriched for differences in intelligence and educational ability (section \ref{sec: spectral group 5 analysis}). These findings are found in discovery and replication cohorts and the findings become stronger in more recent studies that overlap with our discovery and replication cohorts but provide additional numbers. 
+In the discovery and replication cohorts the enriched portions of the communities are not so much the receptors themselves but their neighbours, proteins that contribute to the macro-molecular complexes the receptors are embedded in. This finding supports the analyses and hypotheses of Grant \cite{grant2012synaptopathies} and the early work of Pocklington and co-workers \cite{pocklington2006proteomes} in community detection. 
+
+The more recent studies (Savage and EA3)\cite{savage2018genome} \cite{lee2018gene} show enrichment both of glutamatergic receptors and their neighbours but a substantial amount of the enrichment remains to found in the neighbouring proteins. These are findings that would be missed in a standard gene set analysis approach and supports the utility of network based community gene set analysis as a method of analysing complex traits. 
+
+For the discovery and replication cohorts the enriching proteins share few common biological themes found in Gene Ontology base gene set enrichment save for their proximity to receptor genes that are known to participate in glutamatergic neurotransmission. It is interesting to note that amongst the only findings within this group is an enrichment for neurogenesis. Hill found neurogenesis enriched in a large cohort for intelligence but that group was over 1000 genes in size, this group by contrast is 7 genes and enriches. 
+
+
+
+This suggests that the combination of community based GSA and Gene Ontology analysis may provide a more detailed interrogation of ontology or topology defined areas of enrichment in complex traits. 
+
+
+\subsection{Vertex statistic and intelligence}
+
+No vertex statistic was associated with either intelligence or educational attainment on GWAS. That is to say there was no linear correlation between these measures. This is in contradistinction to other neurological disorders which are over represented in genes with high eigenvector centrality or degree. It is not possible to rule out a complicate or non linear relationship particularly as there is a correlation between centrality measures and loss of function intolerance and an association between loss of function intolerance and intelligence and educational ability scores for synaptic genes but no direct correlation between the two. 
+
+\subsection{from Paper}
+
+\section{Discussion}
+Our results suggest that genetic variation in the genes encoding a group of proteins forming a tightly interconnected subnetwork in the post synaptic proteome have an enriched association with differences in educational attainment and intelligence. This group contains the majority of the genes encoding glutamate receptors and heterotrimeric G protein in the post synaptic proteome. These genes are commonly found in animal models of learning and memory and would intuitively appear to have a role in human learning and intelligence. The enrichment signal is, however, found in the neighbours of these proteins.
+
+This paper is to our knowledge the first to use GSA in association with community detection and make use of the complete data present in GWAS summary results. Ghissian recently used the Louvain algorithm in association with the STRING protein database but did not use a tissue specific network or a competitive test of GSA and the GWA data was limited to significant genes on GWA catalog. \cite{ghiassian2015disease} 
+
+In particular we have used an interaction network specific to a cellular component implicated in the trait. Goh found that genes that were specific to tissues were more likely to be associated with diseases than others in the connectome \cite{goh2007human}  and this seems to extend to complex traits at least in the form of intelligence and educational attainment. The review by Mooney and Wilmot of gene set analysis discusses sub communities detected in protein interaction networks as possible gene sets \cite{mooney2015gene}  and gives an example of a modularity maximisation method and an annotation mining tool that incorporates module detection; however, the first does not use genetic data and the second implements an over-representation test. does not use the full amount of data from GWA and the web address given in the paper is broken. 64  This technique could be extended to other disorders or complex traits that may be mediated by synaptic function. The synapse may behave differently from other tissues in these forms of analyses, as we know it forms modular units from its proteins that are associated with function \cite{grant2012synaptopathies} , and our finding might not generalise to proteomes in non-synaptic tissue or metabolic pathways. 
+
+We found no association between gene level GWA p values for educational attainment or intelligence and measures of vertex importance such as degree. It may be that nodes of high degree result in a severe phenotype and are not represented in population studies of complex traits. We would hypothesise that these core nodes are necessary for basic functions, and this is supported by the finding that the nodes that have a high level of importance on each of these metrics are associated with an increased measure of evolutionary constraint. 
+
+ 	Our findings extend those of Goh to complex traits and show that genes whose variants are significantly associated with differences in cognitive ability or educational attainment are not disproportionately those of high degree.\cite{goh2007human} 
+ The terms discovered using disease enrichment are heterogenous and come from animal models and databases such as OMIM and var. However, their use as indicators of an enriched association with a disease is common in the previous literature on network approaches to human disease. It is therefore desirable to have an approach incorporating all the information in the summary data of GWA study in the analysis of the association of network statistics or structures with disorders or complex traits.
+ 
+The group is composed of glutamate receptors and G protein complexes intimately related to the plasma membrane corresponding to receptor complexes and their supporting proteins. Glutamate mediated neurotransmission is required for initiation of long term potentiation, and blocking glutamate receptors in the hippocampus of mice causes failure of memory encoding. 65,66  More recently, differential expression of glutamate receptors have recently been shown to be associated with differences in problem solving in two species of wild finch. \cite{audet2018divergence}  
+
+The glutamate receptors and heterotrimeric G proteins are not however the source of the enrichment signal and the potential connection between the GWA findings and these receptors is made possible by this analysis of communities within the graph structure.
+
+A small world model of genetic influence networks has been argued to support an omni-genic model of traits. \cite{boyle2017expanded}  However the structure of the synaptic graph may affect the genetic architecture of complex traits, even in a undirected network with unweighted edges and a small world structure, the rate of flow of information between genes depends on network structure. \todo{add naomi wray article}
+
+There are limitations to the current study. The set of genes found in proteomic studies of the pre and postsynaptic areas continues to increase although the \cite{heil2018systems} increase has reached a plateau. 41  If the network changes then the community allocations will change and a different network may lead to different community allocations. We have tried to limit this effect by choosing the method with the lowest proportion of ambiguously clustered pairs (PAC).
+
+The community allocations in addition are not a globally optimal allocation with regard to the modularity, and alternative partitions with similar modularity exist. The Spin glass model was an attractive alternative clustering method but has a number of tuneable parameters making designing a study which would properly account for multiple testing challenging.\todo{change 47 to spinglass ref}47 
+
+The clustering also does not take consideration that nodes may belong to more than one component or cluster. Probabilistic methods exist to determine the most likely community membership if vertices can belong to more than one community73 but the loss of non-overlapping gene sets may result in a great increase in the number of sets. We have also not taken into account a model where some genes are assigned to communities while others remain unassigned.
+
+The question of whether communities represent some ground truth entity also exists \cite{peel2017ground}  and we have not used any data other than the distribution of edges in community detection but it is possible to introduce these.  \cite{newman2016structure} 
+
+
+
+\subsection{additional discussion}
+
+One of the issues with the project is the continuing evolution of the synaptic maps and that we can only address two of these while they are in a continuous state of evolution. Indeed the map could be said to change with the outcome of each published synaptic proteomic study. The only way to produce anything was to freeze the data at points. Hopefully the code written to optimise the analysis will make more fluid analysis possible in the future.
+
+Further directions will include looking at the synaptic proteome over the course of time. When moving from a trait such as intelligence to polygenic disorders that have different onsets in time then if we assume these to be synaptopathies we can expect different proteins to be expressed and this to correspond to the critical periods of the emergence of the disorder. For example neurodevelopmental disorders early, schizophrenia we would expect to occur around the time of peak onset of schizophrenia. We also know that the proteome varies across the brain and we will need to take this into account.
+
+Data over timespan from \url{http://www.brainspan.org/} cited by Okbay and used 
+
+Future analyses may also be able to incorporate data on gene expression
+
+and also things like eqtl, chromatin states and epigenomics. Also as well as time course to look at brain areas. 
+
+Additional information to gtex in
+@article{stranger2017enhancing,
+  title={Enhancing GTEx by bridging the gaps between genotype, gene expression, and disease The eGTEx Project},
+  author={Stranger, Barbara E and Brigham, Lori E and Hasz, Richard and Hunter, Marcus and Johns, Christopher and Johnson, Mark and Kopen, Gene and Leinweber, William F and Lonsdale, John T and McDonald, Alisa and others},
+  journal={Nature genetics},
+  volume={49},
+  number={12},
+  pages={1664},
+  year={2017},
+  publisher={NIH Public Access}
+}
+
+also metaxscan
+
+One limitation is that we throw away approximately 50\% of the information from SNPs because they do not correspond to protein encoding genes. A way of incorporating genetic variants known to affect genes such as eQTLs would be helpful. 
+
+Ideally given the continuous evolution of the map and the analysis we would have an online resource like the fly brain project that updates the findings in relatively constant times and publications to advise of major changes to the map or interface. 
+
+The genes in the region of the affected groups are subject to experiment one could see if they in addition to others had a role in learning.
+
+There are reasons to believe that the synaptic proteome is somewhat different from the general proteom and indeed that its network structure is particularly important as synaptic proteins inherently form modular units with specific functions. More phylogenetically ancient proeteins were not enriched for association for intelligence but the murine and zebrafish proteomes showed greater enrichment than the consensus proteome.
+
+The change in GWAS size in the course of the study and the rapid change in nomenclature (for example the difficulty in translating the output of VEGAS Gene symbols to contemporary entrez show some of the factors that make the reproducibility of studies of this nature over time problematic. I have tried to minimise this by depositing all of the lookup and data information used in this project at the time it was made (eg the complete entrez info, Pli etc) so that a snapshot of the crossmapping between terms is maintained.
+
+% EPHB2	EPH receptor B2
+% 6146	RPL22	ribosomal protein L22
+% 23557	SNAPIN	SNAP associated protein
+% 2054	STX2	syntaxin 2
+% 5127	CDK16	cyclin dependent kinase 16
+% 2055	CLN8	CLN8 transmembrane ER and ERGIC protein
+% 6154	RPL26	ribosomal protein L26
+% 339983	NAT8L	N-acetyltransferase 8 like
+% 9230	RAB11B	RAB11B, member RAS oncogene family
+% 11280	SCN11A	sodium voltage-gated channel alpha subunit 11
+% 2066	ERBB4	erb-b2 receptor tyrosine kinase 4
+% 5138	PDE2A	phosphodiesterase 2A
+% 3092	HIP1	huntingtin interacting protein 1
+% 5142	PDE4B	phosphodiesterase 4B
+% 83992	CTTNBP2	cortactin binding protein 2
+% 55327	LIN7C	lin-7 homolog C, crumbs cell polarity complex component
+% 8224	SYN3	synapsin III
+% 1056	CEL	carboxyl ester lipase
+% 9256	TSPOAP1	TSPO associated protein 1
+% 41	ASIC1	acid sensing ion channel subunit 1
+% 43	ACHE	acetylcholinesterase (Cartwright blood group)
+% 11311	VPS45	vacuolar protein sorting 45 homolog
+% 51248	PDZD11	PDZ domain containing 11
+% 11315	PARK7	Parkinsonism associated deglycase
+% 2099	ESR1	estrogen receptor 1
+% 9267	CYTH1	cytohesin 1
+% 5173 
+
+You also observe the phenomenon where small changes in modularity give rise to quite different graphs. Typically this is a result of the graph having a hierarchical structure and two communities a and b being vcombined. There are a few difficulties with this first it is at present very difficult to represent such a structure using the standard tools of graph visualisation and second if one is treating communuites as units that then undergo statistical tests we have to have some way of choosing the apporirate unit. In the Newman and Givan clustering algorithm the idivision stops when the optimal level of modularity has been achieved. I would sugggest that where a study would give rise to communitiesw which make clear sense in terms of an experiment such as a populatio study where there is only a small change in modularity trhat which gives rise to the mapping that has an additional correspondance to realisty should be preferred so long as the change in modularity is not too great. This therefore results in the question of what is too great. One ansewr might be to optinmise the likelihood of hte graph and the study jointly nand in order to do this one would need a stochastic block model, this would also allow one to incorporate information on other mesoscale generating processes within the graph such as core periphery strcuture.
+
+Does not take into account also dynamic effects e.g. rules based modelling discuss this briefly and also spatial orientation within the larger synapse (functional organisation of post synaptic glutamate receptors MacGillavry
+
+The study provides an outline for a network analysis of GWA studies of neuropsychiatric disorders with synaptic involvement. An analysis of vertex properties with gene level results, an analysis of the site of enrichment core or periphery, community enrichment analysis and topological subgroup analysis. 
+
+Barabasi treats disease entities as homogeneous however the disease module even if it encompasses all genes involved in the disease may represent two or more distinct processes. For example with the exception of disorders where it is possible to identify a causative mutation, organism or tissue diagnosis then a disease is a constellation of physical findings and history and investigations which may arise from more than one albeit closely related source. There are examples where redefining the groups contained within a disease group have yielded better correlation with progression and prognosis. 
+
+Importance of tissues specificity from chapter 2 \subsubsection{Value of tissue specific networks}
+\label{sec:value_of_tissue_specific_networks}
+
+\cite{parikshak2015systems} quotes the example of cardiac PPI to investigaste long QT in \cite{lundby2014annotation}
+
+Kitsak and Barabasi \cite{kitsak2016tissue}
+also regional specificity of network see recent SG work on synaptome maps. 
+
+One issue with MAGMA GWA is the choice of a background set. In competitive testing we test enrichment against the rest of the genome rather than seeing if the set of genes themselves are associated. The PSP enriches for educational attainment and intelligence so as the sample size of the PSP approximates the size of the PSP the enrichment value will approach this as opposed to no enrichment if the group were to approach the size of the genome. 
+
+
+\subsection{Choice of clustering method.} 
+
+A wide variety of choices of clustering method were available. Some such as the newman and girvan betweenness method were prohibitively slow with large networks even using a highly parrallelised implementation. Others such as the greedy agglomerative method led to the domination of the clusterings by some large units and many small ones. The spin glass method is also attractive but it is hard to see how one can devise an experiment using it. There is at minimum one tune able parameter and this can take any integer value. This is useful in controlling the size of groups and one can achieve good functional enrichment but the question of the choice of parameter remains an open one. One could try to learn an appropriate hyperparameter but against what is ones objective function. Both CMcC and I(in the pilot study) used grid search with more precision in the case of CMcC but this leads to a combinatorial explosion of possible clusterings and this only takes into account the gamma parameter. I think that this method is much more useful for exploratory data analysis and once one has chosen a good gamma or cooling parameter perhaps based on functional classification then one can go on to ask questions of empirical population data. However there is a problem too with this, we have shown that
+
+
+ often it is not the predominant ontology member in a group that is associated with the phenotype but an agglomeration of supporting proteins which often have little in common other than their close interaction with the ontology members found to be associated with a phenotype in animal studies. In pursuing a very 'pure' functional enrichment using gene ontology for example as ones objective function using methods that have tunable parameters one misses these associated proteins. 
+
+\subsection{Community structure and choice of algorithm}
+
+Although the summation constraint \todo{look up} may avoid the trivial modularity solution (putting all vertices in one module) it does not avoid the 'near trivial' situation such as cone community with 99\% of the nodes and another with 1\%. Pocklington used visual inspection to fine tune the initial clustering but this is difficult when we have large numbers of vertices and is a potential source of bias if we are doing inference for example using population data. Some clustering modalities such as spin glass allow control over the number of communities with the approximate influence of size but there is the problem of tunable paramaters. Other such as Louvain are heirarchical (CDM is too) but often the implementation does not allow access tro the heirarchy or one is back with the problem of choosing the division that looks right (ie the level in the height of the heurarchy) rather than maximising the modularity or likelihood with consequent problems in inference. 
+
+The best pragmatic solution so far may be to choose a method that gives `pretty good` (with the earlier caveat about problems in looking for too pure a functional enrichment)ideally one without tubale parameters. 
+
+In our experience of the synaptic proteome spectral clustering and Louvain perform well although the groups are rather large with Louvain. In the future especially with access to raw genotype data maximising the joint (improbability) of the population study and clustering may be effective ie we accept a small decrease in modularity if it is associated with a partition that makes sense of the study but then there is the question of how small the change in modularity can be. 
+
+
+
+We need a way in which we can take into account that the pre and post synaptic areas are integrated eg some processes cross them and form cross synaptic modules and also that some genes are present in both compartments. It seems that the isolated post synaptic component is enriched for educational attainment but a number of the most significant genes are those seen in the PSP.
+
+In considering the difference between disease modules and topological groups we must consider two possibilities. First for a complex trait we are looking at a topological area where genetic variation occurs across the population which may lead to a convergent phenotype. This is different from looking at the effects of the perturbation of an area of the graph on neighbouring or more distant nodes for example gene expression in a loss of function mutation. OMIM and Var contain both, genes implicated in disease that are up-regulated or found to have a causative role and those where there are specific germ line changes that predispose to the disease. The modular structure of the synapse and the effects of synaptic protein structure on function make it more likely that differences in neighbouring proteins will impact the overall function of a topological unit or the synapse than in for example a biological pathway where constituents are more separated in time than space and limiting factors may include quantity of reactants. We see in the study of core genes the effects that variations in these have in multi-system disorders, incompatibility with viability or disorders of cell cycle (which is an ancient system conserved from yeast)
+
+\section{Study design}
+I had wanted to choose a different value of alpha, from the pilot study 0.025 seemed reasonable as the ones that mess up the multiple testing tended to have p values just below 0.05. It was however hard to justify a particular level and so I combined with GSEA to reduce the number of tests. 
+
+
+
+\section{Implementations}
+
+Using implementation that seemed reasonable to use avoided Matlab where possible. Also preferred those in pypi or cran packages. 
+
+
+\section{For discussion but not sure what to say yet}
+
+For the presynaptic proteome education phenotypes enrich but the intelligence ones in general do not. 
+
+\section{Further discussion}
+Lack of different intelligence phenotypes e.g. fluid etc in large scale genomic studies compared with Hill et al. where the finding was for a single phenotype
+
+Can use a spectral clustering or the eigenvectors as an embedding
+\section{Further research}
+Missing heritability and the impact of exome data
+
+Make it easy to use like FUMA
+
+How findings of GWAS extend to more rare diseases give example of drug induced psychosis or high intelligence
+
+\subsubsection{bits moved to the discussion}
+Plomin (new) \cite{plomin2018new} box 5 makes the point about the availability of summary statistics and the non availability of some from commercial enterprises an observation which I completely agree with maybe should move to discussion.
+\subsubsection{to discussion}
+\label{sec:other network gsa intro discussion}
+The fundamental difference between these and the approach we suggest is they work out how the significance of differentially altered genes should be interpreted given the network structure, in this thesis I ask what are the patterns of network importance, similarity and presence of large scale structure and are these associated with a trait. How for example should one interpret a highly differentially expressed peripheral gene  is it more significant that it is enriched given that this gene does not have many interactions and is thus perturbed by general effects or less as it is away from the rest of the network. Some of these issues are dealt with at length in Wray and omnigenic but for now  It is only when one has built up empricial knowledge of the common effects of network structure on traits that one would be in any position to reweight other test statistics. The analysis methods aim to prioritise pathways for a set of differentially expressed genes. The networks are scored by a combination of node specific scores these are centrality measures (dealt with in chapter \ref{chap:Centrality measures}), similarity measures, probabilitstic methods and methods that simply take a normalised node score (for example differential expression). These are combined in a variety of ways to produce a network score. Our approach differs in that we will systematically consider whether network centrality, connection pattern or structures are associated with a phenotype. It is not clear why one should differentially weight a node based on network importance if network importance has not been shown to have an effect on phenotype (see section \todo[inline]{add cross ref}importance)
+
+One reason is that Mitrea et al. (2013) \cite{mitra2013integrative} defines the goal of pathway analysis using network topology as: 'to identify the most significantly impacted pathways from a large collection of heterogeneou s pathways'. A difficulty with this is that there is no natural boundary between pathways or subgraphs of pathways making the possible sets being tested very large. In addition the 'most significantly impacted pathway' is not always definitively identified by these methods. 
+
+\subsection{Gene windows}
+\label{sec:discussion_gene_windows}
+The whole question of windows and genes 
+
+\subsection{Newness of comparison of GWA and tissue specific network}
+\label{sec:comparison with previous studies}
+\cite{ghiassian2015disease} uses non tissue specific network and uses GWA hits as discretised units in ORA ignoring the polygenic signal from GWA
+derived from a tissue implicated in that trait has not been used with a tissue specific network representation
+
+\subsection{Make the interface easy}
+\label{sec:discussion_make_easy}
+
+\subsection{More discussion of previous approaches}
+\label{sec:discussion more discussion of previous approaches}
+The process is usually to find a set of seed genes, find genes that interact with these and then optimise the scoring function. These approaches are not suitable for the analysis of GWA studies, do not take into account polygenic signal and in addition highly modular structures such as the PSP have many neighbours and an approach such as this (optimising some gene score over nearest neighbours is close to picking the highest gene scores found in the network). In addition these studies are focused on optimisation strategies for a subset of entities defined by proximity in the network rather than identifying network structures which may be associated with a trait.
+
+
+
+GSA tools although initially used in GWAS have now diversified and are focused on the secondary analysis of GWA data. Only one (I can see so far) Ghissian  et al.\cite{ghiassian2015disease} uses GWA data but uses over represented genes in GWA catalogue as a unit. Interestingly in the course of describing their DIAMOIND algorithm they carry out louvain and markov community detection on a general proteome network and find it unhelpful in finding disease terms (see discussion and chapter~\ref{chap:community detection} They are also not tissue specific and look for a similarity of a set of genes to a pathway rather than a systematic examination of genome wide signal for a polygenic trait and a network (ie centrality measures, tissue specificity, structural analysis). Those methods that provide module detection do not use the most up to date algorithms.
+
+ Lamperter et al. \cite{lamparter2016fast} recommend methods that can generate gene sets from primary experimental data \cite{lamparter2016fast}
+ 
+ 
+ \subsection{future and current}
+ Use of Go terms in pathway enrichment without adjustment for leaf structure
+ 
+ \subsection{NMI and group size}
+ How NMI varies with group size and ground truth. Usefulness of LFR benchmark. Didn't use the Newman one as fairly straightforward. Didn't use the SNAP databases because of the issue of ground truth and it was just something I didn't get round to doing but it would be a reasonable thing for further work. 
+ You could look at the combination of features that are best for a clustering algorithm using k means clustering like that paper on stats methods for GSA \url{https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1674-0}
+ \subsection{SNPs outside gene and WGS}
+ 
+ 
+ 
+ 
+ \todo{? put in discussion echoing Plomin on usefulness of summary stats the usefulness of complete MAGMA results or VEGAS and saying explicitly if they were calculated on raw data - windows some sort of standardised reporting}
+ 
+ You could look up previous GWA at a level of 0.05 in the same way you do SNP studies. Seem not to learn anything from previous GWA and this is difficult combined with excessive GO tests due to not respecting DAG structure of GO.
+ 
+ I haven't used DEPICT although it is widely used including in studies of intelligence. The main reason was that it identifies a set of pathways given a set of SNPs what I wanted to do was the other way round (test a set of genes on a study) and needed a robust gene level statistic. I noted that several authors that used DEPICT also used MAGMA and PASCAL as part of their gene and pathway analysis although the reason for this is not always explicit. 
+ 
+ 
+ \subsection{Complexity and the synapse}
+ In addition to the synaptomic theory of Grant there is certainly a need for an explanation of all the complexity in the synapse. Very simple models of circuits can now do amazing things given increase in computational power. One thing that has changed recently is that in certain circumstances certain activation functions or specific architectures (memory cells) are needed and one thing the synapse may be doing if one does not reject the connectionist theory entirely is providing some of this stuff. 
+ 
+ \subsection{Lessons learned}
+ Data freezing
+ Version control 
+ Some things are interesting but don't work computationally as complexity increases eg VEGAS, the Newman python code for the message passing algorithm, Newman and Girvan model. 
+ Availability of data for benchmarking eg MAGMA for published papers. 
+ 
+ I would suggest that package developers produce a dataset even synthetic data and have these are the results you would expect to get if you ran everything right. A synthetic benchmark could also help comparison with MAGMA and PASCAL for example. 
+ 
+ Differences in terminology between gene expression GSA (eg functional class scoring versus full polygenic signal) and genomic. 
+ 
+ Importance of visualisation software ? some improvements especially with embedding. Gephi very nice ? build on an engine such as unity since most of the models are physics based and the layouts are the things that take computational power.
+ 
+ Differences in methods with summary statistics and raw data. Again a proper synthetic dataset would be useful (obviously because of privacy concerns about genotyped data) ref generating enhanced or simulated datasets 
+ 
+ also add ref about combining data (more data dirtier better  and methods of combining p. A moderate p in several studies is more important that one very low one in one
+ 
+ the other reason you want to keep GSEA in is future proofing - the methods (by this I mean the implementation) are pretty clear and they are reported in a number of papers with pretty open implementations eg R gsea and all you need is the log10 p values of the gene score wheras with MAGMA the software changes anyway you don't want to put all of your eggs in one software basket - VEGAS was very very popular for a while then VEGAS 2 now not updated so much i think
+  \subsubsection{Importance of mapping terms from one id system to another}
+ GTex
+ A final potential issue is that many studies that use gene ontology terms use them as a list ignoring the connections between them and the propagation from leaf to root that takes place in dedicated ontology enrichment analyses \cite{rhee2008use}\cite{mi2019protocol} \footnote{compare with several cognitive GSA inc Hill and Sneikers that use these as part of a list with reactome terms and msig}
+ Depict
+Takeaway - something under recent active development flexible ie will take as its input our gene set which is why we dont use depict because the big thing about depict is you give us your snp values from your GWAS and we do everything under the sun with it and highlight lots of potential pathways wheras what we want is to say we want to check this list of genes with this study 
+\subsection{becnhmarking of dependent tools eg MAGMA}
+md5 sum
+\cite{kim2018experimenting}
+test set even synthetic or like MNIST
+availability of summary statistics
+And there is this bit on network analysis\cite{flint2019great}
+ \subsection{Extension to other disorders}
+ \subsection{The whole Wray omnigenic peripheral central debate}
+ And core periphery structure
+ \subsection{eqtl and RNA seq}
+ \subsection{Multi later graphs and graph fusion}
+ \subsection{Dynamic models}
+ The static models can show us the areas where we need more dynamic models 
+ \subsection{A gene based version of GWAS catalog}
+ To make things easier for wet lab workers to use and frankly anybody. 
+ \subsection{Suggestions for further lab work}
+ Genes that are in a community related to intelligence or a disorder which are co-located with synaptic elements may have an effect on signalling or on murine phenotypes. Although there is no evidence of enrichment of murine phenotypes in these genes it may be that they have not been studied. 
+ 
+ \subsection{Suggestions for further in silico work}
+ Prediction of which base mutations would affect protein structure leading to a change in binding and a change in binding that significantly affected network structure
+ \subsection{Clustering using metadata as described by Newman}
+ \subsection{Combine multiple levels of brain networks}
+ Circuit and imaging results are spoken of as integrating in the literature but there is not too much about the synaptic complexity. 
+ \subsection{Using our method on Gene expression}
+ \label{sec:discussion using our method on gene expression}
+ \subsection{Genetic constraint}
+ Previous DH paper. Genetic constraint really high in PSP. The use of pLI provides evidence of the effects of network centrality on genetic constraint in humans.
+ 
+ \subsection{Difference between PSP and consensus set}
+ Difference in enrichment in cognitive disorders suggests we are picking up important elements
+ 
+ \subsection{G protein receptors}
+ Bring in the bit about the DH paper on G protein receptors
+ 
+ 
+ 
+ \subsection{Issue of neuropsychiatric diagnosis}
+ Disgennet how population studies map to disease terms. Changing DSM. It would be useful if things like Disgennet mapped to clinical codes (eg ICD) 
+ 
+ You have to repeat these studies for each disease before you can reach a conclusion about disease but there are some putative signals from disease term enrichment in ch 3 about core and periphery and key nodes. 
+ 
+ \subsection{Power and study design}
+ 
+ You can afford to throw away signal by doing lots of tests (eg MAGMA GSA) because with intelligence (and especially educational attainment N will get great enough that the signal will out. The findings of the community detection improve with increased N but it was difficult to find a way to limit the number of tests performed in a principled way. For some rarer but by no means rare disorders/symptom complexes (give example of d induced psychosis) one may no achieve such numbers and there are a number of diseases which are common enough but too rare to allow such a wasteful approach at present BPAD for example is in this category although this may change it will not change for all disorders.
+ 
+ 
+ \subsection{Community detection}
+ What happens if there are nodes that don't really belong to a community. Say you have a group of people and some of them are members of a secret society and the rest are linked by a variety of different reasons of small effect on some ways you could have one of two things a group of say 1000 in the secret society and 2000 other people in a not society group but they may not be cohesive and the best solution is therefore 2000 single groups because they are not really in a group at all. 
+ 
+ 
+ \subsection{Benchmarks}
+ 
+ Yang et al \cite{yang2016comparative} assume the mixing parameter is known 
+ 
+ 
+ \subsection{Confusion over graph partitioning and clustering}
+ 
+ \subsection{Not included}
+ Core periphery, pilot (difficulty of data storage), motifs, directed, data fusion, graph fusio, percolation or graph hierarchy
+ 
+ 
+ \subsection{Study design SG to discussion}
+We would however prefer not to abandon spin glass entirely. McLean (personal commmunication) found it gave good community enrichment at certain values (higher values) of gamma. However we are also aware both from theory and our earlier experiment that pure modules in the ontology sense may not be what we want. We may want a dominant ontology group and their neighbouring proteins that form a module as this may map more reliably onto population data. Also although it is attractive the ontology group is in no sense a ground truth  (Kronecker).\todo{remove this}
+
+
+
+\subsection{Benchmarks}
+Don't follow power law throughout
+
+
+In addition we note that there is a need for better benchmarks. Also for benchmarks that not only generate community structure but other mesoscale structure such as core periphery structure. \todo{perhaps move this to discussion or end of chapter discussion}

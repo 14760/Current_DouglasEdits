@@ -1,0 +1,376 @@
+\section{Introduction}
+\section{tmp out}
+ 
+ 
+ Advances in molecular biology have increased our understanding of the function of the synapse and of its constituents. Initially the synapse was thought to be a relatively simple structure with few components but now there appear to be over 3000 proteins whose interactions are important for synaptic function. In addition there is a core of around 1000 proteins that are conserved across mammalian lines.  Protein interactions form macromolecular machines and the interconnections of proteins are vital to the function of the synapse. 
+ \subsubsection{Networks and synaptic protein interactions}
+Despite having a complex wiring diagram of the synapse, we still don’t know the natural units and structures it forms and how the network structure of the synapse affects complex traits. One way to represent complex systems interactions is as a network. The burgeoning field of network science has made great advances this century and uses advances from graph theory, computer algorithms and statistical physics. Network theory allows the interrogation of the function of complex systems in terms of the pattern of their interconnections and shows common functional consequences of particular structures across disparate forms of network, for example the internet, social networks and protein protein interactions.
+
+ 
+In this thesis I will show how an understanding of synaptic structure can help us to understand the molecular genetics of a complex trait in this case genetic differences in cognitive ability. I have chosen to investigate the genetics of intelligence and synaptic proteins as a paradigmatic example of how network analysis can be used with GWA. There are a number of reasons for using intelligence which I will explore in the next section. An important reason specific to network analysis is that the measurement of intelligence is clearly defined\todo{this is a bit wordy and round the houses but I am trying not to open the arguments about the validity of intelligence or its unity but its usefulness as a model which I think I do in the next bit}. There  many factors that complicate the use of network analysis but an important, and perhaps under appreciated one in biomedical network analysis is the definition of non topological node properties (by this I mean things like disease associations). I will return to this in the thesis and discussion but for now it is sufficient to say that the dominating attraction was that the measures of intelligence are repeatable and reliable and correlate with genetic variation. To begin to approach these questions it is necessary to introduce in outline intelligence research, its importance, measures and recent developments. Then we will be able to conclude with how we can combine these analyses with network analysis.% \footnote{ independent to one is one can doubt in network analysis (ground truth, the existence of ground truth including that intelligence is highly heritable (making it suitable for a genetic analysis), that it is a quantitative trait, }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Essential genes}
+\subsection{biomedical review}
+
+
+\textcolor{red}{(zhong and colleagues)}\cite{zhong2013prediction}
+\footnote{ FUSION  Cases n=	1161 Controls n=	1174 ;WTCCC Cases n=2000, controls n= 3000 } and Inflammatory Bowel Disease Genetics Consortium (IBDGC) \footnote{Inflammatory Bowel Disease   with European populations without Jewish ancestry and those with Jewish ancestry (IBDGC) case n=	561, control n=	563 ;IBDGCii case n=407 control n=	432)}
+
+\footnote{ So there is some evidence that we might suspect they have an influence on human cognition using the G2C framework but as this is complex what we need is empirical proof indeed one can make a plausible argument from the available evidence for the effect of a specific measure, for an effect of centrality generally or for no effect}\todo{? add box}
+\section{chapter community detection}
+
+\section{===?remove===}
+
+\subsection{Sping glas Implementation}
+Spin glass clustering was carried out using the igraph package in R using a script to automatically generate values for gamma and spins and to conver the communities object into a graph markup language(GML) file. 5 gamma values were used gamma = $0.1,0.5,1,2,5$ and 9 spin values spins = $2,10,20,30,40,50,60,80,100$ 
+
+Running 45 grid search the clustering with spinglass takes about 56.6 seconds which accumulates if one has a large number of clusters to make therefore Grid search generation run on staff.compute R 3.5 DICE.
+
+Gamma of 0.1 and 0.5 only returned valid spins of 2 and 2,10 respectively. 
+\subsection{Study design SG}
+Given the number of tunable parameters in the spinglass model it is difficult to make a study design similar to that we used with the spectral clustering as the number of communities will lead to a prohibitively small alpha level. The possibility of finding individual datasets for each set of communities at each parameter setting is not practicable as even varying only gamma and spins we have the cartesian product of the number of parameter settings numbers of groups of sets.
+
+The number of spins controls the maximum number of groups found in the clustering. The value of gamma controls the importance of there being edges present within the commmunity modules.
+
+
+\subsection{Study design SG to discussion}
+We would however prefer not to abandon spin glass entirely. McLean (personal commmunication) found it gave good community enrichment at certain values (higher values) of gamma. However we are also aware both from theory and our earlier experiment that pure modules in the ontology sense may not be what we want. We may want a dominant ontology group and their neighbouring proteins that form a module as this may map more reliably onto population data. Also although it is attractive the ontology group is in no sense a ground truth  (Kronecker).\todo{remove this}
+
+One option is to adopt a strategy from machine learning. We will define the discovery intelligence and education as the training set and find the groups of sets that have a set with an arbitrarily low p value and of a satisfactory size. We will then combine these into a group of sets and test these on the replication cohorts. The design is not so robust as the previous one but at least allows us to see what insights we might gain from the spin glass clustering. We are not randomly sampling from the synaptic proteome there is still the constraint that we require that the sets form modules (in terms of their edge in-out distribution) and that the modules are connected subgraphs of the network. The arbitrary element (or the most arbitrary element) of this design is the choice of alpha. We want to chose alpha such that the number of sets to test in the replication does not lead to excessive type II error. The lower we choose alpha for the first set the more likely the p value of the second set is to be low. We can also try using the nominal alpha level of 0.5 and see what we get. 
+
+
+\subsection{DEG}
+\textcolor{red}{Start of with difference in greater than 5 compared to one or more compared to none and then at end do linear relationship}
+\subsection{Graph partitioning}
+Graph partitioning is a related concept where the size of groups to which nodes are assigned is known in advance. Examples of algorithms include Kernaghan Lin and spectral methods.
+
+Kernaghan Lin. Fielder vector\footnote{Graph partitioning:
+The most common formulation of the graph partitioning problem for an undirected graph G = (V,E) asks for a division of V into k pairwise disjoint subsets (partitions) such that all partitions are of approximately equal size and the edge-cut, i.e., the total number of edges having their incident nodes in different subdomains, is minimized. The problem is known to be NP-hard. Other important variations of this problem exist. They are often subsumed under the term graph partitioning as well. In the Challenge we consider two objective functions, see the scoring rules and objective functions.\url{https://www.cc.gatech.edu/dimacs10/}}
+\subsection{Originals of bits being changed}
+
+
+\textcolor{red}{move this bit}
+The `best' clustering method (the spectral clustering algorithm with fine tuning step\cite{mclean2016improved}) has also been shown to produce valid, and replicable communities in postsynaptic density complexes\cite{mclean2016improved}. This is then used to find communities in the  comprehensive and curated synaptic proteome network composed of the post synaptic density and its essential protein interactors. The community structures found in this network were then examined, using competitive GSA, to find if genetic variation in the genes encoding their proteins had an enriched association with a measure of cognitive ability, and one that has been used as a proxy for it: intelligence, and educational attainment. To increase power we will use a discovery and replication cohort design. 
+% We examined whether any network node statistics are correlated with gene scores for intelligence or educational attainment.
+
+\todo{move to introduction as something like the use of the intelligence phenotype and gsa allows} This  allows us to test test whether communities found in the post synaptic proteome graph are enriched for SNPs that have an effect on two measures of cognitive ability. We also test the hypothesis that genetic variations in the protein complexes that surround the receptors, rather than just the receptors themselves, “interfere with the emergent functions of the protein set‚” 18  and play  a significant role in complex traits and diseases influenced by changes in synaptic function. 
+
+This combined approach for analysis of neuropsychiatric GWA using synaptic structure can readily be extended to other disorders. 
+
+Finally I discuss the results obtained from other algorithms and the replication of these findings in the newest datasets.
+\section{Overlapping clustering}
+\todo{Reason for excluding}
+
+\todo{Modularity}
+
+\subsubsection{Distribution of pLI across community groups}
+\todo{Move this to community detection DONE}
+\textcolor{red}{start move to community detection}
+Although there are quite disparate values for pLI across the different spectral groups especially the median value the mean is relatively stable. The mean of pLI for group 5 does not differ from that of the PSP as a whole.         Wilcoxon rank sum test with continuity correction
+
+data:  group5\$pLI and resPSP\$pLI
+W = 174757, p-value = 0.3335
+alternative hypothesis: true location shift is not equal to 0
+
+Group 5 has the fifth highest median pLI of 0.828
+Summary of median of groups
+    Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0007318 0.2776811 0.5084966 0.5131923 0.7514292 0.9939719 \todo{move to table}
+
+The median pLI for the whole genome is stirkingly low compared to that of the synaptic proteome (Median 0.028 vs 0.620 for synaptic). The pLI is fairly constant across orthology groups within the synaptic proteome).
+\textcolor{red}{end move to community detection}
+
+
+\subsubsection{Spinglass results GSA }
+We get significant enrichment for spin 2 gamma 5 for education and intelligence both sets. This is because we are splitting the PSD in two. The larger approx 2082 number of genes is the one that enriches.
+
+For spins 10 gamma 5 we get 10 groups the 417 number group enriches strongly in discovery and replication but not for education and it is a big group.
+\subsection{CHAPTER 4 removed Modularity}
+
+Although the modularity of a partition of random graph tends towards 0 we can calculate the modularity of a randomly wired graph with the pre-existing group allocations \footnote{\url{source('~/RProjects/centrality/R/bootstrap_ci_modularity.R')}}
+
+We can also calculate the modularity for clustering a random graph. Louvain 1000 iterations.
+  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.1468  0.1577  0.1602  0.1601  0.1627  0.1706 
+ 
+ distribution of results near normal. 	Shapiro-Wilk normality test
+
+data:  results
+W = 0.99726, p-value = 0.0877
+
+Mean centred = same 0.0877
+
+The degree distribution is part of the results. 
+
+The values are lower using random degree sequences but not all are valid here is an example we would have to do try except better in python \footnote{\url{source('~/RProjects/centrality/R/bootstrap_ci_modularity_louvain_cluster_resampling.R')}}
+
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.1427  0.1504  0.1529  0.1527  0.1552  0.1626 
+ 
+ Barabsi.game with n=3457 and gamma = 2.7
+ \footnote{\url{source('~/RProjects/centrality/R/bootstrap_ci_modularity_louvain_cluster_barabasi.R')}}
+ 
+
+\textcolor{red}{It is significantly enriched for glutamate receptor activity (37 of 84) and axon guidance and for ASD, schizophrenia and seizures \todo{overlap with group 5}. It also enriches significantly in EA3 group 5(Spinglass) $P=0.0010319$ but so does group 9 at p=$0.0014555$ src \url{source('~/RProjects/gridsearch_gamma/R/check_results/check_results.R')}
+Enriches strongly in savage $0.0049343$ but less so in davies (approx 0.02 but group 4 very strongly in davies)}
+
+\subsubsection{COPY Spectral methods using the modularity matrix}
+
+Following the notation in \cite{newman2018networks}. For a community structure or any vertex property the modularity is the difference between the number of edges between nodes sharing the property found in the network and those that might be expected to occur by chance.
+
+The number of edges occurring between nodes that share the same property is
+\begin{equation}
+    \sum_{\textrm{edges}_{i,j}} \delta_{i,j} = \frac{1}{2} \sum_{i,j} A_{i,j} \delta_{i,j}
+    \label{eq:edges_from_adjacency}
+\end{equation}
+
+
+where $\delta$ is the Kronecker delta and the factor of half accounts for the double counting of node pairs ie $A_{i,j}$ is identical to $A_{j,i}$. 
+
+The chance model is obtained by rewiring the network but preserving the degree. In the rewiring model each edge is divided into two stubs and each stub can connected to ${2m-1}$ other stubs with a probability $\frac{1}{2m-1}$. The expected number of edges between two nodes is thus:
+\begin{equation}
+    \frac{k_i k_j}{2m-1}
+\end{equation}
+
+and the expected number of edges
+\begin{equation}
+    \frac{1}{2} \sum_{i,j} \frac{k_i k_j}{2m}
+    \label{eq:expected_number_edges}
+\end{equation}
+
+
+where $2m$ is used for $2m-1$ as the value is likely to be similar in large networks. 
+
+The difference in the number of edges within the groups from the null model is the difference between equation~\ref{eq:edges_from_adjacency} and equation~\ref{eq:expected_number_edges}. The modularity is the number of edges expressed as the fraction of all edges: 
+
+\begin{equation}
+    Q = \frac{1}{2m} \sum_{i,j}\frac{k_i k_j}{2m} \delta_{i,j}
+\end{equation}
+
+
+
+For a node $i$ with degree $k_i$ the probability that an edge is to node j is $\frac{k_j}{2m}$ where 2m is the number of ends of edges in the network. is proportional to the degree of $j$, if $j$ is linked to every node in the network it will be one. The probability for
+% Modularity is the difference between the number of edges in a community and the null model: the expected value of edges in a community. The expected value is take to be the observed degree of the corresponding vertex: when $P_{i,j}$ is the probability of an edge in $i,j$ the modularity $Q$ is:
+% \begin{equation}
+% Q = \frac{1}{2m} \sum_{i,j} (A_{i,j}-P_{i,j})\delta(g_i,g_j)
+% \end{equation}
+
+% where $g$ is group membership, $m$ is the number of edges and $\delta$ is the Kronecker delta.
+
+% Our null model requires (end p 31)
+
+% \begin{equation}
+% \sum_j P_{i,j}=k_i	
+% \end{equation}
+
+% the probability of an edge depends on the degree of each vertex at the ned of the edge and the sum of the probability of edges is equal to $2m$ as we count each edge twice
+% \begin{equation}
+% 	\sum_{i,j} P_{i,j}=2m
+% \end{equation}
+
+% $P_{i,j}$ depends on the product of $k_i$ and $k_j$ scaled by a constant proportional to $k$ for the network
+
+% \begin{equation}
+% 	\sum_{i,j}P_{i,j}=2m=C^2[\sum_{i,j} k_i k_j] = C^2[2m^2]=(2mC)^2
+% \end{equation} 
+
+% so $C^2$ is $\frac{1}{2m}$ and
+
+% \begin{equation}
+% 	P_{i,j} = \frac{k_i k_J}{2m}
+% \end{equation}
+
+defining the modularity as the difference between the actual number of edges and expected number, the modularity matrix $\mathbf{B}$ is:
+
+\begin{equation}
+\mathbf{B}_{i,j} = A_{i,j} - P_{i,j} = A_{i,j} - \frac{k_i k_j}{2m}
+\end{equation}
+\label{eq:modularity matrix B}
+
+as before we define an index matrix $s$ of community membership and write the modularity from equation 20 (here equation 14) as:
+
+\begin{equation}
+Q = \frac{1}{2m}\sum_{i,j}[A_{i,j}-P_{i,j}]\delta (g_i,g_j)	
+\end{equation}
+
+\begin{equation}
+\delta(g_i,g_j)	= \frac{1}{2}(s+i s_j + 1)
+\end{equation}
+
+\begin{equation}
+	Q = \frac{1}{4m}\sum_{i,j}[A_{i,j}-P{i,j}](s_i s_j + 1)
+\end{equation}
+
+\begin{equation}
+\sum_{i,j} A_{i,j}=\sum_{i,j}P_{i,j}=0
+\end{equation}
+
+end p 32
+
+\begin{equation}
+Q = \frac{1}{4m}\sum_{i,j}[A_{i,j}-P_{i,j}](s_i,s_j)	
+\end{equation}
+
+as a quadratic form:
+
+\begin{equation}
+	Q = \frac{1}{4m}\mathbf{s}^T\mathbf{Bs}
+\end{equation}
+
+
+we now seek to maximise $Q$ by finding the eigenvector corresponding to the largest eigenvalue. The restriction of $s$ to integer values is circumvented by ascribing $s_i$ to the sign of the eigenvector $v_i$
+of $\mathbf{B}$ with maximum eigenvalue.
+
+We can extend this to multiple groups by recursively partitioning the network based on the leading eigenvector of the partition and stopping partitioning when the partition does not result in a further increase in the modularity for the subdivision of the community (see Newman (2006) for further details).
+
+The change in modularity of bisecting group $g$ is 
+
+\begin{equation}
+    \Delta Q = \frac{1}{4,} \sum_{i,j \in g} B_{i,j}^{(g)}s_i s_j
+\end{equation}
+where the modularity matrix for the bisection is 
+\begin{equation}
+B_{ij}^{P(g)} = B_{i,j} - \delta_{i,j}\sum_{k \in g} B_{i,k}  
+\end{equation}
+\label{eq:Change in modularity spectral clustering}
+
+Newman \cite{newman2018networks} p510.
+\section{Chapter 5}
+Infomap
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Tue Mar 31 14:05:51 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrrrrr}
+  \hline
+ & SET & NGENES & BETA & BETA\_STD & SE & P \\ 
+  \hline
+1 & 1::: & 1173 & 0.06 & 0.02 & 0.0364 & 0.0415 \\ 
+  8 & 8::: & 62 & 0.39 & 0.02 & 0.1650 & 0.0096 \\ 
+  11 & 11::: & 47 & 0.62 & 0.03 & 0.1990 & 0.0010 \\ 
+  17 & 17::: & 22 & 0.57 & 0.02 & 0.2730 & 0.0191 \\ 
+  23 & 23::: & 20 & 0.60 & 0.02 & 0.2880 & 0.0188 \\ 
+  30 & 30::: & 15 & 0.54 & 0.02 & 0.2890 & 0.0313 \\ 
+  31 & 31::: & 13 & 1.04 & 0.03 & 0.3900 & 0.0037 \\ 
+  67 & 67::: &  7 & 0.64 & 0.01 & 0.3700 & 0.0422 \\ 
+  68 & 68::: &  9 & 0.73 & 0.02 & 0.4060 & 0.0354 \\ 
+  76 & 76::: &  8 & 1.37 & 0.03 & 0.5050 & 0.0033 \\ 
+  98 & 98::: &  6 & 1.29 & 0.02 & 0.5320 & 0.0077 \\ 
+  99 & 99::: &  7 & 0.80 & 0.02 & 0.4250 & 0.0299 \\ 
+  111 & 111::: &  6 & 2.22 & 0.04 & 0.5960 & 0.0001 \\ 
+  135 & 135::: &  4 & 2.26 & 0.03 & 0.7930 & 0.0022 \\ 
+  139 & 139::: &  4 & 1.71 & 0.03 & 0.7020 & 0.0076 \\ 
+  158 & 158::: &  2 & 2.20 & 0.02 & 0.9880 & 0.0129 \\ 
+  161 & 161::: &  2 & 1.79 & 0.02 & 1.0500 & 0.0451 \\ 
+  167 & 167::: &  2 & 1.54 & 0.02 & 0.7630 & 0.0220 \\ 
+  170 & 170::: &  2 & 2.56 & 0.03 & 0.9150 & 0.0026 \\ 
+   \hline
+\end{tabular}
+\caption{Significant EA3 infomap}
+\label{tab:infomap EA3}
+\end{table}
+
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Tue Mar 31 14:07:31 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{rlrrrrr}
+  \hline
+ & SET & NGENES & BETA & BETA\_STD & SE & P \\ 
+  \hline
+1 & 1::: & 1213 & 0.08 & 0.02 & 0.0304 & 0.0061 \\ 
+  8 & 8::: & 65 & 0.27 & 0.02 & 0.1370 & 0.0231 \\ 
+  12 & 12::: & 41 & 0.29 & 0.01 & 0.1460 & 0.0249 \\ 
+  18 & 18::: & 31 & 0.45 & 0.02 & 0.1930 & 0.0093 \\ 
+  19 & 19::: & 27 & 0.53 & 0.02 & 0.2330 & 0.0120 \\ 
+  24 & 24::: & 22 & 0.68 & 0.02 & 0.2370 & 0.0019 \\ 
+  42 & 42::: & 13 & 0.70 & 0.02 & 0.2770 & 0.0057 \\ 
+  49 & 49::: & 11 & 0.61 & 0.01 & 0.3240 & 0.0307 \\ 
+  50 & 50::: & 12 & 1.11 & 0.03 & 0.3310 & 0.0004 \\ 
+  62 & 62::: & 12 & 0.58 & 0.01 & 0.2770 & 0.0176 \\ in
+  74 & 74::: &  9 & 0.94 & 0.02 & 0.3740 & 0.0061 \\ 
+  76 & 76::: &  8 & 1.20 & 0.02 & 0.4310 & 0.0027 \\ 
+  77 & 77::: &  8 & 0.95 & 0.02 & 0.4550 & 0.0187 \\ 
+  96 & 96::: &  7 & 1.54 & 0.03 & 0.4380 & 0.0002 \\ 
+  101 & 101::: &  8 & 0.80 & 0.02 & 0.4210 & 0.0294 \\ 
+  111 & 111::: &  6 & 1.09 & 0.02 & 0.5420 & 0.0223 \\ 
+  120 & 120::: &  6 & 0.68 & 0.01 & 0.4070 & 0.0476 \\ 
+  135 & 135::: &  4 & 2.11 & 0.03 & 0.6740 & 0.0009 \\ 
+  158 & 158::: &  2 & 2.03 & 0.02 & 0.8370 & 0.0077 \\ 
+  170 & 170::: &  2 & 3.06 & 0.03 & 0.9540 & 0.0007 \\ 
+   \hline
+\end{tabular}
+\caption{Savage infomap}
+\label{tab:Infomap savage}
+\end{table}
+

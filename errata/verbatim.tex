@@ -1,0 +1,85 @@
+\section{UKBBEd}
+
+
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.0
+* (C) 2014-2015 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--h2 /var/www/ldhub/ldhub_web/static/sumstats/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2.sumstats.gz \
+--ref-ld-chr /root/ldsc/eur_w_ld_chr/ \
+--out /var/www/ldhub/ldhub_web/static/sumstats/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2-h2 \
+--w-ld-chr /root/ldsc/eur_w_ld_chr/ 
+
+Beginning analysis at Sat Aug 22 08:59:31 2020
+Reading summary statistics from /var/www/ldhub/ldhub_web/static/sumstats/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2.sumstats.gz ...
+Read summary statistics for 1208890 SNPs.
+Reading reference panel LD Score from /root/ldsc/eur_w_ld_chr/[1-22] ...
+Read reference panel LD Scores for 1293150 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from /root/ldsc/eur_w_ld_chr/[1-22] ...
+Read regression weight LD Scores for 1293150 SNPs.
+After merging with reference panel LD, 1179510 SNPs remain.
+After merging with regression SNP LD, 1179510 SNPs remain.
+Using two-step estimator with cutoff at 30.
+Total Observed scale h2: 0.3484 (0.0125)
+Lambda GC: 1.529
+Mean Chi^2: 1.6684
+Intercept: 1.0432 (0.0092)
+Ratio: 0.0646 (0.0138)
+Analysis finished at Sat Aug 22 08:59:47 2020
+Total time elapsed: 16.16s
+
+
+qc for above
+
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 1.0.0
+* (C) 2014-2015 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./munge_sumstats.py \
+--out /var/www/ldhub/ldhub_web/static/sumstats/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2 \
+--merge-alleles /root/ldsc/w_hm3.noMHC.snplist \
+--sumstats /tmp/uploaded_files/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2 
+
+Interpreting column names as follows:
+Zscore:	Z-score (0 --> no effect; above 0 --> A1 is trait/risk increasing)
+snpid:	Variant ID (e.g., rs number)
+N:	Sample size
+A1:	Allele 1, interpreted as ref allele for signed sumstat.
+P-value:	p-Value
+A2:	Allele 2, interpreted as non-ref allele for signed sumstat.
+
+Reading list of SNPs for allele merge from /root/ldsc/w_hm3.noMHC.snplist
+Read 1215001 SNPs for allele merge.
+Reading sumstats from /tmp/uploaded_files/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2 into memory 5000000 SNPs at a time.
+Read 18485882 SNPs from --sumstats file.
+Removed 17276989 SNPs not in --merge-alleles.
+Removed 0 SNPs with missing values.
+Removed 0 SNPs with INFO <= 0.9.
+Removed 0 SNPs with MAF <= 0.01.
+Removed 0 SNPs with out-of-bounds p-values.
+Removed 0 variants that were not SNPs or were strand-ambiguous.
+1208893 SNPs remain.
+Removed 0 SNPs with duplicated rs numbers (1208893 SNPs remain).
+Removed 0 SNPs with N < 60776.0 (1208893 SNPs remain).
+Median value of Zscore was -0.0087631, which seems sensible.
+Removed 3 SNPs whose alleles did not match --merge-alleles (1208890 SNPs remain).
+Writing summary statistics for 1215001 SNPs (1208890 with nonmissing beta) to /var/www/ldhub/ldhub_web/static/sumstats/my_data_UKBBED.txt.3ec3a938-9328-4b6d-b4e7-39cec2bbb0b2.sumstats.gz.
+
+Metadata:
+Mean chi^2 = 1.653
+Lambda GC = 1.513
+Max chi^2 = 109.17
+955 Genome-wide significant SNPs (some may have been removed by filtering).
+
+Conversion finished at Sat Aug 22 08:59:30 2020
+Total time elapsed: 1.0m:24.68s

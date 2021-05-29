@@ -1,0 +1,206 @@
+\section{Check}
+
+See also section~\ref{sec:degree assortativity extra}
+
+\paragraph{notes}
+
+Predator prey
+
+Adamcic as example of community/assortative (also connover 2011 twitter)
+
+Christakis and Fowler
+
+
+Will be one thing that drives a generative model of a network
+
+assortative mixing - homphily   
+
+Degree assortativity when scale free
+
+Degree assortativity substitute in $k_i$ for $x_i$ and you can then simplify
+
+
+from small worldness
+although the actual values in the table sometimes have WS greater than delta \textcolor{red}{?}. There is also a typo in the yeast average degree. 
+
+
+from\ref{sec:centrality measures}
+\todo{find ref on what are the key centrality measures ?consistency and differences between centrality measures across distinct classes of network - this is on p3 of the Kardos ref \cite{kardos2020stability} and is degree, eig, closeness between and pagerank}
+
+\todo{biology has active growth and also duplication} Price networks however had been described as a generative model for power law networks in the 1960s\cite{price1965networks}. 
+
+
+from page rank
+ \footnote{Page rank is included in those studies on p 3 of \cite{kardos2020stability} do we want to add page rank? if not then ref to this section}
+ 
+ 
+ 
+ \ref{sec:biomedical review centrality} \footnote{why did I not use this centrality (dominating set)? well one of the key things was that the implementation should be easily found (as part of the idea of this being an implementable general method), second it is a bit of an odd collection of Biologically central genes, third (remove this) I found the whole thing very confusing because of the use of initials for almost every term so perhaps did not fully understand it the first time I read it (although I seem to have the gist - here is a new measure, it is a four deep one (don't like these for other reasons) have compared it with one of our in house centrality measures and two others against slightly odd lists of terms}
+ 
+ 
+ 
+ Transitivity\footnote{This sort of thing, confusions about terms, different default options or algorithms used is one of the things that needs to be standardised for network analysis, there is probably less heterogeneity in the analysis of a GWAS - fairly standard tools and measures although not so much for the secondary analysis perhaps or perhaps it is more analogous to the proliferation of set based methods period around 2010-12 - add this to discussion}
+
+from degree assortativity 
+
+\todo{plot of knng and deg at\url{source('~/RProjects/correlation_gene_scores/R/make_df_graph_stats_correlation_lowdeg_high_bet.R')}} although there seems to be a very weak correlation between knn and z score. 
+
+Joy
+
+\footnote{(this does not seem to be the case in our data see \url{lm_1 <- lm_1 <- lm(ZSTAT ~  eig*scale_bet*I(1/scale_deg),data=ukbb_int_df2)} - cited by 460.}
+ 
+ 
+ 
+\textcolor{red}{this is about ones that don't quite fit in}
+Several studies have looked at induced subnetworks such that the subnetwork contains a high proportion of genes with a high significance score related to the trait in question and reported centrality values. Although protein networks are included in some studies, they resemble WGCNA methods by finding a network topology based on the experiment rather than comparing the features of the network topology to experimental results. I have not adopted this strategy (for similar reasons to WGCNA). An overview is found in Nikolayeva\cite{nikolayeva2018network}.
+  \footnote{also referred to as small world quotient(Davis et al) but I am avoiding this due to avoid confusion with modularity} 
+  
+  \footnote{plot for knn}.
+
+
+
+Finally in order to determine if the distribution of centrality measures for neuro-cognitive disorders differed from the overall PSP (in addition to enrichment extremes) the average centrality values for specific disorders were calculated and compared to the PSP as a whole. These were chosen from the disorders found in disease enrichment and those that would be characteristic of the cognitive/affective disease split reported by Pocklington in portions of the synaptic proteome\cite{pocklington2006organization}\textcolor{red}{add cross ref}. 
+
+\section{DisGenNet}
+
+The curated annotation set was used for the enrichment analysis. Disease term enrichment is calculated using the disgenet2R package using Fisher's exact test with corrections for multiple comparisons using the Benjamini and Hochberg method\footnote{\url{https://www.disgenet.org/static/disgenet2r/disgenet2r.html##performing-a-disease-enrichment}}. Disease enrichment was carried out using as a background universe the PSP network genes (a recently added feature). 
+
+ In the course of writing the thesis the R package changed and I could not repeat the previous analysis. The results are included in the supplemental material. 
+ 
+ \subsection{Removed method}
+ In addition I compared LTP genes centrality patterns to significant genes identified in GWA studies of intelligence and educational attainment to see if they are similar. I also determined if they or significant genes from the GWA studies formed a cohesive group consistent with the extension of the disease module hypothesis to traits (section~\ref{sec:method_induced_subgraph}). \textcolor{red}{and see below}
+ 
+ 
+\subsection{Calculating induced subgraph for LTP and cohort genes}
+\label{sec:method_induced_subgraph}
+It is hypothesised that disease phenotypes result from a perturbation in disease modules a group of genes found close together in proteomes or more heterogeneous interactomes\cite{barabasi2011network}\textcolor{red}{this is in the previous section}. 
+
+In order to test whether this is the case for the complex trait of intelligence and educational attainment and in murine models related to cognition I have calculated the largest connected component formed in the subgraph induced on the PSP by vertices in these groups (i.e murine LTP or significant human genes).
+
+For a graph (network) $G$ with vertices $V$ and edges $E$.
+
+\begin{equation}
+    G = (V,E)
+\end{equation}
+
+If $ V' \subseteq V$ and  $E' \subseteq E$ then $G'$ is a subgraph of $G$ ($ G` \subseteq G$). If $G'$ contains edges that have both ends attached to nodes in $V'$ it is an induced subgraph of $G$\cite{diestel2017basics}. The set $V'$ here is the set of all vertices that have some property such as being significant genes in an intelligence and educational attainment GWA or being associated with murine models of cognition.
+
+That is to say: take the graph formed by the vertices in the gene set and the edges that connect them and find the largest component that is connected. The expected value of the largest component was calculated using a Monte Carlo estimate. Taking the size of the connected component of random sets of vertices $V'$ with the same cardinality as the gene set.
+
+The empirical p value (one tailed) is the frequency of finding a larger maximum connected component on sampling $n$ vertices from the PSP network\footnote{\url{source('~/RProjects/chapter3/R/eda/0_1_load_graph_murine_ltp.R')}} where $n$ is the number of genes in the ontology term found in the PSP with 100,000 samples.
+
+An alternate method for investigating disease module genes are those based on random walks. However these are typically used to generate candidate genes rather than finding if the genes identified form a cohesive group . In addition random walk methods draw in the community structure of the graph and the performance of some methods appears poor for these traits(see section in discussion). 
+
+
+
+The update had no version number although a citation was provided to an at that time unpublished, unarchived paper in Nucleic Acids Research\footnote{2020 which is yet to be found on pubmed Luo, H, Lin, Y, Liu, T, Lai, F-L, Zhang, C-T, Gao, F*\& Zhang, R* (2020). DEG (Database of Essential Genes) 15, an update of the Database of Essential Genes that includes built-in analysis tools. Nucleic Acids Research, with pubmed link \url{https://www.ncbi.nlm.nih.gov/pubmed/0} found on \url{http://tubic.org/Publications.php}}. 
+ and because of better performance and avoiding using R and Python in the analysis I used the R gprofiler2 package\footnote{Using script download gnomad \url{source('~/RProjects/db_essential_genes/R/gnomad/download_gnomad.R')}}
+ 
+ \todo{? divide into graph level and vertex level}
+ 
+ 
+ \subsubsection{High betweenness Low Degree}
+following \cite{joy2005high} see \url{source('~/RProjects/chapter3/R/betweenness/betweenness_degree_sim.R')}
+
+\todo{do correlation centrality with murine ltp group}
+%%%%%    Methods essentialness %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \textcolor{red}{to do U shaped ness of k core}\cite{burleson2020k} 
+ 
+ See also
+ 
+ 
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \toprule
+ & W & p value \\ 
+  \midrule
+Degree & 0.425 & $2.52 \times 10^{-74}$ \\ 
+ Betweenness & 0.123 & $2.76 \times 10^{-83}$ \\ 
+ Eigenvector & 0.561 & $6.55 \times 10^{-69}$ \\ 
+ Closeness & 0.995 & $4.69 \times 10^{-9}$ \\ 
+ Transitivity0 & 0.775 & $2.65 \times 10^{-56}$ \\ 
+ Kcoreness & 0.911 & $4.32 \times 10^{-41}$ \\ 
+   \bottomrule
+\end{tabular}
+\caption[Shapiro-Wilk tests for centrality measures in the PSP]{Test for normality (Shapiro-Wilk) for centrality measures of PSP.
+\url{source('~/RProjects/chapter3/R/centrality_ch3/summary_centrality_sw.R')}}
+\label{tab:Test for normality (Shapiro-Wilk) for centrality measures of PSP}
+\end{table}
+
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Tue Nov 10 17:32:27 2020
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \toprule
+ & D & p value \\ 
+  \midrule
+Degree & 0.311 & $<2.2 \times 10^{-16}$ \\ 
+  Betweenness & 0.434 & $<2.2 \times 10^{-16}$ \\ 
+  Eigenvector & 0.269 & $<2.2 \times 10^{-16}$ \\ 
+  Closeness & 0.046 & $7.174 \times 10^{-7}$ \\ 
+  Transitivity0 & 0.198 & $<2.2 \times 10^{-16}$ \\ 
+  kcoreness & 0.126 & $<2.2 \times 10^{-16}$ \\ 
+   \bottomrule
+\end{tabular}
+\caption[Kolmogorov-Smirnov tests - centrality measures in the PSP]{JOIN THIS WITH SHAPIRO WILKTest for normality Kolmogorov-Smirnov centrality measures PSP. For local transitivity isolates are set to zero. \url{source('~/RProjects/chapter3/R/centrality_ch3/summary_centrality_ks.R')}}
+\label{tab:Test for normality (KS) for centrality measures of PSP}
+\end{table}
+
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{lllll}
+    \toprule
+          & Degree & Eigenvector centrality & Closeness & Betweenness \\
+         \midrule
+    Degree  & 1  & 0.92 (0.88)  & 0.66 (0.851)*  & 0.85 (0.902)*\\
+    Eigenvector centrality & 0.92 (0.88)  & 1 & 0.63 (0.969)* & 0.72 (0.762)  \\
+    Closeness & 0.66 (0.851)  & 0.63 (0.969) & 1 & 0.44 (0.782)* \\
+    Betweenness& 0.8 (0.902) & 0.72 (0.762) & 0.44 (0.782) & 1 \\
+    \bottomrule
+    \end{tabular}
+    \caption[Correlation of sociometric centrality measures compared with correlation of measures in PSP]{Correlation of centrality measures for 58 sociometric network datasets from Valente et al.\cite{valente2008correlated}. Pearson correlation coefficient. Values are for symmetrised closeness and betweenness centrality. Eigenvector centrality is necessarily symmetrised. Range of average network size 45-83. Some studies had maximal nominations for degree (i.e there was an artificial upper bound using a survey). Comparison added with PSP * shows where PSP notably higher correlation.}
+    \label{tab:Correlation of centrality valente et al compared with PSP}
+\end{table}
+\footnote{Newman's criticism of the Watts-Strogatz global clustering coefficient as being dominated by nodes of small value is also exacerbated by setting isolates to zero.}.
+
+\paragraph{free fit}
+
+
+
+Figure~\ref{fig:CDF degreel_theme}(fit over whole distribution) shows that the Poisson distribution is a poor fit. The fit to the empirical distribution is poor fitting either the whole distribution or the portion for which a power law distribution holds (figure~\ref{fig:models_set_xmin}). \textcolor{red}{p bootstrap}.
+
+
+
+\footnote{m pl x min 24
+ 
+ Free fit ln xmin 2,Pars 2.120274 1.218815;
+ 
+ Free fit exp xmin 145,pars = 0.008805921;
+ 
+ Free fit poisson, x min 396, pars = 465.5668;
+  basically puts all probability mass on 2 points\textcolor{red}{is this added to method if it comes out of footnotes}}
+  .   \todo[inline]{add code and complete table}
+  
+\footnote{although you don't see it if you use Pearson's correlation},
+
+\todo[inline]{random assortativity equal n probably sample from z scores}
+\ref{fig:Plots of degree distribution}\textcolor{red}{this is 1 -cdf Actually see Newman on cdf complement}
+
+\footnote{Humphries uses Small-Worldness but other authors Colon-Perez use worldness} of real world networks that have the small world property. 
+
+\footnote{This is at odds with our later finding (see orthologues) that nodes with clearly identified yeast orthologues tend to be of higher degree (this would fit both the Barabasi Albert model and Callaway)} 
+
+
+\footnote{there are other things in our study that support the Barabasi model and it may be that multiple processes are taking place}
+
+\footnote{using the commands \texttt{assortativity(g,deg,directed=FALSE)} in igraph for R}
+
+\footnote{Noldus distinguishes between grown graphs such as the Callaway and Barabasi-Albert and evolving graphs such as the Watts-Strogatz generative model}
+
+The overlap between different centrality measures ontology enrichment is shown in section~\ref{sec: ontology overlap} where the Jaccard index of the relationship between terms is shown
+
+\todo{do this with pli too and for a phenotype eg GO glutamate}

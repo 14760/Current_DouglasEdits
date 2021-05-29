@@ -1,0 +1,212 @@
+\section{Supplementary Community Detection}
+\subsection{Spectral methods using the modularity matrix}
+\label{sec:Spectral methods description}
+\todo[inline]{link to c++ bit in methods}
+Following the notation in \cite{newman2018networks}. For a community structure or any vertex property the modularity is the difference between the number of edges between nodes sharing the property found in the network and those that might be expected to occur by chance.
+
+The number of edges occurring between nodes that share the same property is
+\begin{equation}
+    \sum_{\textrm{edges}_{i,j}} \delta_{g_i,g_j} = \frac{1}{2} \sum_{i,j} A_{i,j} \delta_{g_i,g_j}
+    \label{eq:edges_from_adjacency}
+\end{equation}
+
+
+where $\delta$ is the Kronecker delta and the factor of half accounts for the double counting of node pairs ie $A_{i,j}$ is identical to $A_{j,i}$ and $\mathbf{g}$ is a vector of group allocations. 
+
+The null model is obtained by rewiring the network but preserving the degree (in the same manner as described in CROSSREF). In the rewiring model each edge is divided into two stubs and each stub can connected to ${2m-1}$ other stubs with a probability $\frac{1}{2m-1}$. The expected number of edges between two nodes is thus:
+\begin{equation}
+    \frac{k_i k_j}{2m-1}
+\end{equation}
+
+and the expected number of edges between groups is
+\begin{equation}
+    \frac{1}{2} \sum_{i,j} \frac{k_i k_j}{2m}\delta_{g_i,g_j}
+    \label{eq:expected_number_edges}
+\end{equation}
+
+
+where $2m$ is used for $2m-1$ as the value is likely to be similar in large networks. 
+
+The difference in the number of edges within the groups from the null model is the difference between equation~\ref{eq:edges_from_adjacency} and equation~\ref{eq:expected_number_edges}. The modularity is the number of edges expressed as the fraction of all edges obtained by dividing the difference in expected and actual edges between groups by the total number of edges in the network $2m$.
+
+\begin{equation}
+    Q = \frac{1}{2m} \sum_{i,j} A_{i,j} - \frac{k_i k_j}{2m} \delta_{g_i,g_j}
+    \label{eq: modularity A-kk delta group}
+\end{equation}
+
+
+
+% For a node $i$ with degree $k_i$ the probability that an edge is to node j is $\frac{k_j}{2m}$ where 2m is the number of ends of edges in the network. is proportional to the degree of $j$, if $j$ is linked to every node in the network it will be one. The probability for
+% Modularity is the difference between the number of edges in a community and the null model: the expected value of edges in a community. The expected value is take to be the observed degree of the corresponding vertex: when $P_{i,j}$ is the probability of an edge in $i,j$ the modularity $Q$ is:
+% \begin{equation}
+% Q = \frac{1}{2m} \sum_{i,j} (A_{i,j}-P_{i,j})\delta(g_i,g_j)
+% \end{equation}
+
+% where $g$ is group membership, $m$ is the number of edges and $\delta$ is the Kronecker delta.
+
+% Our null model requires (end p 31)
+
+% \begin{equation}
+% \sum_j P_{i,j}=k_i	
+% \end{equation}
+
+% the probability of an edge depends on the degree of each vertex at the ned of the edge and the sum of the probability of edges is equal to $2m$ as we count each edge twice
+% \begin{equation}
+% 	\sum_{i,j} P_{i,j}=2m
+% \end{equation}
+
+% $P_{i,j}$ depends on the product of $k_i$ and $k_j$ scaled by a constant proportional to $k$ for the network
+
+% \begin{equation}
+% 	\sum_{i,j}P_{i,j}=2m=C^2[\sum_{i,j} k_i k_j] = C^2[2m^2]=(2mC)^2
+% \end{equation} 
+
+% so $C^2$ is $\frac{1}{2m}$ and
+
+% \begin{equation}
+% 	P_{i,j} = \frac{k_i k_J}{2m}
+% \end{equation}
+
+defining the modularity as the difference between the actual number of edges and expected number, the modularity matrix $\mathbf{B}$ is:
+
+\begin{equation}
+\mathbf{B}_{i,j} = A_{i,j} - P_{i,j} = A_{i,j} - \frac{k_i k_j}{2m}
+\end{equation}
+\label{eq:modularity matrix B}
+
+as before we define an index matrix $s$ of community membership and write the modularity from Eq.(\ref{eq: modularity A-kk delta group}) as
+
+\begin{equation}
+Q = \frac{1}{2m}\sum_{i,j}[A_{i,j}-P_{i,j}]\delta (g_i,g_j)	
+\end{equation}
+
+Rewriting the group allocation for two groups with $s$ either +1 if in group 1 or -1 if in group 2. 
+
+\begin{equation}
+\delta(g_i,g_j)	= \frac{1}{2}(s_i s_j + 1)
+\end{equation}
+
+\begin{equation}
+	Q = \frac{1}{4m}\sum_{i,j}[A_{i,j}-P_{i,j}](s_i s_j + 1)
+\end{equation}
+
+\begin{equation}
+	Q = \frac{1}{4m}\sum_{i,j}[B_{i,j}](s_i s_j + 1)
+\end{equation}
+
+as
+% \begin{equation}
+% \sum_{i,j} A_{i,j}=\sum_{i,j}P_{i,j}=0
+% \end{equation}
+
+\begin{equation}
+\sum_{i,j} B_{i,j}=0
+\end{equation}
+
+
+\begin{equation}
+Q = \frac{1}{4m}\sum_{i,j}[B_{i,j}](s_i,s_j)	
+\end{equation}
+
+or 
+
+\begin{equation}
+Q = \frac{1}{4m}\sum_{i,j}[A_{i,j}-P_{i,j}](s_i,s_j)	
+\end{equation}
+
+as a quadratic form:
+
+\begin{equation}
+	Q = \frac{1}{4m}\mathbf{s}^T\mathbf{Bs}
+\end{equation}
+
+
+we now seek to maximise $Q$ by finding the eigenvector corresponding to the largest eigenvalue of the modularity matrix $\mathbf{B}$. The restriction of $s$ to integer values is circumvented by ascribing $s_i$ to the sign of the eigenvector $v_i$
+of $\mathbf{B}$ with maximum eigenvalue.
+
+We can extend this to multiple groups by recursively partitioning the network based on the leading eigenvector of the partition and stopping partitioning when the partition does not result in a further increase in the modularity for the subdivision of the community (see Newman (2006) for further details).
+
+The change in modularity of bisecting group $g$ is 
+
+\begin{equation}
+    \Delta Q = \frac{1}{4,} \sum_{i,j \in g} B_{i,j}^{(g)}s_i s_j
+\end{equation}
+where the modularity matrix for the bisection is 
+\begin{equation}
+B_{ij}^{P(g)} = B_{i,j} - \delta_{i,j}\sum_{k \in g} B_{i,k}  
+\end{equation}
+\label{eq:Change in modularity spectral clustering}
+
+Newman \cite{newman2018networks} p510.
+
+This is the method implemented by McLean \cite{mclean2016improved}. This implementation include a fine tuning step where the node which being moved from one group to another results in the maximum gain in modularity is fixed in its community and the process is repeated until all nodes are moved. This process is repeated until the change in modularity is less than $\Delta$ $\epsilon$\cite{mclean2016improved}. The fine tuning step is the algorithm from \cite{newman2006modularity} and \cite{newman2018networks}\footnote{p503}.
+
+
+
+\subsubsection{A simple example of spectral clustering}
+
+For a simple example of spectral clustering using the first two eigenvectors of the modularity matrix of the PSP (modularity 0.21) see section~\ref{sec:simple example of spectral graph partitioning}
+
+\subsection{Community statistics}
+\label{sec:Fortunato community statistics}
+
+Conductance has been used as a measure of the optimum size of communities\cite{leskovec2010empirical}, it is a community level statistic. In the same way that we were interested in importance measures for individual nodes in the previous chapters we are interested in measures of the properties of the discovered communities in addition to the global modularity property ($Q$)
+
+A number of statistics can be calculated to characterise the properties of the communities detected such as how much they form a cohesive group isolated from the rest of the graph (conductance) and the number of edges outwith the group and within the group\cite{fortunato2016community}. Statistics can also be calculated for individual vertices showing their relation to the community (for example are they well embedded in the community or peripheral). The notation here follows Fortunato\cite{fortunato2016community} exactly and is for illustrative purposes \todo{ask JDA I mean this is pretty much verbatim the equations but these are the definitions}
+
+The following are defined on communities
+
+Internal connectedness
+\begin{itemize}
+    \item Internal degree $k_c^{int}$
+    \begin{equation}
+        k_c^{int}=\sum_{i,j\in C}A_{i,j}
+    \end{equation}
+    \item Average internal degree $k_c^{avg-int}$
+    \begin{equation}
+        k_c^{avg-int}=\frac{k_C^{int}}{n_c}
+    \end{equation}
+    \item Internal edge density $\delta_C^{int}$ The ratio of the number of internal edges to all possible internal edges $n_c(n_c-1)$
+    \begin{equation}
+        \delta_C^{int} = \frac{k_c^{int}}{n_C(n_C-1)}
+    \end{equation}
+    \end{itemize}
+    External connectedness measures 
+    \begin{itemize}
+    \item External degree or \textit{cut} $k_c^{ext}$
+    \begin{equation}
+    k_c^{ext}=\sum_{i \in C, j \notin C}A_{i,j}
+    \end{equation}
+    \item Average external degree $k_c^{avg-ext}$ or \textit{expansion}
+    \begin{equation}
+        k_c^{avg-ext}=\frac{ k_c^{ext}}{n_C}
+    \end{equation}
+    \item External degree density or \textit{cut ratio} $\delta_C^{ext}$. The ratio of external degree to all possible external edges $n_c(n-n_c)$
+    \begin{equation}
+        \delta_C^{ext}=\frac{ k_c^{ext}}{n_C(n_C-1)}
+    \end{equation}
+    \end{itemize}
+ Other 
+    \begin{itemize}
+
+    \item Total degree or \textit{volume} $k_c= k_c^{int}+k_c^{ext}$
+    \item Average degree $k_c^{avg}$
+    \begin{equation}
+        k_c^{avg}=\frac{k_C}{n_C}
+    \end{equation}
+    \item Conductance
+    
+    \begin{equation}
+    C_c = \frac{k_c^{ext}}{k_c}
+    \label{eq:conductance}
+    \end{equation}
+    where $c$ represents community and $k$ degree, $n$ is the number of nodes in the graph and $n_c$ in community $c$
+\end{itemize}
+
+
+
+
+Vertex measures can also be calculated for individual vertices. Vertex internal and external degree are number of edges of a vertex linked to a member of the community or outwith the community respectively. Embeddedness $\zeta$ is the ratio of the internal degree to degree for a vertex and the mixing parameter $\mu$ is the ratio of external degree to the degree of a vertex\cite{fortunato2016community}.
+
+What these measures provide are measures to assess the nature and quality of communities across a partition rather to augment the modularity which allows us to look at the global quality of the partition. This will help select an algorithm or algorithms for use in community based GSA by choosing algorithms that have desirable properties distributed throughout groups rather than concentrated in a single group (for example a low conductance - equation~\ref{eq:conductance})
+% latex table genera

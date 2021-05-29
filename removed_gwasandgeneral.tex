@@ -1,0 +1,203 @@
+
+\subsection{footnotes}
+p1
+\footnote{a) in order that analysis could be completed b) to be familiar with the network and so recognise errors c)to avoid waiting until the network suits your analysis in a similar way the GWAS data is that of the largest available to date at the time of completing the study (although it remains the largest that can be divided into two non overlapping groups} 
+p1
+\footnote{commented out previous intro}
+
+from not found in NCBI 37
+\footnote{note to Douglas: i am probably not explaining this well but what I am trying to say is that they don't look important, it makes our analysis different from anybody elses and there is also a where do you stop problem and also you could argue a need for further correction for multiple testing if you are modifying standard testing procedures Reporting it may seem a bit over the top but it is part of the QC we have done - comparing magma to vegas, magma to pascal, two gsa methods, two gene score methods, compare significant genes for any commonalities}  
+
+\footnote{19,427 genes in NCBI 37}
+
+
+All significant genes are shown in table \ref{tab:Significant genes in ctg MAGMA GWAS} 
+
+
+Education Replication
+Genome wide significant genes  are shown in table \ref{tab:Significant genes in EA2 MAGMA GWAS}, significant synaptic genes are shown in table \ref{tab:Significant synaptic genes in EA2  MAGMA GWAS}
+
+\footnote{to remove: comment this might seem pedantic but Enrichr which is very highly cited and otherwise very good enrichment service asks for Entrez ID symbols - looking for Gene Symbol}
+
+
+\footnote{it is i think PSI-MI TAB 2,5 and MITAB 25 see \url{https://github.com/HUPO-PSI/miTab/blob/master/PSI-MITAB25Format.md}}
+
+\footnote{was a to do I now have got(found) Katharina's document of 2016-10-31 which outlines the interactions strategy for the network. In addition, the document says that spoke expanded PPI from intact were excluded, but perhaps some were found later? so i have not included this yet}
+
+Proteomics data
+\footnote{Douglas: See note on text it is either 23 (Kat) table~\ref{tab:Katharina_phd_studiesFF} or 17 (Oksana cleaned file), there is not much difference other than the number of papers covering each protein, the Oksana one is cleaner but there were other nodes in an xls file colin used for the PSP (although they don't appear in the graph he produced}, \footnote{was a todo now a footnote saying check now it originally was 22 now 23 and four more were added in 2017 to this set which then made up the set that colin gave me based on the Oksana clean published PSD document both included in supplementary material},\footnote{So in Katharina but not in the Oksana listLi 2003Focking 2016Doscemi 2006Distler expectedUezu 2016assuming that Focking is Framer  oksana = 17Katharina = 24 - 1 distler = 23 which is correct from the original paper now missing from the dropbox that I took the original introduction from (of these 23 examined the PSD - it varies i think from 22 to 23 on the doscemi?}
+
+ \footnote{one study has been removed because it did not meet some of the quality control procedures for the graph generation} (see Heil \cite{heil2018systems} for detailed inclusion criteria and further discussion of network generation.)
+\footnote{Full text at  ERA link for Katharina PhD \url{https://era.ed.ac.uk/handle/1842/31043}} 
+
+\footnote{to Douglas: These should have been the same as given to me as per email from Colin need to chose one see note on text. Distler PSD1 is definitely dropped from the cleaned data. The graph is somewhere between these two points. The most conservative is the Oksana one.}
+
+
+The vertex and edge lists are available in Supplementary material X (along with other data on network generation).\footnote{oksana data at\url{/home/grant/Documents/PhD_from_DICE/DocSynch_paper_data_dice/data/graph/_Oksana_synaptic}}
+\footnote{code to analyse this on Code strontium (informatics workstation) \url{source('~/RProjects/readPSP_data/R/PSPgraph.R')}} \footnote{Counts in literature counter1
+counter
+   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20 
+1396  626  339  262  191  156  112   99   76   45   44   35   22   14   16   13    7    4    1    1 }
+\footnote{counter2 Count of studies not in PSP (so PPI information not available)
+  1   2   3   4   5   6   7   8  10  12  13 
+250  81  30  31  15  12   7   4   3   1   1 }. 
+
+\footnote{Original available at \url{https://web.archive.org/web/20190303094704/http://www.fim.uni-passau.de:80/fileadmin/files/lehrstuhl/brandenburg/projekte/gml/gml-technical-report.pdf}}
+
+
+ \footnote{to discussion - interestingly these are ones in the neighbourhood of receptors and ion channels}. See discussion section~\ref{sec:Methods Discussion}.  
+
+Random generative models of networks are often used to study network behaviour \cite{newman2018networks}. The simplest model of a network is the Erd{\H{o}}s - R{\'e}nyi\cite{erdHos1960evolution} model in which each node is connected to every other node with a uniform probability $p$ \todo{cross ref to Poisson}. This simple model shows a spontaneous aggregation of isolated nodes to form a large connected component  (connected in that all of its nodes can be reached via `hops' along its edges) containing the majority of nodes  as the average degree (degree $k$, average degree $<k>$) increases.  In real world networks a largest connected component is observed of varying size but there is always one component that dominates the others ($S$, the proportion of nodes in the component) varies - see Newman \cite{newman2018networks}.
+
+Meijer
+\footnote{this actually isn't the most technical there is a general treatment for inference in DAG by the same author} 
+
+
+elim
+
+\footnote{if you look at the results you can see that adding a multiple testing penalty on top of this would be too severe} \footnote{\url{https://bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf} 2020}.
+\paragraph{background set}
+
+
+Discussion
+\footnote{On reflection this bit probably belongs in community detection or the discussion chapter and needs to be better phrased. - There is also a reductio argument in favour of a discovery and replication design.  A community detection might result in 100 groups of approximately size 35 or two groups one of 35 and the other of 3422. Let us assume that the size 35 group is relevant to the phenotype in ground truth. Let us then consider another clustering where all of the groups are around 35 in size and the one with the ground truth mapping to the phenotype we are interested in is there. There are also several other groups that map to diseases we are not testing, some to no disease but interesting functional groups and some novel but interesting groupings. 
+
+Testing for the association with the phenotype using the evenly divided group with several interesting communities (although not all of interest to us)  would have a Bonferroni correction alpha level of 0.0005. The one dividing the network into one group of 35 and another of 3422 s would have an alpha level of 0.025. It is surely plausible that in testing a single phenotype the first group \textit{may} be the better clustering and its remaining 99 groups are enriched for other processes and disorders, the community detection method however that divides it into two groups would do far better even although its treatment of the non involved nodes does not best conform to their functional division. I return to this point in chapter~\ref{chap:community detection}.
+\url{ source('~/RProjects/chapter2_checks/R/expected_gsa/ctg_size_plots.R')}}
+
+ (it was not required to be a ``functional module'' (members forming a complete subgraph) never mind the stricter requirement of forming a community. (see section~\ref{sec:analysis of likely signal} and table~\ref{tab:table from hill})
+
+
+I shall return to why this is important in further discussions (in brief intelligence and education get uniquely large sample sizes so can afford to trade power for conservatism, this will not be true of rarer diseases, if you get no significant GSA in a study with 78000 people the technique will be of little use for diseases other than the very commonets). 
+
+
+\footnote{Where does the figure of 15-120 gene sets come from? It is a rough estimation based on experience using community detection methods in a pilot study (not shown) and extrapolation from studies such as McLean et al. (2016) \cite{mclean2016improved}. Given that these are rough estimates another might be to look at the named synaptic groups used by Hill et al.\cite{hill2014human} other than the combined PSP.  Their average size is 65.75 genes. For the 3457 PSP this would result in 53.2 gene sets. In chapter~\ref{chap:community detection} I will address the expected number of gene sets in greater detail but these seem a reasonable rule of thumb.} 
+
+
+    \footnote{with ENSEMBL ID ENSG00000256762 was unmapped as was Uniprotand Q8IWL8 (STH)Entrez translation using FUMA resulted in 2 unrecognised gene symbols MGEA5 and C10orf76. Correcting these manually using lookup for synonyms the table was ommended to OGA and ARMH3 resulting in all 99 genes being correctly mapped. A full gene mapping compatible with PANTHER is available in the supplemental material}
+    
+    
+    
+    
+\footnote{A function calling the Linux command \texttt{xclip} was used in R to transfer the print formatted object to the clipboard\url{source('~/RProjects/paper_xls_output/R/functions_for_project.R')}, while in Python the \texttt{to\_clipboard} function in the data frame analysis pandas module was used\cite{mckinney2011pandas}.} 
+
+\footnote{also checking that the supplied match maps to correct Uniprot but i say this later and there are scripts for PANTHER searches and a csv containing the accepted symbols mapped to Entrez ID}
+
+\todo{compare with DAVID}
+
+ \todo{Panther has a somewhat complicated implementation of the Bonferroni correction that partly takes into account the issues with multiple comparisons but I have not mentioned it as not using Bonferroni and I think it may be new (Wasn't in 2019 update paper)}
+
+ \subsubsection{topGO}
+\label{sec:toponto GO enrichment preliminary}
+ topGO has the advantage of being a longstanding R package and part of the Bioconductor\cite{gentleman2004bioconductor} universe. It is well suited as part of a computational workflow but suffers from slower updates than PANTHER (and ToppGene) and misses the annotation of certain genes. 
+
+
+topGO is an R package widely used to perform Gene Ontology enrichment and is thus very suitable for integration into a computational workflow abd implements the elim method. It is updated less frequently than PANTHER. As it is not used in this chapter a detailed discussion of the methods are contained in section~\ref{sec:Gene ontology topgo}). 
+ \subsubsection{SynGO} SynGO (Synaptic Gene ontology and annotations) is available as a web interface for Gene Ontology enrichment\footnote{\url{https://www.syngoportal.org/}}xls files in supplementary material\cite{koopmans2019syngo}. It provides an expert curated evidence based ontology mapping of synaptic genes to Gene Ontology terms and provides a subset of the complete GO ontology. It is provided as a web interface with text or file based entry. It provides a default background list of gene expressed genes. It covers the cellular component and biological function GO clades. Fishers exact test is used for testing over representation with the FDR method\cite{benjamini1995controlling} used to correct for multiple comparisons. The detailed supplemental data outputs in xls format are included in the supplemental materials. 
+ 
+ FUMA
+ \footnote{for technical details see\url{https://fuma.ctglab.nl/tutorialgene2func} note the address is tutorial HASH gene2func}
+ 
+ gtex
+ \footnote{Sniekers et al found 44 of the 52 significant genes (using SNP proximity) and MAGMA in GTEx}
+ 
+  \footnote{log transformation and removal levels are standard for RPKM, RPKM are similar to TPM and proportionate, since I wished to compare expression between genes across a common set of samples I kept the method the same however} see \cite{zhao2017gene}. \footnote{Remove: explanation for self \url{https://rna-seqblog.com/rpkm-fpkm-and-tpm-clearly-explained/} Read per kb then normalise (gene length) then normalise by read length (opposite way round to TPM)). Sum of normalised reads same across samples. } \footnote{Current \url{source('~/RProjects/gtex/R/graph_gtex/graph_new_cutoff.R')} includes number of tissues at each cutoff and does multiplot}
+  
+  
+\textsubscript{Remove: ok note to self. It is not really possible to measure if gene expression higher in brain for a gene using gtex expression data however this is building on the stuff reported in the intelligence literature which basically uses fuma and they use previous qc for RPKM which is removing expression <0.1 in 20\% of tissues see \url{https://www.researchgate.net/post/What_is_a_valid_way_to_measure_variability_of_gene_expression_from_gtex_data} but all we want to do is to use this as a bit of qc if they are brain expressed genes it is likely they are more differentially expressed in the brain so remove the two main sources of error low expressed genes and heteroscedacity which you would do with mean centring and log transform after any reasonable low filter which removes most low expressed genes. There is a lot of talk about winsorizing (peak clipping) in the literature but the results are from FUMA which gets around this by using a predetermined set of DEG and then testing for over representation among them. Peak clipping will remove outliers and reduced delta variance with delta expression but a lot of gene expression is led by a few highly expressed genes. It seems quite complicated, I don't know very much about it at all, I think the people who know about rna seq probably are the most likely to know what they are talking about, but just about every gwa on int has used this so .. given the limitations above I don't think it is unreasonable to check you don't have an effect going the opposite way to what you think what I am not saying is that this set is y units whi
+ch are evenly spaced different from the other}
+
+\footnote{Code for heatmap at \url{source('~/RProjects/gtex_to_DICE/hclust_gtex.R')}
+Conclusion: PSP genes are significantly more expressed in the brain. }
+
+
+\footnote{remove:on in the brain tissues of GTEx. 20998 genes of 46058 in the non synaptic have no expression. These however contain many non standard gene elements such as micro RNAs and other RNA components. A subset of genes was generated using as a filter the genes in the PSP and all genes that appear in all studies  \footnote{\textcolor{red}{may want to change this to any study and will need to change graph again}}. 1699 of 19244 non PSP genes had 0 count in brain cortex.}
+
+\footnote{This will reduce the number of tests to those that are likely to be true. 
+or in the see section}
+
+Samples Hill
+
+\footnote{redone by me  $\chi^2$=1.6684 see full results in errata folder verbatim for output}
+
+
+MAGMA level gene scores
+\footnote{no magma version in MS, none in supplementary material}\footnote{ sheet 5 at \url{https://static-content.springer.com/esm/art\%3A10.1038\%2Fs41380-017-0001-5/MediaObjects/41380_2017_1_MOESM2_ESM.xlsx}}
+
+\todo{LD hub regression available at Broad sign in using google I have used grantsynch ref for LD hub in extras}
+
+
+We have, however, had access to the MTAG (Multi-trait analysis of Genome-Wide Summary data) summary data from the paper published by Hill, which contained MAGMA gene scores although it does contain data derived from educational attainment data so is not identical with the Intelligence\textsubscript{Discovery} sample\todo{need to check with David if it is ok to use this data it is for qc}. \cite{hill2019combined}. One
+can obtain a subset of the UK Biobank Education data which reports MAGMA scores for the top scoring 95 genes in the study by Davies et al. 2016 \cite{davies2016genome} \footnote{the MAGMA results for the top 95 genes are reported in the first sheet in Supplementary table 3A \url{https://static-content.springer.com/esm/art\%3A10.1038\%2Fmp.2016.45/MediaObjects/41380_2016_BFmp201645_MOESM506_ESM.xls}}. The MAGMA version is not recorded. Phase 1, release 3 of 1000 Genomes was used (in contrast to phase 3 for present study.\todo{ask Douglas should we store these and have a data provenance subchapter}.
+
+\todo{add the LD hub acknowledgements file to the acknowledgements: it is verbatim word formatted - in file verbatim.tex in folder errata}
+
+\footnote{and there is the issue about performance across platforms}
+
+
+\footnote{they used one in savage but only 5kB}
+.\todo{? remove the Davies one was only 93 genes and older now}\todo{codepath} 
+Sneikers \footnote{no magma version in MS or supplemental online} 
+
+The MAGMA versions were not documented in Sniekers et al., Davies et al or Hill et al. \cite{davies2016genome} or \cite{sniekers2017genome} \cite{hill2019combined}. 1000 Genomes phase 1 data was used in Davies et al.\cite{davies2016genome}. 
+
+Synaptic genes absent from NCBI 37
+\todo[inline]{should this be earlier}
+\todo[inline]{? comes before}
+\todo{date of file}
+
+The use of a gene window significantly affects the number of SNPs assigned to genes.  Using the College Phenotype from Rietveld et al. \cite{rietveld2013gwas} and NCBI 37 gene boundaries 914887 SNPs were mapped to genes (39.45\% of 2319112 SNPs) using no window; with a 50kb window 1385602 (59.75\%) mapped to genes.\todo{? use other}
+
+windows
+\footnote{especially as this is in part a proof of concept analysis and I don't want to get tied up in arguments about why I used window size a or b see previous footnote}
+
+\todo[inline]{cant have this before introduction of cohorts}
+
+Intelligence Replication MAGMA GWGAS
+
+\footnote{Only 7 significant genes were found in the 1,312 gene consensus PSD network graph\cite{mclean2016improved}}.
+
+
+Supplementary intelligence genes
+Significant genes at the adjusted $\alpha$ level are shown in table \ref{tab:Significant synaptic genes in UKBB int  MAGMA GWAS}, significant synaptic genes are shown in table \ref{tab:Significant genes in UKBB int MAGMA GWAS}
+Significant genes at alpha Bonferroni level are shown in table \ref{tab:Significant genes in UKBB edu MAGMA GWAS}, significant synaptic genes are shown in table \ref{tab:Significant synaptic genes in UKBB edu  MAGMA GWAS}\footnote{remove:cross ref correct when compiling all}.
+
+
+Pascal
+
+\footnote{check above. In addition I have checked software version including on github site for project} 
+
+
+Intelligence discovery
+\footnote{ Was a to do - check as this is the same number as intelligence - i have checked and done diff on output logs they are different it may be they because they both came from David they used the same imputation and reported the same SNPs (they were done for the same study). The output otherwise is different} 
+
+Gene ontology analysis of significant genes
+\footnote{calculations of size and significance at mac \url{ source('~/RProjects/chapter2_checks/R/expected_gsa/ctg_size_plots.R')}}
+
+ This initial analysis  is an over representation analysis of genome wide significant genes using GWGAS. It does not test the competitive gene set hypothesis but answers a simpler question: what are these genes and what common features do they have? Although genetic variation in synaptic genes has been implicated in differences in intelligence and educational attainment \cite{hill2014human}\cite{okbay2016genome}, is there evidence that a sufficient number of important genes are synaptic to justify a synaptic network analysis?
+ 
+ 
+ 
+ \footnote{Douglas: I have included the hierarchy view from PANTHER as a screenshot as we discussed. It would take a lot of time for me to do something as clean and informative. The information on the levels is available in xml but it is not straightforward to lay out in latex even when extracted. I have used the maximum magnification for the screenshots now.}
+ \footnote{remove: it is not clear to me how they obtained this set of genes. The enrichment results appear in supplementary material page 10 and 11 and it appears that the ontology terms were tested separately from the Reactome ones
+\url{https://static-content.springer.com/esm/art\%3A10.1038\%2Fng.3869/MediaObjects/41588_2017_BFng3869_MOESM2_ESM.xlsx}}. 
+
+
+ \footnote{Douglas: I have included this as a screenshot. Parsing the xml and getting it into latex took longer than I thou
+ ght so I went straight to screenshot as a last resort could do the indentation by hand. Thought worth showing (as DEPICT, MAGMA etc as far as I can see ignore heirarchy) but interested in what you thought. The standard table output for PANTHER doesn't have the hierarchy. I thought the differences in approach to the GO DAG were worth discussing  - as part of pointing out limitations to how enrichment has been approached in genomics. }
+ 
+ 
+ 
+ Education sample\footnote{Translation of genes for toppgene correct at\url{source('~/RProjects/paper_xls_output/R/chapter_2/FUMA/edit_gene_table/EA2_FUMA2clipboard.R')} all 99.
+  Entrez ID from MAGMA to symbol to edited symbols. (Correct)}
+ 
+  \footnote{adding syngo or a slim ontology on top of magma would be a pretty good MSc project}
+\footnote{ Would be reasonable to try to add both a slim ontology and testing through the dag on top of magma or pascal. However, although the FDR q value is lower, there is not much specificity of the terms. }
+
+Education discovery
+\footnote{ GABAergic synapse is present as an enriched cellular component term GO:0098982 79 in annotation 6 terms FDR=0.0253 but the genes DAG1, Dystroglycan;Neurexin-1, NRXN1 ;SLC6A17,Sodium-dependent neutral amino acid transporter; PCDH17,Protocadherin-17;ERBB4,Receptor tyrosine-protein kinase erbB-4;BSN,Protein Bassoon.}
+
+\footnote{entrez 231, hgnc (symbol) 225, NCBI symbol 227, HGNC ID 232 for HGNC id see \url{source('~/RProjects/paper_xls_output/R/chapter_2/translate_sig_genes/ukbbed_NCBI_translate2.R')})}.
+ 
+ Education Discovery
+ \footnote{Enrichment in DisGeNet BeFree searched by toppfun of Intellectual disabilityID C3714756 	Intellectual Disability ; Source	DisGeNET BeFree ; p 	8.884E-7 ; FDR BH	1.648E-3; FR BY 	1.386E-2 ;Bonferroni	2.237E-3; Input 	20 	Total 1219}       

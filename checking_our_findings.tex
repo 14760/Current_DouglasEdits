@@ -1,0 +1,177 @@
+\chapter{Checking our findings}
+\label{chap:checking our findings}
+\section{Intelligence 2 and EA3}
+
+
+After completing the initial analysis two large cohorts became available that incoroporated data from our samples but enlarged them allowing us to see if our findings remained valid as the number of individuals involved in the studies increased. 
+
+\subsection{Intelligence}
+
+Savage et al. \cite{savage2018genome} reported a GWA study of intelligence involving 269,867 individuals and allowed the identification of 1016 genes of which 939 are new. 
+. and this is the second sample produced by the same group that conducted the analysis that formed the intelligence replication sample. 
+
+The largest contributor of subjects to the study was UKBiobank (195,653) with a significant contribution from COGENT (35,289). There is therefore a significant overlap with our discovery cohort and we do not have access to samples that do not overlap ours. It does however represent a significant increase in sample size and we hypothesise our findings if valid would increase in significance with the increase in sample size.
+
+
+\subsection{Education}
+In the same way that the most recent intelligence sample is an extension of the sample used for the intelligence replication sample the education replication sample was mostly made from the EA2 analysis (Educational Attainment 2)\cite{okbay2016genome}. More recently summary statistics have been made available for the EA3 samples made up of over 1 million individuals ($n$=1,131,881)\cite{lee2018gene}. The analysis identified  1,271 genome wide significant SNP's and polygenic risk scores based on the data were able to explain 11-13\% of the variance in educational attainment and 7-10\% of intelligence. 
+
+
+\subsubsection{Methods}
+
+Gene scores and gene set analysis were carried out as detailed in chapter 2 and the spectral community gene sets analyses using MAGMA GSA. The summary statistics were downloaded from the same website of the Complex Trait Genomics group that the Intelligence Replication sample had been previously\footnote{\url{https://ctg.cncr.nl/documents/p1651/SavageJansen_IntMeta_sumstats.zip}}.
+
+Summary statistics for the EA3 analysis were downloaded from the SSGAC \footnote{\url{https://www.dropbox.com/s/ho58e9jmytmpaf8/GWAS_EA_excl23andMe.txt?dl=0}}. The summary statistics again excluded data from individuals in 23andMe. 
+
+
+
+
+\subsubsection{Results}
+\label{sec:results checking findings}
+MAGMA GSA results are shown in table~\ref{tab:MAGMA GSA Intelligence and Education Larger}. Group 5 again shows significant enrichment p=0.00267 for intelligence and is also enriched for the educational attainment sample. It is interesting to note that group 20, which was found to be significantly enriched only in the PASCAL analysis also shows significant enrichment in the Intelligence 2 sample (p=0.00096). Subgroup analysis of group 5 is shown in table~\ref{tab:MAGMA GSA larger samples subgroup}.
+
+Group 5 is also enriched for educational attainment (p=0.00004) in the EA3 sample. Although there is enrichment of group 20 in the intelligence sample (and group 33), group 5 has been consistently enriched in all samples and as sample size increases (EA3 is larger than Savage et al.\cite{savage2018genome}\cite{lee2018gene} the significance of the group increases. 
+
+Subgroup analysis again shows that the signal is not confined to the glutamate receptor although for EA3 these receptors were responsible for the majority of the signal. In the intellignece cohort the remaining proteins again had a greater level of enrichment than the glutamate receptors (p=0.00014 vs 0.00267 table~\ref{tab:MAGMA GSA larger samples subgroup}).
+
+Analysis of the Louvain clustering algorithm which had shown promise in the previous section showed enrichment for group 7 (glutamate associated) (p=0.0002 Intelligence (Savage), p=0.0017 EA3 table~\ref{tab:Louvain clustering EA3 Education cohorts} and table~\ref{tab:Louvain clustering Savage intelligence phase 2 cohorts}. Using the largest cohorts available for education we find enrichment of group 7 (p=0.0017) and the group 8 found in Savage (p=0.0003) see table~\ref{tab:Louvain clustering EA3 Education cohorts}
+
+
+Using the largest cohorts available for intelligence we confirm group 7 is enriched (Savage) p=0.0002. Two other groups survive multiple testing at alpha corrected for all groups see table~\ref{tab:Louvain clustering Savage intelligence phase 2 cohorts}. 
+
+
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Mon Apr  5 16:56:47 2021
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{cllllllllll}
+  \toprule
+   &  \multicolumn{5}{c}{\textit{Savage 2018}} & \multicolumn{5}{c}{\textit{EA3}} \\
+    \cmidrule{2-11}
+Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$ & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+  \midrule
+1 & 161 & 0.20 & 0.02 & 0.10 & 0.02255 & 169 & 0.03 & 0.00 & 0.08 & 0.37667 \\ 
+  2 & 153 & 0.02 & 0.00 & 0.10 & 0.42371 & 161 & -0.03 & -0.00 & 0.08 & 0.63671 \\ 
+  3 & 39 & -0.00 & -0.00 & 0.19 & 0.50666 & 41 & 0.10 & 0.00 & 0.15 & 0.24404 \\ 
+  4 & 29 & -0.05 & -0.00 & 0.21 & 0.59064 & 29 & -0.40 & -0.02 & 0.19 & 0.98326 \\ 
+  5 & 106 & 0.36 & 0.03 & 0.13 & \textbf{0.00267} & 111 & 0.43 & 0.03 & 0.11 & \textbf{0.00004} \\ 
+  6 & 76 & -0.06 & -0.00 & 0.15 & 0.64806 & 77 & 0.00 & 0.00 & 0.13 & 0.49470 \\ 
+  7 & 125 & -0.05 & -0.00 & 0.11 & 0.68003 & 129 & 0.16 & 0.01 & 0.09 & 0.04848 \\ 
+  9 & 61 & -0.09 & -0.01 & 0.15 & 0.72539 & 62 & 0.09 & 0.01 & 0.13 & 0.23801 \\ 
+  10 & 146 & 0.04 & 0.00 & 0.10 & 0.35081 & 152 & 0.19 & 0.02 & 0.08 & 0.00819 \\ 
+  11 & 55 & 0.26 & 0.01 & 0.16 & 0.05692 & 56 & -0.05 & -0.00 & 0.13 & 0.65762 \\ 
+  12 & 32 & 0.06 & 0.00 & 0.20 & 0.39111 & 34 & 0.19 & 0.01 & 0.17 & 0.13704 \\ 
+  16 & 68 & 0.05 & 0.00 & 0.15 & 0.37751 & 72 & -0.19 & -0.01 & 0.13 & 0.92713 \\ 
+  17 & 144 & 0.06 & 0.01 & 0.10 & 0.27056 & 146 & 0.16 & 0.01 & 0.08 & 0.03087 \\ 
+  19 & 20 & -0.08 & -0.00 & 0.22 & 0.63438 & 20 & 0.04 & 0.00 & 0.19 & 0.41751 \\ 
+  20 & 144 & 0.33 & 0.03 & 0.11 & 0.00096 & 149 & 0.17 & 0.01 & 0.09 & 0.03405 \\ 
+  22 & 42 & 0.16 & 0.01 & 0.19 & 0.19590 & 42 & 0.11 & 0.01 & 0.16 & 0.24855 \\ 
+  23 & 67 & 0.09 & 0.01 & 0.15 & 0.29214 & 71 & -0.03 & -0.00 & 0.13 & 0.58327 \\ 
+  24 & 74 & 0.27 & 0.02 & 0.15 & 0.03782 & 76 & 0.12 & 0.01 & 0.13 & 0.17961 \\ 
+  25 & 26 & -0.09 & -0.00 & 0.23 & 0.65285 & 27 & 0.17 & 0.01 & 0.20 & 0.20409 \\ 
+  26 & 116 & 0.10 & 0.01 & 0.12 & 0.18681 & 120 & 0.16 & 0.01 & 0.10 & 0.05441 \\ 
+  28 & 35 & 0.35 & 0.02 & 0.21 & 0.04473 & 38 & 0.33 & 0.02 & 0.18 & 0.03277 \\ 
+  32 & 50 & -0.03 & -0.00 & 0.18 & 0.57302 & 52 & 0.15 & 0.01 & 0.16 & 0.16530 \\ 
+  33 & 180 & 0.25 & 0.02 & 0.10 & 0.00473 & 189 & 0.19 & 0.02 & 0.08 & 0.01065 \\ 
+  34 & 209 & 0.02 & 0.00 & 0.09 & 0.42670 & 214 & 0.04 & 0.00 & 0.08 & 0.31938 \\ 
+  43 & 137 & 0.12 & 0.01 & 0.11 & 0.12573 & 144 & 0.11 & 0.01 & 0.09 & 0.10033 \\ 
+  44 & 100 & -0.01 & -0.00 & 0.12 & 0.52754 & 103 & -0.03 & -0.00 & 0.10 & 0.62441 \\ 
+  45 & 118 & 0.02 & 0.00 & 0.11 & 0.43314 & 122 & 0.12 & 0.01 & 0.09 & 0.09530 \\ 
+  46 & 47 & 0.14 & 0.01 & 0.16 & 0.18425 & 49 & 0.02 & 0.00 & 0.13 & 0.42924 \\ 
+  47 & 23 & -0.04 & -0.00 & 0.25 & 0.56587 & 26 & -0.15 & -0.01 & 0.22 & 0.75716 \\ 
+  48 & 22 & 0.07 & 0.00 & 0.26 & 0.39749 & 23 & -0.10 & -0.00 & 0.24 & 0.65749 \\ 
+  51 & 110 & 0.04 & 0.00 & 0.12 & 0.35718 & 111 & 0.04 & 0.00 & 0.09 & 0.34068 \\ 
+  53 & 386 & 0.05 & 0.01 & 0.06 & 0.18562 & 397 & 0.11 & 0.02 & 0.05 & 0.01655 \\ 
+  55 & 42 & 0.27 & 0.01 & 0.18 & 0.06464 & 43 & 0.32 & 0.02 & 0.15 & 0.01828 \\ 
+  58 & 36 & 0.04 & 0.00 & 0.21 & 0.42733 & 37 & -0.21 & -0.01 & 0.18 & 0.87947 \\ 
+  62 & 34 & -0.13 & -0.01 & 0.20 & 0.74314 & 34 & -0.14 & -0.01 & 0.17 & 0.79092 \\ 
+   \bottomrule
+\end{tabular}
+
+\caption{MAGMA GSA Intelligence and Education larger groups Savage and EA3 BETA is the regression coefficient of the gene set. SE is the standard error of the regression coefficient. BETA SD the the semi-standardized regression coefficient, corresponding to the predicted
+change in Z-value given a change of one standard deviation in the predictor gene set / gene covariate } 
+\label{tab:MAGMA GSA Intelligence and Education Larger}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{cllllllllll}
+  \toprule
+   &  \multicolumn{5}{c}{\textit{Intelligence Savage}} & \multicolumn{5}{c}{\textit{Education EA3}} \\
+   
+    \cmidrule{2-11}
+    Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$ & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+    \midrule
+remaining & 61 & 0.62 & 0.04 & 0.17 & 0.00014 & 65 & 0.42 & 0.02 & 0.14 & 0.00125 \\ 
+  glutamate & 16 & 0.34 & 0.01 & 0.35 & 0.16798 & 17 & 1.19 & 0.04 & 0.30 & 0.00004 \\ 
+  gprotein & 38 & -0.06 & -0.00 & 0.21 & 0.60453 & 38 & 0.29 & 0.01 & 0.19 & 0.06316 \\ 
+  group5 & 106 & 0.36 & 0.03 & 0.13 & 0.00267 & 111 & 0.43 & 0.03 & 0.11 & 0.00004 \\ 
+  gprotein\_glutamate & 45 & 0.02 & 0.00 & 0.20 & 0.46941 & 46 & 0.44 & 0.02 & 0.17 & 0.00543 \\ 
+   \bottomrule
+\end{tabular}
+\caption{MAGMA GSA Intelligence(Savage) and Education (EA3) subgroup  BETA is the regression coefficient of the gene set. SE is the standard error of the regression coefficient. BETA SD the the semi-standardized regression coefficient, corresponding to the predicted
+change in Z-value given a change of one standard deviation in the predictor gene set / gene covariate } 
+\tiny\url{source('~/RProjects/chapter_community_detection/R/magma_gsa/rawread/largersample_sub_group_gsa_new_raw_table.R')}
+\label{tab:MAGMA GSA larger samples subgroup}
+\end{table}
+
+
+
+
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Sat Mar 28 15:52:19 2020
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{rlrrrrr}
+  \toprule
+ Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+  \midrule
+ 1  & 196 & 0.11 & 0.01 & 0.0897 & 0.1185 \\ 
+  2  & 334 & 0.06 & 0.01 & 0.0660 & 0.2021 \\ 
+  3  & 510 & 0.08 & 0.01 & 0.0521 & 0.0740 \\ 
+ 4  & 245 & 0.10 & 0.01 & 0.0792 & 0.0943 \\ 
+  5  & 111 & 0.09 & 0.01 & 0.1110 & 0.2132 \\ 
+ 6  & 159 & 0.01 & 0.00 & 0.0958 & 0.4421 \\ 
+7  & 144 & 0.32 & 0.03 & 0.1080 & 0.0017 \\ 
+  8  & 519 & 0.19 & 0.03 & 0.0558 & 0.0003 \\ 
+  9  & 425 & 0.04 & 0.01 & 0.0640 & 0.2426 \\ 
+   10  & 57 & 0.03 & 0.00 & 0.1570 & 0.4303 \\ 
+  11  & 331 & 0.08 & 0.01 & 0.0679 & 0.1087 \\ 
+   12  & 21 & -0.11 & -0.00 & 0.2620 & 0.6587 \\ 
+  13  & 80 & -0.12 & -0.01 & 0.1330 & 0.8143 \\ 
+  14  & 166 & 0.09 & 0.01 & 0.0989 & 0.1692 \\ 
+   \bottomrule
+\end{tabular}
+\caption{Louvain community detection PSP EA3 Education sample}
+\label{tab:Louvain clustering EA3 Education cohorts}
+\end{table}
+
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Sat Mar 28 15:51:04 2020 Sav2
+\begin{table}[ht]
+\centering
+\setlength{\extrarowheight}{2pt}
+\begin{tabular}{rlrrrrr}
+  \toprule
+ Community & $n$ & $\beta$ & $\beta$ STD & SE & $p$\\ 
+  \midrule
+ 2  & 345 & 0.11 & 0.02 & 0.0550 & 0.0208 \\ 
+   3  & 527 & 0.11 & 0.02 & 0.0431 & 0.0055 \\ 
+  7  & 153 & 0.32 & 0.03 & 0.0899 & 0.0002 \\ 
+  8  & 537 & 0.14 & 0.02 & 0.0475 & 0.0018 \\ 
+   \bottomrule
+\end{tabular}
+\caption{Louvain clustering PSP Savage Intelligence phase2 cohorts}
+\label{tab:Louvain clustering Savage intelligence phase 2 cohorts}
+\end{table}
+
+
+
+
+
