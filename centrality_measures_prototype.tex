@@ -122,26 +122,30 @@ There are also specific models to generate random power-law distribution network
 \label{sec:centrality measures}
 Centrality measures identify important, central nodes  using  network topology\cite{newman2018networks}\footnote{(p159)}. Node centrality also determines how information flows through a network \cite{borgatti2005centrality}. Several measures of importance have been described and can be used to rank, group or identify key nodes. All measures are derived from the adjacency matrix. 
 
-\begin{figure}
-  \begin{subfigure}{7cm}
-    \centering\includegraphics[width=7cm]{images/chapter3/dolphin/degree.png}
-    \caption{Degree}
-    \end{subfigure}
-  \begin{subfigure}{7cm}
-    \centering\includegraphics[width=7cm]{images/chapter3/dolphin/betweenness.png}
-    \caption{Betweenness}
-  \end{subfigure}
-  \begin{subfigure}{7cm}
-    \centering\includegraphics[width=7cm]{images/chapter3/dolphin/closeness.png}
-    \caption{Closeness}
-  \end{subfigure}
-  \begin{subfigure}{7cm}
-    \centering\includegraphics[width=7cm]{images/chapter3/dolphin/eig.png}
-    \caption{Eigenvector}
-  \end{subfigure}
-  \caption[\textbf{Illustration of centrality measures} in a dolphin social network.]{\small Illustration of centrality measures. Betweenness centrality, eigenvector centrality and local transitivity for a social network of bottle nose dolphin social relations data. Node size is proportional to centrality measure and node colour varies from pale yellow (low) to red (high centrality). Dolphin names are shown in the text and the font size is also proportional to centrality measure. Note that the betweenness shows two prominent nodes SN100 and Beescratch through whom many shortest paths flow although they have modest degree centrality and eigenvector centrality. Hook, is a neighbour of a number of high degree nodes but has a modest degree centrality shown in a). The importance of Hook's connections is shown in the high eigenvector centrality in panel (d). Data from Prof Newman's website\footnote{\url{http://www-personal.umich.edu/~mejn/netdata/dolphins.zip}} based on Lusseau et al. (2003) \cite{lusseau2003bottlenose}.Visualisation in Gephi with Force Atlas layout. }
-  \label{fig:dolphin_multipanel}
-\end{figure}
+% \begin{figure}
+%   \begin{subfigure}{7cm}
+%     \centering\includegraphics[width=7cm]{images/chapter3/dolphin/degree.png}
+%     \caption{Degree}
+%     \end{subfigure}
+%   \begin{subfigure}{7cm}
+%     \centering\includegraphics[width=7cm]{images/chapter3/dolphin/betweenness.png}
+%     \caption{Betweenness}
+%   \end{subfigure}
+%   \begin{subfigure}{7cm}
+%     \centering\includegraphics[width=7cm]{images/chapter3/dolphin/closeness.png}
+%     \caption{Closeness}
+%   \end{subfigure}
+%   \begin{subfigure}{7cm}
+%     \centering\includegraphics[width=7cm]{images/chapter3/dolphin/eig.png}
+%     \caption{Eigenvector}
+%   \end{subfigure}
+%   \caption[\textbf{Illustration of centrality measures} in a dolphin social network.]{\small Illustration of centrality measures. Betweenness centrality, eigenvector centrality and local transitivity for a social network of bottle nose dolphin social relations data. Node size is proportional to centrality measure and node colour varies from pale yellow (low) to red (high centrality). Dolphin names are shown in the text and the font size is also proportional to centrality measure. Note that the betweenness shows two prominent nodes SN100 and Beescratch through whom many shortest paths flow although they have modest degree centrality and eigenvector centrality. Hook, is a neighbour of a number of high degree nodes but has a modest degree centrality shown in a). The importance of Hook's connections is shown in the high eigenvector centrality in panel (d). Data from Prof Newman's website\footnote{\url{http://www-personal.umich.edu/~mejn/netdata/dolphins.zip}} based on Lusseau et al. (2003) \cite{lusseau2003bottlenose}.Visualisation in Gephi with Force Atlas layout. }
+%   \label{fig:dolphin_multipanel}
+% \end{figure}
+
+
+
+
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{images/chapter3/centality_plos/journalpone0220061g001.PNG}
@@ -151,7 +155,8 @@ Centrality measures identify important, central nodes  using  network topology\c
 
 Degree centrality is the simplest and is the number of edges that connect to a node. Other vertex measures include eigenvector centrality, a measure of the importance of the node that includes the importance of its neighbours\cite{bonacich1987power}.  Some nodes are bottlenecks in the network. If a large number of the shortest (geodesic) paths pass through a node, it is a potential bottleneck, and its removal can disrupt the integrity of the network. The measure of a nodes propensity to be a bottleneck is the betweenness centrality\cite{freeman1977set}. Closeness centrality measures how close a vertex is on average to all other nodes in the network. Though not a classic centrality measure, transitivity can be seen as a local form of betweenness centrality \cite{newman2018networks} and is therefore included here along with kcoreness. 
 
- Centrality measures are frequently correlated with each other \cite{valente2008correlated}, although their correlation varies\cite{oldham2019consistency}. Figure~\ref{fig:dolphin_multipanel} shows vertex degree, betweenness centrality, closeness and eigenvector centrality in a real world network, a social network of bottle nose dolphins \footnote{\url{http://www-personal.umich.edu/~mejn/netdata/dolphins.zip}} \cite{lusseau2003bottlenose}. High values of these measures are shown in red. 
+ Centrality measures are frequently correlated with each other \cite{valente2008correlated}, although their correlation varies\cite{oldham2019consistency}. 
+%  Figure~\ref{fig:dolphin_multipanel} shows vertex degree, betweenness centrality, closeness and eigenvector centrality in a real world network, a social network of bottle nose dolphins \footnote{\url{http://www-personal.umich.edu/~mejn/netdata/dolphins.zip}} \cite{lusseau2003bottlenose}. High values of these measures are shown in red. 
 
 Figure~\ref{fig:centrality measures from Plos} shows the fact that centrality measures can be concordant (for example, high degree and closeness in panel a) or discordant (red node has high centrality and betweenness in panel b but low degree). 
 
@@ -299,7 +304,7 @@ Nodes with high betweenness centrality connect different areas on the network (i
 
 \subsection{Random walk betweenness}
 \label{sec: random walk betweenness}
-The betweenness centrality described above assumes that information takes the shortest path through the network although this may not always be true. Random walk betweenness is a betweenness metric dependent on the property of random walks in the network. The results are often similar and where they differ it is not clear how this is significant\cite{newman2018networks}. For this reason I have not included random walk betweenness. 
+The betweenness centrality described above assumes that information takes the shortest path through the network although this may not always be true. Random walk betweenness is a betweenness metric dependent on the property of random walks in the network. The results are often similar and where they differ it is not clear if this is significant\cite{newman2018networks}. For this reason I have not included random walk betweenness. 
 
 \subsection{Closeness centrality}
 \label{sec:closenesscentrality}
@@ -573,13 +578,13 @@ Social networks tend to be assortative with a core structure of highly connected
 
 
 %%%%%%%%%%%%%%%%%%%%   CENTRALIY IN BIOLOGY AND MEDICINE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Centrality and essentialness Introduction}
+\section{Centrality and essentialness}
 \label{sec:Degree and essentialness}
 Hub proteins/genes tend to be essential to life. This was the finding of an analysis of the in the proteome of \textit{Saccharomyces ceresvisiae} proteome) \cite{jeong2001lethality}  shortly after the discovery that scale free networks are vulnerable to disruption by the removal of hubs\cite{albert2000error}.
-  The  \textit{Saccharomyces ceresvisiae} PPI network's (1870 nodes, 2240 edges) degree distribution followed a power-law distribution in its tail with 78\% of its proteins in the largest connected component\cite{jeong2001lethality}.  Elimination of the most connected nodes led to an increase in network diameter while random elimination did not, and mutations in high degree proteins were more likely to be lethal. Only 21\% of the genes encoding proteins with degree less than five (93\% of the proteome) had lethal effects from mutation, whereas although only 0.7\% of yeasts had more than fifteen links,  62\% of these had lethal phenotypes. The authors \cite{jeong2001lethality} concluded that the combination of centrality and lethality was due to the ``topological position of its protein product in the complex hierarchical web of molecular interactions''. The \textit{centrality-lethality} hypothesis holds that high degree hubs are more likely to be essential for life\cite{zotenko2008hubs}. 
+  The  \textit{Saccharomyces ceresvisiae} PPI network's (1,870 nodes, 2,240 edges) degree distribution followed a power-law distribution in its tail with 78\% of its proteins in the largest connected component\cite{jeong2001lethality}.  Elimination of the most connected nodes led to an increase in network diameter while random elimination did not, and mutations in high degree proteins were more likely to be lethal. Only 21\% of the genes encoding proteins with degree less than five (93\% of the proteome) had lethal effects from mutation, whereas although only 0.7\% of yeasts had more than fifteen links,  62\% of these had lethal phenotypes. The authors \cite{jeong2001lethality} concluded that the combination of centrality and lethality was due to the ``topological position of its protein product in the complex hierarchical web of molecular interactions''. The \textit{centrality-lethality} hypothesis holds that high degree hubs are more likely to be essential for life\cite{zotenko2008hubs}. 
 
 He and Zhang (2006)\cite{he2006hubs} proposed an alternative mechanism: high degree node were more likely to be essential as they participated in more protein interactions, a proportion of which were essential and so had a higher probability of containing one of these essential links (rather than being integral to the network structure). Zotenko et al. \cite{zotenko2008hubs} rejected these hypotheses noting that Gene Ontology terms suggested that hub proteins were more likely to take part in essential gene processes and that these clustered in modules they called ECOBIMs ( Essential Complex Biological Modules - induced subgraphs around seed nodes representing gene ontology terms).  
-Later proteomic work further complicated this picture: more complete networks constructed using high quality yeast interactomes did not show evidence of the centrality lethality effect\cite{milenkovic2011dominating} \cite{yu2008high} \cite{ratmann2009evidence}. 
+Later proteomic work further complicated this picture: more complete networks constructed using high quality yeast interactomes did not show evidence of the centrality lethality effect\cite{milenkovic2011dominating},\cite{yu2008high}, \cite{ratmann2009evidence}. 
 
 Estrada\cite{estrada2006virtual} used additional centrality measures to assess essentialness in the yeast protein interaction network (degree centrality, eigenvector centrality, information centrality, closeness centrality, betweenness centrality and subgraph centrality).  High centrality measures predicted essentialness better than random selection, and eigenvector centrality gave the best results and closeness and betweenness centrality the poorest.
 
@@ -616,7 +621,7 @@ Ghasemi et al. (2014) review centrality measures in biological networks and illu
 
 
 
-Yu et al.\cite{yu2007importance} found that `bottlenecks', nodes with high betweenness centrality, were more likely to be essential, particularly in directed and regulatory networks\footnote{good picture of betweenness in PLoS computational biology}. They found that betweenness correlated with degree (Pearson correlation coefficient = 0.49). Non-hub bottlenecks,  were also associated with essentiality, but degree was a better predictor of essentiality. Bottleneck nodes had lower than average coexpression supporting the hypothesis that they connect different modules.
+Yu et al.\cite{yu2007importance} found that `bottlenecks', nodes with high betweenness centrality, were more likely to be essential, particularly in directed and regulatory networks. They found that betweenness correlated with degree (Pearson correlation coefficient = 0.49). Non-hub bottlenecks,  were also associated with essentiality, but degree was a better predictor of essentiality. Bottleneck nodes had lower than average co-expression supporting the hypothesis that they connect different modules.
 
 Ozgur et al.\cite{ozgur2008identifying} developed a curated gene interaction network and used centrality measures to attempt to predict the genes associated with prostatic cancer using the prostate gene database (PGDB). They measured degree, eigenvector, betweenness and closeness centrality and found that high scores on the first three measures predicted increased rank in the PDGB.
 
@@ -658,7 +663,7 @@ The evidence of the effect of protein and gene centrality and biological functio
  
     \subsection{Calculation of centrality measures}
 
-To test the hypothesis that genes encoding central proteins in the  PSP network were more likely to be associated with genetic variants associated with differences in intelligence or educational attainment I have calculated the following centrality measures for each gene in the PSP: degree, eigenvector, closeness, transitivity, kcoreness and betweenness, and tested their correlation with each other and with each gene's significance scores (GWGAS p values in MAGMA) in the discovery and replication educational attainment and intelligence samples (section~\ref{sec:cohorts from paper section}). 
+To test the hypothesis that genes encoding central proteins in the  PSP network were more likely to be associated with genetic variants associated with differences in intelligence or educational attainment I have calculated the following centrality measures for each gene in the PSP: degree, eigenvector, closeness, transitivity, kcoreness and betweenness, and tested their correlation with each other and with each gene's significance scores (GWGAS $p$ values in MAGMA) in the discovery and replication educational attainment and intelligence samples (section~\ref{sec:cohorts from paper section}). 
 
 
 \subsection{Calculating centralities}
@@ -1489,6 +1494,24 @@ Whether the higher correlation of closeness and other centrality measures may be
     \label{tab:Correlation of centrality valente et al}
 \end{table}
 
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{lllll}
+    \toprule
+          & Degree & Eigenvector centrality & Closeness & Betweenness \\
+         \midrule
+    Degree  & 1  & 0.92 (0.88)  & 0.66 (0.851)*  & 0.85 (0.902)*\\
+    Eigenvector centrality & 0.92 (0.88)  & 1 & 0.63 (0.969)* & 0.72 (0.762)  \\
+    Closeness & 0.66 (0.851)  & 0.63 (0.969) & 1 & 0.44 (0.782)* \\
+    Betweenness& 0.8 (0.902) & 0.72 (0.762) & 0.44 (0.782) & 1 \\
+    \bottomrule
+    \end{tabular}
+    \caption[Correlation of sociometric centrality measures compared with correlation of measures in PSP]{Correlation of centrality measures for 58 sociometric network datasets from Valente et al.\cite{valente2008correlated}. Pearson correlation coefficient. Values are for symmetrised closeness and betweenness centrality. Eigenvector centrality is necessarily symmetrised. Range of average network size 45-83. Some studies had maximal nominations for degree (i.e there was an artificial upper bound using a survey). Copied from notes.tex. Comparison added with PSP * shows where PSP notably higher correlation.}
+    \label{tab:Correlation of centrality valente et al compared with PSP}
+\end{table}
+
 \subsubsection{Principal component analysis of centrality measures}
 
 Principal component analysis was carried out to create a low dimensional representation of the relationship between centrality measures and in constructing a linear model of their effect upon intelligence and educational attainment gene scores. 
@@ -1557,7 +1580,7 @@ The degree distribution of the PSP is right-skewed. The mean degree is greater t
 \end{figure}
 
 
-Using the method described by Clauset, Shalizi and Newman(section~\ref{sec: Methods degree distribution}) the minimum degree value ($x_{min}$) for which the power law distribution holds is $x_{min}$ is 24 and the power law coefficient $\gamma$ is 2.51 (table~\ref{tab:Fit of distributions for PSP})\footnote{, GOF 0.19 and  $n$tail (the number of nodes in the tail of the power law distribution i.e. greater than or equal to $x_{min}$) is 68 so there are a number of low degree  nodes outside the power law portion of the degree distribution\footnote{\url{source('~/RProjects/group_size_distribution/R/calulate_cdf.R')}}}. A bivariate plot of $x_{min}$ and $\gamma$ figure~\ref{fig:Plots of degree distribution}) shows that the power law exponent increases as the value of $x_{min}$ increases.
+Using the method described by Clauset, Shalizi and Newman (section~\ref{sec: Methods degree distribution}) the minimum degree value ($x_{min}$) for which the power law distribution holds is $x_{min}$ is 24 and the power law coefficient $\gamma$ is 2.51 (table~\ref{tab:Fit of distributions for PSP})\footnote{, GOF 0.19 and  $n$tail (the number of nodes in the tail of the power law distribution i.e. greater than or equal to $x_{min}$) is 68 so there are a number of low degree  nodes outside the power law portion of the degree distribution\footnote{\url{source('~/RProjects/group_size_distribution/R/calulate_cdf.R')}}}. A bivariate plot of $x_{min}$ and $\gamma$ figure~\ref{fig:Plots of degree distribution}) shows that the power law exponent increases as the value of $x_{min}$ increases.
 
 The plot of log-degree against the log of the cumulative distribution function (CDF) of the degree distribution is shown in figure \ref{fig:log_degree_distribution} and  \ref{fig:poweRlaw plot ggplot2}. The graph forms a straight line for most of the distribution with degree greater than $x_{min}$
 %\todo{?change plot or add vline for xmin}
@@ -2085,7 +2108,7 @@ The predicted value for the PSP is is 57.39 ($0.023n^{0.96}$=57.39), $\Delta$ ie
 \subsubsection{Degree Assortativity}
 
 
- The PSP network is disassortative (methods section~\ref{sec:Assortativity methods}) with regard to degree ($\rho_D$=-0.18)\footnote{using the notation in Noldus\cite{noldus2015assortativity}},. 
+ The PSP network is disassortative (section~\ref{sec:Assortativity methods}) with regard to degree ($\rho_D$=-0.18)\footnote{using the notation in Noldus\cite{noldus2015assortativity}},. 
  This value  %\todo{three sf}
  is similar to those reported in biological networks including yeast protein-protein interaction networks (-0.156) and neural networks (-0.163) \cite{newman2002assortative}  and summarised in table~\ref{Table:DegreeAssortativityNewman}. Amongst non biological networks it is most similar in magnitude to that of the internet in 2002\cite{newman2002assortative} ($r=$-0.189). 
 
@@ -2121,7 +2144,7 @@ The Callaway model of network generation ('grown graph' - newman) shows the posi
  
 %\todo{Include \url{R_plot_degree_correlation.png} commented out}
 
-Clustering and interconnection of communities tends to lead to higher assortativity by degree and branching negative\cite{estrada2011combinatorial}\cite{noldus2015assortativity}. Higher assortativity in social networks leads to higher modularity and clustering coefficient\cite{noldus2015assortativity}. Community formation is more remarkable therefore in overall disassortative networks. 
+Clustering and interconnection of communities tends to lead to higher assortativity by degree and branching negative\cite{estrada2011combinatorial},\cite{noldus2015assortativity}. Higher assortativity in social networks leads to higher modularity and clustering coefficient\cite{noldus2015assortativity}. Community formation is more remarkable therefore in overall disassortative networks. 
 
 % This is possibly the bit where Keith's bit would be good to put in.  
  %\begin{figure}]h]
@@ -2195,7 +2218,7 @@ kcoreness & 0.089 \\
 % latex table generated in R 3.6.3 by xtable 1.8-4 package
 % Sun Mar 14 14:30:44 2021
 
-The results are shown in table~\ref{tab:Assortativity of PSP graph and z scores1} (and supplemental table~\ref{tab:Assortativity of PSP graph and z scores}) missing values have been assigned value 0 (Assortativity\textsubscript{0}) or the median z score (Assortativity\textsubscript{median}) as the nominal assortativity function in igraph requires values for all vertices. Assortativity scores tend to me modest (as score of approximately 0.15 is often found for degree assortativity).  These results are close to zero and do not differ from what could be expected by chance 
+The results are shown in table~\ref{tab:Assortativity of PSP graph and z scores1}, missing values have been assigned value 0 (Assortativity\textsubscript{0}) or the median z score (Assortativity\textsubscript{median}) as the nominal assortativity function in igraph requires values for all vertices. Assortativity scores tend to me modest (as score of approximately 0.15 is often found for degree assortativity).  These results are close to zero and do not differ from what could be expected by chance 
 
 This suggests that nodes with high or low z scores in the population cohorts are no more likely to have links to one another \textit{globally} across the network. It does not exclude areas within the graph of high assortativity nor distinct areas that containing high scoring genes connected by link nodes.
 
@@ -2256,7 +2279,10 @@ MP0001463 & abnormal spatial learning & 272 & 0.045 & 0.022 & -0.001 & $<0.0001$
 
     The ten genes sets of mammalian phenotypes associated with LTP or learning (section~\ref{sec:methods murine LTP and centrality}) show modest but significant assortative behaviour compared to a null model in contrast to the assortativity for population gene scores in the educational attainment and intelligence studies (table~\ref{tab:Assortativity of PSP graph and z scores1}). As nominal categories the modularity ($Q$) is reported in table~\ref{tab:Nominal assortativity for mammalian phenotypes. p is one tailed estimate Monte Carlo estimate of assortativity of same number of random vertices. p is proportion of random $q>=Q$. Samples:10000}. A Monte Carlo estimate of the modularity of 10,000 random samples of vertices of the same size as the gene set is used to calculate a one tailed p value. For 10,000 iterations none of the Monte Carlo values of $Q$ were greater than those in the mouse phenotypes. This suggests that the genes implicated in mammalian models of learning and LTP tend to link to one another more than would be expected by chance while the significant genes in the intelligence and educational attainment GWAS do not connect more than would be expected by chance. 
  
- Assortativity with essential genes is reported in section~\ref{sec:Assortativity and essential genes}.
+ Essential genes are assortative. Nominal assortativity is greater for genes having five or more appearances in the DEG ($Q=$0.118) than when testing using any appearance in the DEG ($Q=$0.0445)\footnote{\url{RProjects/chapter3/R/assortativity_distribution/DEG_assortatiivity/assortativity_DEG.R}}.
+ 
+ Assortativity (scalar) using pLI is $r=0.081$\footnote{\url{RProjects/chapter3/R/assortativity_distribution/DEG_assortatiivity/assortativity_DEG}}. The assortativity is more remarkable considering that high degree nodes are associated with high pLI (table~\ref{tab:correlation pli vertex statistics mar}) but are disassortative by degree (table~\ref{tab:assortativity by centrality}).
+
  
  
  \clearpage
@@ -2266,7 +2292,7 @@ MP0001463 & abnormal spatial learning & 272 & 0.045 & 0.022 & -0.001 & $<0.0001$
 \label{sec:Centrality and murine LTP}
 The mean centrality measures for gene sets associated with murine models of learning were compared to the PSP (Wilcoxon rank test) with correction for multiple comparisons. 
 
-No statistically significant difference from the full PSP was seen for degree (figure~\ref{fig:murine_ltp_centrality_boxplot_degree1}). Betweenness centrality was  increased in these gene sets (figure~\ref{fig:murine_ltp_centrality_boxplot_betweenness}) and was significantly elevated, after correction for multiple comparisons, in gene sets representing abnormal spatial learning (p=0.002, p adjusted BH 0.02) and  abnormal cognition (p=0.003, p adjusted BH 0.026)\ref{tab:betweenness murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using B.H}. Closeness centrality was generally reduced  (figure~\ref{fig:murine_ltp_centrality_boxplot_closeness}, table~\ref{tab:closeness murine phenotypes. Wilcoxon test compared with full PSP.}) but abnormal long term depression was the only significant phenotype after correction for multiple comparisons ($p=0.002$, $p_{BH}$=0.018). Eigenvector centrality was also reduced (figure~\ref{fig:murine_ltp_centrality_boxplot_eigenvector}), the difference between mean eigenvector centrality for the gene set abnormal synaptic plasticity ($p=0.002$;$p BH$=0.021) and abnormal long term depression ($p=0.002$; $p BH$=0.021) were significant after correction for multiple comparisons. There was no significant difference for kcoreness or transitivity.
+No statistically significant difference from the full PSP was seen for degree (figure~\ref{fig:murine_ltp_centrality_boxplot_degree1}). Betweenness centrality was  increased in these gene sets (figure~\ref{fig:murine_ltp_centrality_boxplot_betweenness}) and was significantly elevated (table~\ref{tab:betweenness murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using B.H}), after correction for multiple comparisons, in gene sets representing abnormal spatial learning (p=0.002, p adjusted BH 0.02) and  abnormal cognition (p=0.003, p adjusted BH 0.026) . Closeness centrality was generally reduced  (figure~\ref{fig:murine_ltp_centrality_boxplot_closeness}, table~\ref{tab:closeness murine phenotypes. Wilcoxon test compared with full PSP.}) but abnormal long term depression was the only significant phenotype after correction for multiple comparisons ($p=0.002$, $p_{BH}$=0.018). Eigenvector centrality was also reduced (figure~\ref{fig:murine_ltp_centrality_boxplot_eigenvector}), the difference between mean eigenvector centrality for the gene set abnormal synaptic plasticity ($p=0.002$;$p BH$=0.021) and abnormal long term depression ($p=0.002$; $p BH$=0.021) were significant after correction for multiple comparisons. There was no significant difference for kcoreness or transitivity.
 
 The overall picture is of a reduction in closeness centrality and eigenvector centrality with an increase in betweenness centrality. This would be consistent with vertices which tend to be bottlenecks despite being towards the periphery of the network. 
 
@@ -2305,7 +2331,7 @@ The overall picture is of a reduction in closeness centrality and eigenvector ce
 \centering
 \begin{tabular}{rlrrll}
   \toprule
- & phenotype & p & p.adj & p.signif & method \\ 
+ & phenotype & $p$ & $p$ adj & $p$ signif & method \\ 
   \midrule
 1 & abnormal spatial learning & 0.002 & 0.020 & ** & Wilcoxon \\ 
   2 & abnormal temporal memory & 0.042 & 0.340 & * & Wilcoxon \\ 
@@ -2319,7 +2345,7 @@ The overall picture is of a reduction in closeness centrality and eigenvector ce
   10 & abnormal cognition & 0.003 & 0.026 & ** & Wilcoxon \\ 
    \bottomrule
 \end{tabular}
-\caption{betweenness murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using B.H} 
+\caption{Mean betweenness centrality in gene sets with murine cognitive phenotypes. Comparison of mean betweenness Wilcoxon test compared with full PSP. P adjusted using Benjamini-Hochberg procedure} 
 \label{tab:betweenness murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using B.H}
 \end{table}
 
@@ -2352,7 +2378,7 @@ The overall picture is of a reduction in closeness centrality and eigenvector ce
   10 & abnormal cognition & 0.565 & 1.000 & ns & Wilcoxon \\ 
    \bottomrule
 \end{tabular}
-\caption{Closeness murine phenotypes. Wilcoxon test of mean compared with all PSP genes. P adjusted using B.H} 
+\caption{Closeness murine phenotypes. Wilcoxon test of mean compared with all PSP genes. P adjusted using Benjamini-Hochberg procedure} 
 \label{tab:closeness murine phenotypes. Wilcoxon test compared with full PSP.}
 \end{table}
 
@@ -2399,7 +2425,7 @@ The overall picture is of a reduction in closeness centrality and eigenvector ce
   10 & abnormal cognition & 0.338 & 1.000 & ns & Wilcoxon \\ 
    \bottomrule
 \end{tabular}
-\caption{eigencentrality murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using B.H} 
+\caption{Mean eigenvector centrality for murine phenotypes. Wilcoxon test compared with full PSP. P adjusted using Benjamini-Hochberg Procedure} 
 \label{tab:eigencentrality murine phenotypes. Wilcoxon test compared with full PSP}
 \end{table}
 
@@ -2410,7 +2436,10 @@ The overall picture is of a reduction in closeness centrality and eigenvector ce
 
 \section{Characterisation of central genes}
 
-To investigate whether central genes share common properties I carried out gene ontology enrichment of the top and bottom 10\% of genes for each centrality measures. The most central genes shared a number of common features regardless of the centrality measure. The ten most enriched terms for high degree nodes in terms of degree are shown for biological process table~\ref{tab:ToppGENE GO: Biological Process. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 1584} , cellular component table~\ref{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159} and molecular function (table~\ref{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159}). 
+To investigate whether central genes share common properties I carried out gene ontology enrichment of the top and bottom 10\% of genes for each centrality measures. Gene ontology enrichment was carried out using the 3,457 genes in the PSP as background so the results show enrichment \textit{compared to the rest of the PSP}. 
+
+
+The most central genes shared a number of common features regardless of the centrality measure. The ten most enriched terms for high degree nodes in terms of degree are shown for biological process table~\ref{tab:ToppGENE GO: Biological Process. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 1584} , cellular component table~\ref{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159} and molecular function (table~\ref{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159}). 
 
 Enriched biological processes, table~\ref{tab:ToppGENE GO: Biological Process. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 1584}, include terms related to the cell cycle associated with low FDR $q$ values. Molecular function terms include RNA binding and those related to transcription (table~\ref{tab:ToppGENE GO: Molecular Function. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 186}). Cellular component terms, table~\ref{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159}, shows enrichment for focal adhesion, cell junction terms, ribonucleoprotein and cytoskeletal fibre. 
 
@@ -2498,12 +2527,13 @@ GO:1990904 & ribonucleoprotein complex & 81 & 303 & $2.75 \times 10^{-18}$ & $2.
 \label{tab:ToppGENE GO: Cellular Component. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 159}
 \end{table}
 
-The ontology terms are similar across all centrality measures with some differences. Eigenvector centrality results in particularly strong enrichment for RNA binding as does kcoreness. Transitivity shows far less enrichment than the other centrality terms possible reflecting its weaker correlation. It is interesting to note however that it seems quite specific with a large \textit{proportion} of the genes involved in mitochondrial translation and ribosomal function identified. 
+
+ Eigenvector centrality (table~\ref{tab:ToppGENE GO: Biological Process. 90 centile cw psp eig.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP} results in particularly strong enrichment for RNA binding (Molecular Function GO:0003723, $q$ FDR B H 7.01$\times10^{-76}$) as does kcoreness (table~\ref{tab:ToppGENE GO: Molecular Function. kco 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 180} $q$ FDR=2.68$\times10^{-55}$). Transitivity shows far less enrichment than the other centrality terms possible reflecting its weaker correlation. It is interesting to note however that it seems quite specific with a large \textit{proportion} of the genes involved in mitochondrial translation and ribosomal function identified (Molecular function table~\ref{tab:ToppGENE GO: Molecular Function. tra 90 centile NA narm cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 2}; 29 of 103 genes in PSP identified, fold change 9.4). 
 
 
 Gene ontology enrichment was carried out using the ToppGene package and the PSP as a background set. These are therefore sets of genes that differ from the background enrichment of the PSP. Given that fact it is remarkable how many terms are enriched even after correcting for multiple comparisons (186 for example in the top 10\% of degree for molecular function table~\ref{tab:ToppGENE GO: Molecular Function. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 186}) and 1,548 in Biological Process table~\ref{tab:ToppGENE GO: Biological Process. 90 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 1584}.
 
-By contrast fewer terms are enriched in low centrality gene sets. For degree only two terms in cellular component were enriched (table~\ref{tab:ToppGENE GO: Cellular Component. 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP}). In part this is due to the fact that the distribution of centrality functions such as degree, betweenness and eigenvector centrality is right skewed. Closeness which is bounded in the region 0-1 and the most approximately normally distributed provides more enrichment. These are genes one would expect on the periphery of the network and the synapse, those of the receptors themselves, intrinsic components of the plasma membrance and components of the extra cellular matrix. Kcoreness which has a relatively uniform distribution over a small range also has greater enrichment of low centrality terms(table~\ref{tab:ToppGENE Pathway. kco 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 8}).
+By contrast fewer terms are enriched in low centrality gene sets. For degree only two terms in cellular component were enriched (table~\ref{tab:ToppGENE GO: Cellular Component. 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP}). In part this is due to the fact that the distribution of centrality functions such as degree, betweenness and eigenvector centrality is right skewed. Closeness which is bounded in the region 0-1 and the most approximately normally distributed provides more enrichment (table~\ref{tab:ToppGENE GO: Cellular Component. clo 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP} and table~\ref{tab:ToppGENE GO: Molecular Function. clo 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP}). These are genes one would expect on the periphery of the network and the synapse, those of the receptors themselves, intrinsic components of the plasma membrane and components of the extra cellular matrix. Kcoreness which has a relatively uniform distribution over a small range also has greater enrichment of low centrality terms(table~\ref{tab:ToppGENE Pathway. kco 10 centile cwpsp.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP. n significant in category 8}). Low eigenvector centrality genes also have common themes related to the plasma and post synaptic membrane (table~\ref{tab:ToppGENE GO: Molecular Function. 10 centile cw psp eig.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP} and table~\ref{tab:ToppGENE GO: Cellular Component. 10 centile cw psp eig.txtp = p value; q FDR B H = q adjusted significance level False Discovery Rate using Benjamini and Hochberg adjustment; n= n genes annotated in test group; n PSP= n genes annotated in PSP})
 
 \begin{table}[ht]
 \centering

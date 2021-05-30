@@ -25,7 +25,7 @@ An undirected, unweighted interaction network graph was used to represent the in
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/nrc_arrow.png}
-        \caption[Network graph of the NRC MASC complex.]{Network graph of the NRC MASC complex. Arrows show a node or vertex which correspond to a gene encoding NRC MASC protein and an edge or link between two nodes which shows that the proteins interact. The network is that described by Pocklington et al. \cite{pocklington2006proteomes} used in the paper by McLean\cite{mclean2016improved} and the gml file is provided by the first author. Graph visualisation in Gephi\cite{bastian2009gephi} with colours corresponding to community membership. Node size is proportional to degree (the number of edges connected to a node)}
+        \caption[Network graph of the NRC MASC complex.]{Network graph of the NRC MASC complex. Arrows show a node or vertex which correspond to a gene encoding NRC MASC protein and an edge or link between two nodes which shows that the proteins interact. The network is that described by Pocklington et al. \cite{pocklington2006proteomes} used in the paper by McLean\cite{mclean2016improved} and the gml file is provided by the first author\footnote{\url{paper_xls_output/Colin_Proteomics_gml/NRCMASC.gml}}. Graph visualisation in Gephi\cite{bastian2009gephi} with colours corresponding to community membership. Node size is proportional to degree (the number of edges connected to a node)}
     \label{fig:nrcmasc}
 \end{figure}
 
@@ -77,7 +77,7 @@ This is a significant task due to well-documented problems including the use of 
  
  A bidirectional map was created between protein identifications (Uniprot accession numbers\cite{uniprot2017uniprot}), and gene identifiers (the GeneID provided by the Entrez Gene portal at the National Centre for Biotechnology Information - NCBI). NCBI Entrez Gene GeneIDs are unique integer identifiers and were used as the main identifier for all subsequent data tables and analyses \cite{maglott2005entrez}. For brevity I use Entrez GeneID synonymously with NCBI Entrez Gene GeneID. The widespread use of Entrez Gene identifiers in genomic studies and genomics software \cite{huang2011comprehensive} makes them a suitable primary identifier for network nodes.
 
-Protein-protein interactions were included if there was high quality evidence for direct physical interaction in humans. The combined interaction list was filtered to ensure all proteins had a human taxonomy ID of 9606. The details of interactions were recorded in PSI-MI TAB 2.5 format (MITAB25)\footnote{MITAB25 is part of  PSI-MI 2.5 \url{https://github.com/HUPO-PSI/miTab/blob/master/PSI-MITAB25Format.md}}\cite{isserlin2011biomolecular},\cite{heil2018systems}. Where mirrored duplicates occurred (e.g. A-B and B-A) only one was retained. The  resulting data contained 396,837 rows and 237,789 unique PPI.  The interaction list was further filtered to generate the protein interactions represented by edges in the network graph. Protein-protein interactions were excluded if there was no direct experimental evidence of interaction documented by Proteomics Standard Initiative - Molecular Interaction ontology terms in the databases. PSI-MI is a structured ontology used to describe the evidence for protein-protein interactions.\cite{isserlin2011biomolecular} PPIs based on ``genetic interactions'' (MI:0208) , ``genetic interference'' (MI:0254), ``genetic interaction'' (MI:0208)\footnote{which includes suppression (MI:0796 and synthetic MI:0794)} and ``co-localisation'' were excluded (MI:0403). Sixty six interaction MI accession codes were identified representing evidence of direct interaction including one obsolete term, `physical interaction' (MI:0218). The final filtered list contained 352,325 unique rows representing 205,461 binary interactions.
+Protein-protein interactions were included if there was high quality evidence for direct physical interaction in humans. The combined interaction list was filtered to ensure all proteins had a human taxonomy ID of 9606. The details of interactions were recorded in PSI-MI TAB 2.5 format (MITAB25)\footnote{MITAB25 is part of  PSI-MI 2.5 \url{https://github.com/HUPO-PSI/miTab/blob/master/PSI-MITAB25Format.md}}\cite{isserlin2011biomolecular},\cite{heil2018systems}. Where mirrored duplicates occurred (e.g. A-B and B-A) only one was retained. The  resulting data contained 396,837 rows and 237,789 unique PPI.  The interaction list was further filtered to generate the protein interactions represented by edges in the network graph. Protein-protein interactions were excluded if there was no direct experimental evidence of interaction documented by Proteomics Standard Initiative - Molecular Interaction ontology terms in the databases. PSI-MI is a structured ontology used to describe the evidence for protein-protein interactions.\cite{isserlin2011biomolecular} PPIs based on ``genetic interactions'' (MI:0208) , ``genetic interference'' (MI:0254), ``genetic interaction'' (MI:0208)\footnote{which includes suppression (MI:0796 and synthetic MI:0794)} and ``co-localisation'' were excluded (MI:0403). Sixty six interaction MI accession codes were identified representing evidence of direct interaction including one obsolete term, `physical interaction' (MI:0218). The final filtered list contained 352,325 unique rows representing 205,461 binary interactions\footnote{\url{/home/grant/Dropbox/2016-10-PPI-human-final_shared/2016-10-31_PPI_data_description.pdf}}.
 
 
 
@@ -263,7 +263,7 @@ All of the nodes in the parts list other than sixteen are connected. In the simp
 
 
 \paragraph{Methods}
-The network containing all nodes, including those not in the largest connected component, was generated by Dr Colin McLean (section~\ref{sec:ack}) and stored as a gml file. Components were identified using the \texttt{components} command for igraph version 1.2.5\cite{csardi2006igraph} for R and the components not part of the largest component recorded\footnote{\url{source('~/RProjects/network_graph/R/notLCC_gmt/genes_not_inLCC.R')}}. 
+The network containing all nodes, including those not in the largest connected component, was generated by Dr Colin McLean (section~\ref{sec:ack}) and stored as a gml file. Components were identified using the \texttt{components} command for igraph version 1.2.5\cite{csardi2006igraph} for R and the components not part of the largest component recorded\footnote{\url{RProjects/network_graph/R/notLCC_gmt/genes_not_inLCC.R - GIT}}. 
 
  igraph for R version 1.2.5 was used for the majority of graph processing tasks in this thesis\cite{csardi2006igraph}. R version 3.6.3\cite{ihaka1996r} is used throughout and  all statistical analyses are carried out in R unless otherwise stated. On occasion igraph for Python (v0.8; Python 3.6) was used, when methods from other Python packages were required. This is noted in the corresponding methods sections and associated scripts.
 
@@ -372,7 +372,7 @@ Despite using Entrez Gene ID integer values with the recommended string prefix "
 
 
 
-Using PANTHER, there were identifiers that were not recognised using Ensembl ID, Entrez ID and GeneID. The most robust appeared to be gene symbol. I used translation from Entrez ID to Gene Symbol including synonyms until all genes were identified. In addition to the code documenting the data transformation \footnote{code \url{ source('~/RProjects/paper_xls_output/R/chapter_2/FUMA/edit_gene_table/EA2_FUMA2clipboard.R')}}, the gene mapping compatible with PANTHER is included in the supplementary materials.
+Using PANTHER, there were identifiers that were not recognised using Ensembl ID, Entrez ID and GeneID. The most robust appeared to be gene symbol. I used translation from Entrez ID to Gene Symbol including synonyms until all genes were identified. In addition to the code documenting the data transformation \footnote{code \url{ RProjects/paper_xls_output/R/chapter_2/FUMA/edit_gene_table/EA2_FUMA2clipboard.R} GIT}, the gene mapping compatible with PANTHER is included in the supplementary materials.
 
 PANTHER displays the hierarchy of the ontology terms that can be useful. Although the FDR values are only nominally significant the very specific term related to neurogenesis: positive regulation of collateral sprouting (FDR p 0.041) is prominent in comparison to the same data ordered by FDR shown in table~\ref{tab:GO biological process complete Education Replication FDR}.
 
@@ -459,7 +459,7 @@ One hundred ninety-nine duplicated gene names were identified in 1,608 duplicate
 
 54,592 unique Gene Symbols could be associated with unique Ensembl id (97.1\%)\footnote{\url{source('~/RProjects/gtex/R/exploratory_gtex/first_load_gtex.R')}}. This is a lot more than the number of protein-encoding genes, and to exclude non-coding elements and reduce the data size and I excluded those not amongst the 18,390 genes that have gene-level results in at least one of four population samples calculated in MAGMA. 17,584 unique Entrez ID were identified from the remaining elements and used for subsequent analysis.
 
-Entries were retained if the TPM count was greater than 0.1 in approximately 80\% (79.6\%) of samples. TPM counts were then $log_2$ transformed with a pseudocount of 1 and zero centred  \cite{sniekers2017genome},\cite{taskesen20162d},\cite{mele2015human}, see \cite{zhao2017gene}\footnote{\url{source('~/RProjects/gtex/R/exploratory_gtex/df_with_toppgene_log_normalise_plots.R')}}.
+Entries were retained if the TPM count was greater than 0.1 in approximately 80\% (79.6\%) of samples. TPM counts were then $log_2$ transformed with a pseudocount of 1 and zero centred  \cite{sniekers2017genome},\cite{taskesen20162d},\cite{mele2015human}, see \cite{zhao2017gene}\footnote{\url{RProjects/gtex/R/exploratory_gtex/df_with_toppgene_log_normalise_plots.R} GIT}.
 
 
 
@@ -477,7 +477,7 @@ The QQ plot of log2 frontal cortex expression is shown for illustration in figur
     \centering
     \includegraphics[width=\textwidth]{images/chapter2/ggplot/gtex/Rplot_boxplot_expression_add_theme.png}
     \caption{Box plot of log2 transformed and mean centred gene expression of PSP genes versus non PSP genes across 12 brain regions. p $< 2 \times 10^{-16}$ all comparisons. Wilcoxon test.}
-    \tiny\url{source('~/RProjects/gtex/R/graph_gtex/multi_boxplot.R')}
+    \tiny\url{RProjects/gtex/R/graph_gtex/multi_boxplot.R GIT}
     \label{fig:gtex_boxplot}
 \end{figure}
 
